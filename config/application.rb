@@ -31,8 +31,8 @@ module Cloudify
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     config.middleware.use ActionDispatch::Cookies 
-    config.middleware.use ActonDispatch::Session::CookierStore,
-    key: '_appname_session',
+    config.middleware.use ActionDispatch::Session::CookieStore,
+    key: '_Cloudify_session',
     same_site: :lax,
     secure: Rails.env.production?
     
