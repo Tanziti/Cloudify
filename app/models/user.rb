@@ -21,14 +21,15 @@ class User < ApplicationRecord
     length: { in: 3..255 }, 
     format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :session_token, presence: true, uniqueness: true
-  validates :password, length: { in: 6..255 }, allow_nil: true
+  validates :password, length: { in: 8..100 }, allow_nil: true
 
   before_validation :ensure_session_token
   has_secure_password
 
   def self.find_by_credentials(credential, password)
     field = credential =~ URI::MailTo::EMAIL_REGEXP ? :email : :username
-    user = User.find_by(field => credential)
+    user = User.find_by(field => credential) 
+    p user
     user&.authenticate(password)
   end
 
