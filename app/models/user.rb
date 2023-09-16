@@ -11,7 +11,7 @@
 #  updated_at      :datetime         not null
 #
 class User < ApplicationRecord
-
+  has_secure_password
   validates :username, 
     uniqueness: true, 
     length: { in: 3..30 }, 
@@ -24,7 +24,7 @@ class User < ApplicationRecord
   validates :password, length: { in: 8..100 }, allow_nil: true
 
   before_validation :ensure_session_token
-  has_secure_password
+  
 
   def self.find_by_credentials(credential, password)
     field = credential =~ URI::MailTo::EMAIL_REGEXP ? :email : :username
