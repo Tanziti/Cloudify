@@ -3,6 +3,7 @@ import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import './LoginForm.css';
+import { NavLink } from "react-router-dom/cjs/react-router-dom";
 
 function LoginFormPage() {
   const dispatch = useDispatch();
@@ -58,6 +59,9 @@ function LoginFormPage() {
         </label>
         <button type="submit">Log In</button>
       </form>
+      <p>
+        <span>New to Cloudify?<NavLink to="/signup">Sign up here</NavLink></span>
+      </p>
     </>
   );
 }
