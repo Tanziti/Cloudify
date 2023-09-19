@@ -85,9 +85,9 @@ function SignupFormPage() {
   };
 
   const validateAge = (selectedMonth, day, year) => {
-    // debugger
+    debugger
     const today = new Date();
-    const birthDate = new Date(selectedMonth, day, year);
+    const birthDate = new Date(year, parseInt(selectedMonth) - 1, day);
     const age = today.getFullYear() - birthDate.getFullYear();
     const m = today.getMonth() - birthDate.getMonth();
     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
@@ -120,7 +120,7 @@ function SignupFormPage() {
           else setErrors([res.statusText]);
         });
     }
-    return setErrors(['Confirm Password field must be the same as the Password field']);
+    return setErrors(['you must be 18 or older to sign up']);
   };
   return (
     <>
@@ -137,106 +137,134 @@ function SignupFormPage() {
           <span id="divider">
             or
           </span>
-          <div className="sectionDiv">
-            <div className="formDiv">
-              <form onSubmit={handleSubmit}>
-                <h2>Sign up with your email address</h2>
-                <ul>
-                  {errors.map((error) => <li key={error}>{error}</li>)}
-                </ul>
-                <div>
 
+
+          <form onSubmit={handleSubmit}>
+            <h2>Sign up with your email address</h2>
+            <ul>
+              {errors.map((error) => <li key={error}>{error}</li>)}
+            </ul>
+            <div>
+
+            </div>
+            <div id="email">
+              <label>
+                What's your email?
+              </label>
+              <input id="form"
+                type="text"
+                placeholder="Enter your email."
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <div id="email_errors"></div>
+            </div>
+
+            <div id="password">
+              <label>
+                Create a password
+              </label>
+              <input id="form"
+                type="password"
+                placeholder="Create a password."
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <div id="password_errors"></div>
+            </div>
+
+            <div id="username">
+              <label>What should we call you?</label>
+              <input id="form"
+                type="text"
+                placeholder="Enter a profile name."
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+              <div id="username_errors"></div>
+              <div className="note">
+                <label id="note">This appears on your profile</label>
+              </div>
+            </div>
+            <div className="birthday">
+              <div id="dob">
+                <label >What's your date of birth?</label>
+              </div>
+              <div id="date">
+                <div id="month">
+                  <label>Month</label>
+                  <div id="input_month">
+                    <select id="select_month" value={selectedMonth} onChange={handleMonthChange}>
+                      <option value="" disabled>Select Month</option>
+                      {months.map((m) => (
+                        <option key={m.value} value={m.value}>
+                          {m.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
-                <div id="email">
-                  <label>
-                    What's your email?
-                  </label>
-                  <input
+                <div id="day">
+                  <label>Day</label>
+                  <input id="form"
                     type="text"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
+                    inputMode="numeric"
+                    maxLength={2}
+                    placeholder="DD"
+                    onChange={handleDayChange}
+                    value={day}
                   />
                 </div>
-                <div id="password">
-                  <label>
-                    Password
-                    <input
-                      type="password"
-                      placeholder="Create a password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      required
-                    />
-                  </label>
-                </div>
-                <div id="username">
-                  <label>What should we call you?
-                    <input
-                      type="text"
-                      placeholder="Enter a profile name"
-                      value={username}
-                      onChange={(e) => setUsername(e.target.value)}
-                      required
-                    />
-                  </label>
+                <div id="year">
+                  <label>Year</label>
+                  <input id="form"
+                    type="text"
+                    inputMode="numeric"
+                    placeholder="YYYY"
+                    onChange={handleYearChange}
+                    value={year}
+                  /></div>
+                <div id="birthday_errors"></div>
+              </div>
+              <fieldset role="radiogroup">
+                <legend >What's your gender?</legend>
+                <div>
                   <div>
-                    <label id="note">This appears on your profile</label>
+                    <input type="radio" />
+                    <label><span className="radio_buttons"></span>Male<span></span></label>
+                  </div>
+                  <div>
+                    <input type="radio" />
+                  </div>
+                  <div>
+                    <input type="radio" />
+                  </div>
+                  <div>
+                    <input type="radio" />
+                  </div>
+                  <div>
+                    <input type="radio" />
                   </div>
                 </div>
-                <div className="birthday">
-                  <div id="dob">
-                    <label >What's your date of birth?</label>
-                  </div>
-                  <div id="date">
-                    <div id="month">
-                      <label>Month</label>
-                      <div>
-                        <select value={selectedMonth} onChange={handleMonthChange}>
-                          <option value="" disabled>Select Month</option>
-                          {months.map((m) => (
-                            <option key={m.value} value={m.value}>
-                              {m.label}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-                    </div>
-                    <div id="day">
-                      <label>Day</label>
-                      <input
-                        type="text"
-                        inputMode="numeric"
-                        maxLength={2}
-                        placeholder="DD"
-                        onChange={handleDayChange}
-                        value={day}
-                      />
-                    </div>
-                    <div id="year">
-                      <label>Year</label>
-                      <input
-                        type="text"
-                        inputMode="numeric"
-                        placeholder="YYYY"
-                        onChange={handleYearChange}
-                        value={year}
-                      /></div>
-                  </div>
+              </fieldset>
 
-                </div>
-                <div id="signupbutton">
-                  <button type="submit">Sign Up</button>
-                </div>
-              </form>
-              <p>
-                <span>Have an account?<NavLink to="/login">Log in Here</NavLink></span>
-              </p>
+
             </div>
-          </div>
-        </body>
-      </div>
+            <div id="signupbutton">
+              <button type="submit">Sign Up</button>
+            </div>
+          </form>
+
+          <p>
+            <span>Have an account?<NavLink id="login" to="/login">Log in.</NavLink></span>
+          </p>
+
+
+        </body >
+      </div >
     </>
   );
 }

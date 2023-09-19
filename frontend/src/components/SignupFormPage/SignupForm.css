@@ -19,49 +19,38 @@
 
 * {
   color: rgb(0, 0, 0);
-  font-size: 12px;
-  font-family: 'circularbold', sans-serif;
+  font-family: 'circularbook', sans-serif;
 }
 
 body {
   background-color: rgb(255, 255, 255);
 }
 
-
-
-.sectionDiv {
-  box-sizing: border-box;
-  display: block;
-  flex-grow: 1;
-  justify-content: center;
-  -moz-box-pack: center;
-  width: 100%;
-  overflow-wrap: break-word;
-  padding-bottom: 0px;
-  padding-left: 32px;
-  padding-right: 32px;
-  padding-top: 0px;
+#demouser {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 22px;
 }
 
 .formDiv {
   box-sizing: border-box;
   display: block;
   margin-top: -1em;
-
+  width: 100%;
 }
 
 .header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 0px 32px;
+  padding: 32px 0px 32px;
   box-sizing: border-box;
 }
 
 #home {
   box-sizing: border-box;
 
-  margin-bottom: 10px;
+  margin-bottom: 40px;
   text-align: center;
 }
 
@@ -86,7 +75,7 @@ body {
   position: relative;
   text-align: center;
   width: 85%;
-
+  font-family: 'circularbook', sans-serif;
 }
 
 #divider::before,
@@ -102,24 +91,25 @@ body {
 
 
 h1 {
+  font-family: 'circulartitle', sans-serif;
 
-  margin-top: 40px;
   line-height: 36px;
   box-sizing: border-box;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
   margin-block-end: 0px;
   margin-block-start: 0px;
   overflow-wrap: break-word;
   align-self: center;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.04em;
 }
 
 h2 {
   text-align: center;
   font-size: 1.125rem;
-  padding-block-end: 20px;
+
   margin-block: 0px;
+  padding-block-start: 15px;
 }
 
 form {
@@ -131,21 +121,27 @@ form {
 #email,
 #password,
 #username {
-  padding-block-start: 5px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+  font-weight: 700;
+
   border: 0;
 }
 
 
 label {
-  font-size: 8px;
+  font-size: .875rem;
+}
+
+.note,
+#note {
+  letter-spacing: -.025em;
+  color: rgba(0, 0, 0, 0.856);
+  margin-top: -10px;
 }
 
 #note {
-  letter-spacing: -.025em;
-  color: rgba(128, 128, 128, 0.728);
+  font-weight: 400;
 }
+
 
 #dob {
   padding-block-start: 5px;
@@ -153,18 +149,25 @@ label {
   margin-top: 10px;
 }
 
-input {
-  width: 100%;
-  height: 25px;
+#form {
+  box-sizing: border-box;
+  color: rgb(0, 0, 0);
+  font-family: 'circularbook', sans-serif;
+  appearance: none;
+  background-image: none;
+  font-size: 1rem;
+  font-weight: lighter;
+  margin-block: 0px;
+  inline-size: 100%;
+  height: 45px;
   background-color: rgb(255, 255, 255);
   border-color: rgba(128, 128, 128, 0.676);
   border-radius: 3px;
-  color: rgb(88, 88, 88);
   border-width: 1px;
-  margin-top: 3px;
-  margin-bottom: 5px;
+  margin-top: 8px;
+  margin-bottom: 20px;
   outline: none;
-
+  padding-inline: 14px;
   /* transition: 0.1s ease-in-out 0s, color 0.1s ease-in-out 0s; */
 }
 
@@ -172,6 +175,7 @@ input:hover {
 
   border-color: black;
 }
+
 
 #signupbutton {
   display: flex;
@@ -184,28 +188,77 @@ p {
   justify-content: space-around;
 }
 
-#demouser {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 22px;
+.birthday {
+  box-sizing: border-box;
+
 }
+
+#date {
+  display: flex;
+  justify-content: space-between;
+}
+
+#day {
+  width: 20%;
+}
+
+#year {
+  width: 25%;
+}
+
+#input_month {
+  position: relative;
+  inline-size: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+
+}
+
+
+
+select {
+  border-color: rgba(128, 128, 128, 0.676);
+  background-image: none;
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  inline-size: 100%;
+  box-sizing: border-box;
+  margin-block: 0px;
+  appearance: none;
+  text-indent: 0.01px;
+  border-radius: 4px;
+  padding-block: 8px;
+  padding-inline: 14px 44px;
+  outline: none;
+  height: 45px;
+}
+
+.radio_buttons {}
+
+.radio_buttons::after {}
+
 
 button {
   border-radius: 25px;
-  height: 25px;
+  height: 45px;
   background-color: rgb(30, 215, 96);
   border: none;
-  width: 60%;
+  width: 90%;
   font-weight: bold;
-  font-size: 10px;
+  font-size: 16px;
   color: white;
 }
 
 form>div>button {
-  height: 35px;
+  height: 45px;
   margin-block-start: 20px;
   width: 40%;
   color: black;
 
+}
 
+#login {
+  color: rgb(30, 215, 96);
 }
