@@ -80,7 +80,5 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: cloudify_production
-  username: cloudify
-  password: <%= ENV["CLOUDIFY_DATABASE_PASSWORD"] %>
+ <<: *default
+  url: <%= ENV['DATABASE_URL'] %>

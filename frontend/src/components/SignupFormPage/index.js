@@ -85,7 +85,7 @@ function SignupFormPage() {
   };
 
   const validateAge = (selectedMonth, day, year) => {
-    debugger
+    // debugger
     const today = new Date();
     const birthDate = new Date(selectedMonth, day, year);
     const age = today.getFullYear() - birthDate.getFullYear();
