@@ -15,6 +15,8 @@ function SignupFormPage() {
   const [day, setDay] = useState('');
   const [errors, setErrors] = useState([]);
   const [year, setYear] = useState('');
+  const [dob, setDob] = useState('');
+  const [isAgeValid, setIsAgeValid] = useState(true);
 
 
   if (sessionUser) return <Redirect to="/" />;
@@ -77,9 +79,32 @@ function SignupFormPage() {
     return !isNaN(dayInt) && dayInt >= 1 && dayInt <= maxDay;
   };
 
+  const handleDobChange = (e) => {
+    setDob(e.target.value);
+    validateAge(e.target.value);
+  };
+
+  const validateAge = (selectedMonth, day, year) => {
+    debugger
+    const today = new Date();
+    const birthDate = new Date(selectedMonth, day, year);
+    const age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+
+
+    if (age >= 18) {
+      // Subtract 1 from age if birthdate is later in the year than today
+      return true
+    } else {
+      return false;
+    }
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password) {
+    if (password && validateAge(selectedMonth, day, year)) {
       setErrors([]);
       return dispatch(sessionActions.signup({ email, username, password }))
         .catch(async (res) => {

@@ -1,10 +1,26 @@
+@font-face {
+  font-family: 'circularbold';
+  src: url('../../assests/fonts/CircularSp-Bold-fe1cfc14b7498b187c78fa72fb72d148.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'circularbook';
+  src: url('../../assests/fonts/CircularSp-Book-4eaffdf96f4c6f984686e93d5d9cb325.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'circulartitle';
+  src: url('../../assests/fonts/CircularSpTitle-Bold-2fbf72b606d7f0b0f771ea4956a8b4d6.woff2') format('woff2');
+}
+
 * {
   color: rgb(0, 0, 0);
-  font-size: 10px;
-
-  font-family: Arial, Helvetica, sans-serif;
-
-
+  font-size: 12px;
+  font-family: 'circularbold', sans-serif;
 }
 
 body {
@@ -15,7 +31,7 @@ body {
 
 .sectionDiv {
   box-sizing: border-box;
-  display: flex;
+  display: block;
   flex-grow: 1;
   justify-content: center;
   -moz-box-pack: center;
@@ -38,38 +54,38 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 18px 0px 0px;
+  padding: 40px 0px 32px;
   box-sizing: border-box;
 }
 
 #home {
   box-sizing: border-box;
-  font-size: 16px;
+
   margin-bottom: 10px;
   text-align: center;
-
 }
 
 #logo {
-  height: 25%;
-  width: 25%;
+  height: 30%;
+  width: 30%;
 }
 
 #section {
-  max-width: 350px;
+  max-width: 450px;
   margin: 0px auto;
   padding-bottom: 130px;
 }
 
 #divider {
   display: table;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 24px;
   letter-spacing: 2px;
-  margin: 10px auto 1em;
+  margin: 0px auto 1em;
   color: rgb(127, 127, 127);
   position: relative;
   text-align: center;
-  width: 70%;
+  width: 85%;
 
 }
 
@@ -101,14 +117,15 @@ h1 {
 
 h2 {
   text-align: center;
-  font-size: 12px;
-  letter-spacing: -0.05em;
+  font-size: 1.125rem;
+  padding-block-end: 20px;
+  margin-block: 0px;
 }
 
 form {
   box-sizing: border-box;
   display: block;
-
+  margin-top: 0em;
 }
 
 #email,
@@ -170,7 +187,7 @@ p {
 #demouser {
   display: flex;
   justify-content: space-around;
-
+  margin-bottom: 22px;
 }
 
 button {
