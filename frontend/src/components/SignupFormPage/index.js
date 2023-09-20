@@ -112,36 +112,34 @@ function SignupFormPage() {
     // Check age condition
     if (!validateAge(selectedMonth, day, year)) {
       setErrors(['You must be 18 or older to sign up']);
-      return; // Exit the function
-    } else {
-      setErrors([]);
-
+      // Exit the function
     }
 
     // Check gender error
     if (!gender) {
       setGenderError('');
-      return; // Exit the function
+      ; // Exit the function
     } else {
       setGenderError(true)
     }
+    if (password && validateAge(selectedMonth, day, year) && gender) {
+      // If no errors, clear any previous errors and dispatch the signup action
+      setErrors([]);
 
-    // If no errors, clear any previous errors and dispatch the signup action
-    setErrors([]);
-
-    // Assuming you have defined dispatch and sessionActions properly
-    dispatch(sessionActions.signup({ email, username, password }))
-      .catch(async (res) => {
-        let data;
-        try {
-          data = await res.clone().json();
-        } catch {
-          data = await res.text();
-        }
-        if (data?.errors) setErrors(data.errors);
-        else if (data) setErrors([data]);
-        else setErrors([res.statusText]);
-      });
+      // Assuming you have defined dispatch and sessionActions properly
+      dispatch(sessionActions.signup({ email, username, password }))
+        .catch(async (res) => {
+          let data;
+          try {
+            data = await res.clone().json();
+          } catch {
+            data = await res.text();
+          }
+          if (data?.errors) setErrors(data.errors);
+          else if (data) setErrors([data]);
+          else setErrors([res.statusText]);
+        });
+    }
   };
 
   return (
