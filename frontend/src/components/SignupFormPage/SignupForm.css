@@ -149,7 +149,7 @@ label {
   margin-top: 10px;
 }
 
-#form {
+.form {
   box-sizing: border-box;
   color: rgb(0, 0, 0);
   font-family: 'circularbook', sans-serif;
@@ -235,10 +235,67 @@ select {
   height: 45px;
 }
 
-.radio_buttons {}
+.genderlabel {
+  display: flex;
+  position: relative;
+  min-inline-size: 0px;
+}
 
-.radio_buttons::after {}
+.radio_buttons {
+  border: 1px solid #878787;
+  border-radius: 50%;
+  display: inline-block;
+  width: 16px;
+  /* Set the width and height to define the size of the custom radio button */
+  height: 16px;
+  background: #fff;
+  /* Set the background color */
+  cursor: pointer;
+  /* Change cursor to pointer to indicate interactivity */
+}
 
+.radio_buttons:hover {
+  border-color: #169b45;
+}
+
+.genderinput:checked+.genderlabel .radio_buttons {
+  border-color: #1DB954;
+  /* Border color for checked state */
+  background-color: #1DB954;
+  /* Background color for checked state */
+}
+
+
+fieldset {
+  border: 0px;
+  margin: 0px;
+  padding-block-end: 22px;
+}
+
+#radio {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.radio_inputs {
+  display: flex;
+  align-items: center;
+  padding-block: 4px;
+  position: relative;
+  min-block-size: 32px;
+}
+
+.genderinput {
+  /* border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 1px; */
+  display: none;
+}
 
 button {
   border-radius: 25px;

@@ -15,6 +15,8 @@ function SignupFormPage() {
   const [day, setDay] = useState('');
   const [errors, setErrors] = useState([]);
   const [year, setYear] = useState('');
+  const [gender, setGender] = useState('')
+  const [genderError, setGenderError] = useState(true)
   const [dob, setDob] = useState('');
   const [isAgeValid, setIsAgeValid] = useState(true);
 
@@ -102,26 +104,41 @@ function SignupFormPage() {
       return false;
     }
   };
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password && validateAge(selectedMonth, day, year)) {
-      setErrors([]);
-      return dispatch(sessionActions.signup({ email, username, password }))
-        .catch(async (res) => {
-          let data;
-          try {
-            // .clone() essentially allows you to read the response body twice
-            data = await res.clone().json();
-          } catch {
-            data = await res.text(); // Will hit this case if, e.g., server is down
-          }
-          if (data?.errors) setErrors(data.errors);
-          else if (data) setErrors([data]);
-          else setErrors([res.statusText]);
-        });
+
+    // Check age condition
+    if (!validateAge(selectedMonth, day, year)) {
+      setErrors(['You must be 18 or older to sign up']);
+      return; // Exit the function
     }
-    return setErrors(['you must be 18 or older to sign up']);
+
+    // Check gender error
+    if (!gender) {
+      setGenderError('');
+      return; // Exit the function
+    }
+
+    // If no errors, clear any previous errors and dispatch the signup action
+    setErrors([]);
+
+    // Assuming you have defined dispatch and sessionActions properly
+    dispatch(sessionActions.signup({ email, username, password }))
+      .catch(async (res) => {
+        let data;
+        try {
+          data = await res.clone().json();
+        } catch {
+          data = await res.text();
+        }
+        if (data?.errors) setErrors(data.errors);
+        else if (data) setErrors([data]);
+        else setErrors([res.statusText]);
+      });
   };
+
   return (
     <>
       <div id="section">
@@ -151,7 +168,7 @@ function SignupFormPage() {
               <label>
                 What's your email?
               </label>
-              <input id="form"
+              <input className="form"
                 type="text"
                 placeholder="Enter your email."
                 value={email}
@@ -165,7 +182,7 @@ function SignupFormPage() {
               <label>
                 Create a password
               </label>
-              <input id="form"
+              <input className="form"
                 type="password"
                 placeholder="Create a password."
                 value={password}
@@ -177,7 +194,7 @@ function SignupFormPage() {
 
             <div id="username">
               <label>What should we call you?</label>
-              <input id="form"
+              <input className="form"
                 type="text"
                 placeholder="Enter a profile name."
                 value={username}
@@ -209,7 +226,7 @@ function SignupFormPage() {
                 </div>
                 <div id="day">
                   <label>Day</label>
-                  <input id="form"
+                  <input className="form"
                     type="text"
                     inputMode="numeric"
                     maxLength={2}
@@ -220,7 +237,7 @@ function SignupFormPage() {
                 </div>
                 <div id="year">
                   <label>Year</label>
-                  <input id="form"
+                  <input className="form"
                     type="text"
                     inputMode="numeric"
                     placeholder="YYYY"
@@ -231,23 +248,52 @@ function SignupFormPage() {
               </div>
               <fieldset role="radiogroup">
                 <legend >What's your gender?</legend>
-                <div>
-                  <div>
-                    <input type="radio" />
-                    <label><span className="radio_buttons"></span>Male<span></span></label>
+                <div id="radio">
+                  <div className="radio_inputs">
+                    <input className="genderinput" id="male" name="gender" value={"male"}
+                      type="radio" onChange={(e) => setGender(e.target.value)} />
+                    <label className="genderlabel" for="male">
+                      <span className="radio_buttons"></span>
+                      <span> Male</span></label>
                   </div>
-                  <div>
-                    <input type="radio" />
+                  <div className="radio_inputs">
+                    <input className="genderinput" id="female" name="gender" value={"female"}
+                      type="radio" onChange={(e) => setGender(e.target.value)} />
+                    <label className="genderlabel" for="female">
+                      <span className="radio_buttons">
+                      </span>
+                      <span>
+                        Female
+                      </span>
+                    </label>
                   </div>
-                  <div>
-                    <input type="radio" />
+                  <div className="radio_inputs">
+                    <input className="genderinput" id="nonbinary" name="gender" value={"Non-binary"}
+                      type="radio" onChange={(e) => setGender(e.target.value)} />
+                    <label className="genderlabel" for="nonbinary">
+                      <span className="radio_buttons"></span>
+
+                      <span>  Non-binary</span>
+                    </label>
                   </div>
-                  <div>
-                    <input type="radio" />
+                  <div className="radio_inputs">
+                    <input className="genderinput" id="other" name="gender" value={"other"}
+                      type="radio" onChange={(e) => setGender(e.target.value)} />
+                    <label className="genderlabel" for="other">
+                      <span className="radio_buttons"></span>
+
+                      <span> Other</span></label>
                   </div>
-                  <div>
-                    <input type="radio" />
-                  </div>
+                  <div className="radio_inputs">
+                    <input className="genderinput" id="idk" name="gender" value={"idk"}
+                      type="radio" onChange={(e) => setGender(e.target.value)} />
+                    <label className="genderlabel" for="idk">
+                      <span className="radio_buttons"></span>
+                      <span> Prefer not to say</span>
+                    </label>
+                  </div> {!genderError ?
+                    <div id="errorMessage" style={{ color: 'red' }}>Select your gender.</div> : <div></div>
+                  }
                 </div>
               </fieldset>
 
