@@ -113,12 +113,17 @@ function SignupFormPage() {
     if (!validateAge(selectedMonth, day, year)) {
       setErrors(['You must be 18 or older to sign up']);
       return; // Exit the function
+    } else {
+      setErrors([]);
+
     }
 
     // Check gender error
     if (!gender) {
       setGenderError('');
       return; // Exit the function
+    } else {
+      setGenderError(true)
     }
 
     // If no errors, clear any previous errors and dispatch the signup action
@@ -173,7 +178,7 @@ function SignupFormPage() {
                 placeholder="Enter your email."
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required
+
               />
               <div id="email_errors"></div>
             </div>
@@ -187,7 +192,7 @@ function SignupFormPage() {
                 placeholder="Create a password."
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                required
+
               />
               <div id="password_errors"></div>
             </div>
@@ -199,7 +204,7 @@ function SignupFormPage() {
                 placeholder="Enter a profile name."
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                required
+
               />
               <div id="username_errors"></div>
               <div className="note">
