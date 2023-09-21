@@ -100,11 +100,44 @@ function Navigation() {
                 <div id="splash-sidebar-bottom-divider"></div>
               </div>
               <div className='splash-sidebar-playlists-container'>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+                <div className='os-resize-observer'>
+                  <div id="os-resize-observer-div"></div>
+                </div>
+                <div className='os-size-auto-observer'></div>
+                <div className='os-content-glue'></div>
+                <div className='os-padding'>
+                  <div>
+                    <div className='os-content' id="os-content">
+                      {/* before */}
+                      <div className='os-content' id='os-content-sections'>
+                        <section className='os-section-playlists'>
+                          <div>
+                            <span></span>
+                          </div>
+                          <div>
+                            <button>
+                              <span></span>
+                            </button>
+                          </div>
+                        </section>
+                        <section>
+                          <div>
+                            <span></span>
+                          </div>
+                          <div>
+                            <button>
+                              <span></span>
+                            </button>
+                          </div>
+                        </section>
+                        <div></div>
+                      </div>
+                      {/* after */}
+                    </div>
+                  </div>
+                </div>
+                <div className='os-scrollbar-horizontal' ></div>
+                <div className='os-scrollbar-vertical'></div>
               </div>
             </div>
             <div className='splash-sidebar-legal-text'></div>

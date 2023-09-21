@@ -195,6 +195,69 @@ ul {
   position: relative;
 }
 
+.os-resize-observer {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: inherit;
+  border-color: transparent;
+  border-style: solid;
+  padding: inherit;
+}
+
+#od-resize-observer-div {
+  left: 0px;
+  right: auto;
+}
+
+#od-resize-observer-div::before {}
+
+
+
+.os-content-glue {
+  margin: 0px;
+  width: 303px;
+  height: 349px;
+  max-height: 100%;
+  max-width: 100%;
+  pointer-events: none;
+}
+
+.os-content {
+  padding: 0px;
+
+  direction: inherit;
+  display: block;
+  position: relative;
+  visibility: visible;
+}
+
+#os-content {
+  height: 100%;
+  width: 100%;
+}
+
+#os-content-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 100%;
+  padding: 0 8px 8px;
+}
+
+.os-section-playlists {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #242424;
+  border-radius: 20px;
+  gap: 20px;
+  justify-content: center;
+  margin: 8px 0;
+  padding: 16px 20px;
+}
+
 .splashfooter {
   grid-area: now-playing-bar;
   width: 100%;
