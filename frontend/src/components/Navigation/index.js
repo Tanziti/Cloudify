@@ -31,12 +31,87 @@ function Navigation() {
       </ul> */}
       <div className='splashheader'>
         <header id='splashheader'>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div id='splashheaderdiv'></div>
+          <div className='splashbackandforth'>
+            <button></button>
+            <button></button>
+          </div>
+          <div id="topbarcontentwrapper"></div>
+          <div className='splashheaderbuttons'>
+            <div className='splashheaderbuttons'></div>
+            <button className='splashheaderbutton' id="support">support</button>
+            <button className='splashheaderbutton' id="download">download</button>
+            <div id="splashbuttonmiddiv"></div>
+            <div>
+              <button className='splashheaderbutton' id="splashsignupbutton">sign up</button>
+              <button className='splashheaderbutton' id="splashloginbutton">
+                <span id="splashinnerlogin">Log in</span>
+              </button>
+            </div>
+
+
+          </div>
         </header>
       </div>
-      <div className='splashsidebar'></div>
+      <div className='splashsidebar'>
+        <nav id="splashsidebarnav">
+          <div id="splashsidebartopleft">
+            <div id="splashsidebarlogodiv">
+              <a id="splashsidebarlogolink">
+                <svg role="img" id="splashsidebarlogo">
+                  <title>spotify</title>
+                </svg>
+              </a>
+            </div>
+            <ul>
+              <li id="splashhomecontainer">
+                <a>
+                  <svg display="none" role="img" className='splashhomelogo'></svg>
+                  <svg role="img" className="splashhomelogo"></svg>
+                  <span className="splashspan">Home</span>
+                </a>
+              </li>
+              <li id="splash_search_container">
+                <a>
+                  <svg display="none" className='splash_search_logo'></svg>
+                  <svg className='splash_search_logo'></svg>
+                  <span className="splashspan">Search</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="splash-sidebar-bottom">
+            <div className='splash-sidebar-bottom'>
+              <div>
+                <header className='splash-library-header'>
+                  <div>
+                    <div>
+                      <button>
+                        <span><svg></svg></span>Your Library
+                      </button>
+                    </div>
+                    <span >
+                      <button>
+                        <span><svg></svg></span>
+                      </button>
+                    </span>
+                  </div >
+                </header>
+                <div id="splash-sidebar-bottom-divider"></div>
+              </div>
+              <div className='splash-sidebar-playlists-container'>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+            <div className='splash-sidebar-legal-text'></div>
+          </div>
+        </nav>
+        <div></div>
+      </div>
       <div className='splashfooter'>
         <footer id="splashfooter">
           <div>

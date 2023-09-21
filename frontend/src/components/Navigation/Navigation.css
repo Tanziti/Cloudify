@@ -15,9 +15,6 @@
   pointer-events: none;
   z-index: 2;
   border: 0;
-  margin: 0;
-  padding: 0;
-
 }
 
 #splashheader {
@@ -30,6 +27,172 @@
   z-index: 10;
   position: relative;
   padding: 16px;
+}
+
+.splashbackandforth {
+  display: flex;
+  gap: 8px;
+}
+
+#splashheaderdiv {
+  opacity: 0;
+  background-color: black;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: background-color .25s;
+  z-index: -1;
+  white-space: nowrap;
+
+}
+
+.splashheaderbuttons {
+  display: flex;
+  gap: 8px;
+  pointer-events: auto;
+  white-space: nowrap;
+}
+
+.splashheaderbutton {
+  overflow-wrap: anywhere;
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: transparent;
+  border-radius: 500px;
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+  touch-action: manipulation;
+  transition-duration: 33ms;
+  transition-property: background-color, border-color, color, box-shadow, filter, transform;
+  user-select: none;
+  vertical-align: middle;
+  transform: translate3d(0px, 0px, 0px);
+  color: #6a6a6a;
+  min-inline-size: 0px;
+  padding-block: 8px;
+  min-block-size: 48px;
+  padding-inline: 0px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1.76px;
+  line-height: 18px;
+}
+
+#splashbuttonmiddiv {
+  background: #fff;
+  height: 25px;
+  margin: 16px;
+  width: 1px;
+}
+
+#splashsignupbutton {
+  padding-inline-start: 8px;
+}
+
+#splashinnerlogin {
+  color: black
+}
+
+
+.splashsidebar {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background-color: black;
+  grid-area: left-sidebar;
+  position: relative;
+  width: 320px;
+  z-index: 4;
+}
+
+#splashsidebarnav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--panel-gap);
+  height: 100%;
+  min-height: 0;
+}
+
+#splashsidebartopleft {
+  background-color: #121212;
+  border-radius: 8px;
+  cursor: default;
+  border: 0;
+
+}
+
+#splashsidebarlogodiv {
+  display: flex;
+}
+
+#splashsidebarlogolink {
+  height: 24px;
+  margin-top: 20px;
+  padding: 0 24px;
+  user-select: none;
+}
+
+#splashsidebarlogo {
+  fill: #fff;
+  stroke: transparent;
+}
+
+ul {
+  list-style: none;
+}
+
+#splashhomecontainer {
+  padding: 4px 12px;
+}
+
+.splashhomelogo {
+  color: #fff;
+  display: block;
+}
+
+.splashspan {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-block: 0px;
+}
+
+.splash-sidebar-bottom {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  width: 100%;
+  background-color: #121212;
+  border-radius: 8px;
+  cursor: default;
+}
+
+.splash-library-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 16px;
+}
+
+#splash-sidebar-bottom-divider {
+  align-items: center;
+  display: flex;
+}
+
+.splash-sidebar-playlists-container {
+  height: 100%;
+  overscroll-behavior: contain;
+  overflow: hidden ! important;
+  /* overflow: visible !important; */
+  position: relative;
 }
 
 .splashfooter {

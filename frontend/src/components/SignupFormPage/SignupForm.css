@@ -20,6 +20,10 @@
 * {
   color: rgb(0, 0, 0);
   font-family: 'circularbook', sans-serif;
+
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
 }
 
 body {
@@ -170,6 +174,8 @@ label {
   padding-inline: 14px;
   /* transition: 0.1s ease-in-out 0s, color 0.1s ease-in-out 0s; */
 }
+
+
 
 input:hover {
 
