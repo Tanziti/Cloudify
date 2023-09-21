@@ -1,0 +1,51 @@
+#splashmain {
+  display: grid;
+  height: 100vh;
+  position: relative;
+
+}
+
+.splashheader {
+  grid-row-start: main-view;
+  grid-column-start: main-view;
+  grid-row-end: main-view;
+  grid-column-end: right-sidebar;
+  height: 64px;
+  min-width: 0;
+  pointer-events: none;
+  z-index: 2;
+  border: 0;
+  margin: 0;
+  padding: 0;
+
+}
+
+#splashheader {
+  background-color: rgba(0, 0, 0, .5);
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  height: 64px;
+  justify-content: space-between;
+  z-index: 10;
+  position: relative;
+  padding: 16px;
+}
+
+.splashfooter {
+  grid-area: now-playing-bar;
+  width: 100%;
+  z-index: 2;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+#splashfooter {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-width: 620px;
+  padding: 11px 24px 7px 15px;
+}

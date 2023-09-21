@@ -22,12 +22,36 @@ function Navigation() {
   }
 
   return (
-    <ul>
-      <li>
-        <NavLink exact to="/">Home</NavLink>
-        {sessionLinks}
-      </li>
-    </ul>
+    <div id="splashmain">
+      {/* <ul>
+        <li>
+          <NavLink exact to="/">Home</NavLink>
+          {sessionLinks}
+        </li>
+      </ul> */}
+      <div className='splashheader'>
+        <header id='splashheader'>
+          <div></div>
+          <div></div>
+          <div></div>
+        </header>
+      </div>
+      <div className='splashsidebar'></div>
+      <div className='splashfooter'>
+        <footer id="splashfooter">
+          <div>
+            <div>
+              <p>Preview of Spotify</p>
+              <p>Sign up to get unlimited songs</p>
+            </div>
+            <button>
+              <span></span>
+            </button>
+          </div>
+        </footer>
+      </div>
+      <div className='splashshow'></div>
+    </div>
   );
 }
 
