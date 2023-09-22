@@ -13,7 +13,7 @@
   height: 64px;
   min-width: 0;
   pointer-events: none;
-  z-index: 2;
+  z-index: 4;
   border: 0;
 }
 
@@ -126,7 +126,7 @@
   border-radius: 8px;
   cursor: default;
   border: 0;
-
+  height: 156px;
 }
 
 #splashsidebarlogodiv {
@@ -147,10 +147,16 @@
 
 ul {
   list-style: none;
+  height: 156px;
 }
 
 #splashhomecontainer {
   padding: 4px 12px;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
 }
 
 .splashhomelogo {
@@ -246,7 +252,7 @@ ul {
   padding: 0 8px 8px;
 }
 
-.os-section-playlists {
+.os-section {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -256,6 +262,69 @@ ul {
   justify-content: center;
   margin: 8px 0;
   padding: 16px 20px;
+  border: 0;
+}
+
+.os-section-div {
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  border: 0;
+}
+
+.os-section-span {
+  margin-block: 0px;
+  color: white;
+  border: 0;
+}
+
+#os-section-span1 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+#os-section-span2 {
+  font-size: .8125rem;
+}
+
+.os-section-playlists-div2 {
+  align-self: flex-start;
+}
+
+.os-section-buttons {
+  font-size: .875rem;
+  font-weight: 700;
+  background-color: transparent;
+  border: 0px;
+  border-radius: 500px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  touch-action: manipulation;
+  transition-duration: 33ms;
+  transition-property: background-color, border-color, color, box-shadow, filter, transform;
+  user-select: none;
+  vertical-align: middle;
+  transform: translate3d(0px, 0px, 0px);
+  padding: 0px;
+  color: #b3b3b3;
+}
+
+.os-section-button-spans {
+  overflow-wrap: anywhere;
+}
+
+.splash-sidebar-adjuster {
+  cursor: e-resize;
+  background: linear-gradient(hsla(0, 0%, 100%, .3), hsla(0, 0%, 100%, .3)) no-repeat 50%/1px 100%;
+  height: 100%;
+  inset-inline-end: -4.5px;
+  right: -4.5px;
+  width: 9px;
+  opacity: 0;
+  position: absolute;
+  border: 0;
 }
 
 .splashfooter {

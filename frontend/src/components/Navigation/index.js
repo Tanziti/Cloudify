@@ -71,7 +71,7 @@ function Navigation() {
                   <span className="splashspan">Home</span>
                 </a>
               </li>
-              <li id="splash_search_container">
+              <li id="splashhomecontainer">
                 <a>
                   <svg display="none" className='splash_search_logo'></svg>
                   <svg className='splash_search_logo'></svg>
@@ -110,23 +110,26 @@ function Navigation() {
                     <div className='os-content' id="os-content">
                       {/* before */}
                       <div className='os-content' id='os-content-sections'>
-                        <section className='os-section-playlists'>
-                          <div>
-                            <span></span>
+                        <section className='os-section'>
+                          <div className="os-section-div">
+                            <span className='os-section-span' id="os-section-span1">Create your first playlists</span>
+                            <span className='os-section-span' id="os-section-span2">it's easy, we'll help you</span>
                           </div>
-                          <div>
-                            <button>
-                              <span></span>
+                          <div className='os-section-playlists-div2'>
+                            <button className='os-section-buttons'>
+                              <span className='os-section-button-spans'>Create playlist</span>
                             </button>
                           </div>
-                        </section>
-                        <section>
-                          <div>
-                            <span></span>
+                        </section >
+                        {/* left off here */}
+                        <section className='os-section'>
+                          <div className="os-section-div">
+                            <span className='os-section-span' id="os-section-span1">Lets find some podcasts to follow</span>
+                            <span className='os-section-span' id="os-section-span2">we'll keep you up to date</span>
                           </div>
                           <div>
-                            <button>
-                              <span></span>
+                            <button className='os-section-buttons'>
+                              <span className='os-section-button-spans'>Browse podcasts</span>
                             </button>
                           </div>
                         </section>
@@ -136,14 +139,15 @@ function Navigation() {
                     </div>
                   </div>
                 </div>
-                <div className='os-scrollbar-horizontal' ></div>
-                <div className='os-scrollbar-vertical'></div>
+                <div className='os-scrollbar-horizontal' >{/* not done */}</div>
+                <div className='os-scrollbar-vertical'>{/* not done */}</div>
+                <div className='os-scrollbar-corner'>{/* not done */}</div>
               </div>
             </div>
             <div className='splash-sidebar-legal-text'></div>
           </div>
         </nav>
-        <div></div>
+        <div className='splash-sidebar-adjuster'></div>
       </div>
       <div className='splashfooter'>
         <footer id="splashfooter">
