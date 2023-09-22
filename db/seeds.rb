@@ -43,18 +43,18 @@ ApplicationRecord.transaction do
     })
 
     dark_twisted_fantasy_tracklist = [
-      ["Dark Fantasy",440 ]
-      ["Gorgeous (feat. Kid Cudi, Raekwon)",557]
-      ["POWER",452]
-      ["All Of The Lights(Interlude)",102]
-      ["All Of The Lights", 459]
-      ["Monster (feat. JAY-Z, Rick Ross, Nicki Minaj, Bon Iver)", 618]
-      ["So Appalled (feat.JAY-Z, Pusha T, CyHi, Swizz Beats, RZA)", 637]
-      ["Devil In A New Dress (feat. Rick Ross)", 551]
-      ["Runaway (feat. Pusha T)", 907]
-      ["Hell Of A Life", 527]
-      ["Blame Game (feat. John Legend)", 749]
-      ["Lost In The World (feat. Bon Iver)", 416]
+      ["Dark Fantasy",440 ],
+      ["Gorgeous (feat. Kid Cudi, Raekwon)", 557],
+      ["POWER",452],
+      ["All Of The Lights(Interlude)",102],
+      ["All Of The Lights", 459],
+      ["Monster (feat. JAY-Z, Rick Ross, Nicki Minaj, Bon Iver)", 618],
+      ["So Appalled (feat.JAY-Z, Pusha T, CyHi, Swizz Beats, RZA)", 637],
+      ["Devil In A New Dress (feat. Rick Ross)", 551],
+      ["Runaway (feat. Pusha T)", 907],
+      ["Hell Of A Life", 527],
+      ["Blame Game (feat. John Legend)", 749],
+      ["Lost In The World (feat. Bon Iver)", 416],
       ["Who Will Survive In America", 138]
     ]
     dark_twisted_fantasy_tracklist.each_with_index do |song, i|

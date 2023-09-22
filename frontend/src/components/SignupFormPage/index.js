@@ -143,7 +143,7 @@ function SignupFormPage() {
   };
 
   return (
-    <>
+    <div id="signup_form_page">
       <div id="section">
         <div className="header">
 
@@ -154,7 +154,7 @@ function SignupFormPage() {
         <div id="demouser">
           <button >Sign in as demo user</button>
         </div>
-        <span id="divider">
+        <span id="sign_up_form_divider">
           or
         </span>
 
@@ -313,7 +313,7 @@ function SignupFormPage() {
 
 
       </div >
-    </>
+    </div>
   );
 }
 
