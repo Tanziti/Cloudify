@@ -1,0 +1,160 @@
+.homeNav {
+  position: absolute;
+  height: 64px;
+  width: auto;
+  min-width: 424px;
+  background-color: rgba(18, 18, 18, 0);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  margin: 8px 8px 8px 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  font-family: CircularSpotifyBook;
+  color: #A7A7A7;
+  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+  opacity: .75;
+  z-index: 1;
+}
+
+.homeNav>span:first-child {
+  display: flex;
+  flex-direction: row;
+}
+
+.homeNav button {
+  font-family: CircularSpotifyBook;
+  text-decoration: none;
+  color: #A7A7A7;
+  background: none;
+  width: auto;
+  height: auto;
+  font-size: 16px;
+  vertical-align: middle;
+  margin-right: 8px;
+
+
+}
+
+.homeNav button:hover {
+  color: #FFFFFF;
+  transform: scale(1.03);
+}
+
+.homeNav .looseLinks {
+  letter-spacing: 2px;
+  margin-right: 4px;
+}
+
+
+.homeNav button.loggedOut {
+  font-size: 16px;
+  height: 32px;
+  width: 32px;
+  background-color: #0A0A0A;
+  margin-left: 12px;
+  margin-right: 0;
+  border-radius: 50%;
+  vertical-align: middle;
+  cursor: not-allowed;
+  color: #A7A7A7;
+  transform: none;
+}
+
+.homeNav .vl,
+.vl:hover {
+  color: #FFFFFF;
+  border-left: solid 1px #FFFFFF;
+  width: 0;
+  height: 25px;
+  border-radius: 0;
+  margin: 0 4px 0 16px;
+  text-align: center;
+  transform: none;
+}
+
+.homeNav .logIn {
+  font-family: CircularSpotifyMedium;
+  height: 48px;
+  width: 109.38px;
+  background-color: #FFFFFF;
+  color: #000000;
+  border-radius: 500px;
+  margin-right: 16px;
+  margin-left: 16px;
+}
+
+.homeNav .logIn:hover {
+  color: #000000;
+}
+
+.homeNavigation .signUp {
+  margin-left: 14px;
+}
+
+.homeNavigation .installApp {
+  font-size: 16px;
+  height: 32px;
+  width: 118.58px;
+  background-color: #0A0A0A;
+  border-radius: 500px;
+  vertical-align: middle;
+  color: #FFFFFF;
+  cursor: not-allowed;
+}
+
+.homeNavigation .profile {
+  font-size: 16px;
+  height: 32px;
+  width: 32px;
+  background-color: #0A0A0A;
+  border-radius: 50%;
+  vertical-align: middle;
+  color: #FFFFFF;
+}
+
+.homeNavigation .searchBarContainer {
+  padding: 5px;
+  border: none;
+  border-radius: 30px;
+  /* display: flex; */
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  width: 364px;
+  position: relative;
+}
+
+.homeNavigation #searchInput {
+  width: 332px;
+  height: 100%;
+  border: 0;
+  background-color: #242424;
+  border-radius: 500px;
+  outline: none;
+  padding-left: 36px;
+  color: #FFFFFF;
+  font-size: ;
+  font-family: CircularSpotifyLight;
+}
+
+.homeNavigation #searchInput:focus {
+  border: 2px solid #FFFFFF;
+}
+
+.homeNavigation #searchInput:hover {
+  background-color: #2A2A2A;
+}
+
+.searchBarContainer i {
+  position: absolute;
+  left: 18px;
+  top: 22px;
+  font-size: 16px;
+}

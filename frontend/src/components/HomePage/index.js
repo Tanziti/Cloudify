@@ -1,5 +1,6 @@
 import "./HomePage.css"
-export default function HomePage({ searching }) {
+import HomeNavBar from "./HomeNavBar"
+export default function HomePage() {
   return (
     <div className="home_page">
       <div className="home_page_top">
@@ -10,8 +11,8 @@ export default function HomePage({ searching }) {
         </section>
         {/* <Divider /> */}
         <section className="home_page_right">
-          {/* <Home searching={searching} />
-          <HomeNavBar searching={searching} /> */}
+          {/* <Home searching={searching} />*/}
+          <HomeNavBar />
         </section>
       </div>
       {/* <Playbar /> */}

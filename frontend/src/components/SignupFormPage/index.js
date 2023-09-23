@@ -18,7 +18,6 @@ function SignupFormPage() {
   const [gender, setGender] = useState('')
   const [genderError, setGenderError] = useState(true)
   const [dob, setDob] = useState('');
-  const [isAgeValid, setIsAgeValid] = useState(true);
 
 
   if (sessionUser) return <Redirect to="/" />;
