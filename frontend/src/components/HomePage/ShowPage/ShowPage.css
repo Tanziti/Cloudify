@@ -1,0 +1,157 @@
+div.home {
+  position: relative;
+  width: 100%;
+  min-width: 424px;
+  overflow-y: scroll;
+  height: 100%;
+  background-color: #121212;
+  border-radius: 8px;
+  margin: 0;
+  box-sizing: border-box;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+div.home>h2 {
+  font-family: CircularSpotifyMedium;
+  font-size: 24px;
+  text-align: left;
+  padding-left: 20px;
+  color: #FFFFFF;
+}
+
+div.home h2 a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+div.home h2 a:hover {
+  text-decoration: underline;
+}
+
+div.home .userGreeting {
+  font-size: 32px;
+}
+
+.artistGrid {
+  margin: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.playlistGrid {
+  margin: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+
+.searchGrid {
+  margin: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+
+div.home .artistGrid ul,
+div.home .playlistGrid ul {
+  margin: 8px;
+  padding: 16px;
+  max-width: 300px;
+  background-color: #181818;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+div.home .searchGrid ul {
+  margin: 8px;
+  padding: 16px;
+  max-width: 300px;
+  background-color: #181818;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+div.home .albumGrid ul {
+  margin: 8px;
+  padding: 16px;
+  max-width: 260px;
+  background-color: #181818;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 4px;
+  cursor: pointer;
+  gap: 16px;
+  padding-bottom: 28px;
+}
+
+
+div.home li.artistName,
+div.home li.albumName,
+div.home li.playlistTitle {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+div.home .artistGrid li+li,
+div.home .playlistGrid li+li,
+div.home .searchGrid li+li {
+  color: #FFFFFF;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  font-size: 16px;
+}
+
+div.home .artistGrid ul:hover,
+div.home .playlistGrid ul:hover,
+div.home .searchGrid ul:hover {
+  background-color: #282828;
+}
+
+div.home .albumGrid ul:hover {
+  background-color: #282828;
+}
+
+div.home .artistGrid ul img,
+div.home .playlistGrid ul img,
+div.home .searchGrid ul img {
+  border-radius: 4px;
+  width: 100%;
+  height: auto;
+  box-shadow: 0px 4px 10px -1px rgba(0, 0, 0, 1);
+}
+
+div.home .albumGrid ul img {
+  border-radius: 4px;
+  width: 100%;
+  height: auto;
+  box-shadow: 0px 2px 10px -1px rgba(0, 0, 0, 1);
+}
+
+
+div.home .welcomeMessage h2 {
+  color: #FFFFFF;
+  font-family: CircularSpotifyBold;
+  font-size: 34px;
+  padding: 32px;
+}
+
+div.home .welcomeMessage h2 i {
+  font-family: CircularSpotifyMediumItalic;
+}
+
+div.home .welcomeMessage h3 {
+  color: #FFFFFF;
+  font-family: CircularSpotifyBold;
+  font-size: 30px;
+  padding: 32px;
+}

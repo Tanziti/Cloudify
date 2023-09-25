@@ -140,7 +140,10 @@ function SignupFormPage() {
         });
     }
   };
-
+  const handleDemoLogin = (e) => {
+    e.preventDefault();
+    return dispatch(sessionActions.login({ credential: "Demo-lition", password: "password" }))
+  }
   return (
     <div id="signup_form_page">
       <div id="section">
@@ -151,7 +154,7 @@ function SignupFormPage() {
         </div>
 
         <div id="demouser">
-          <button >Sign in as demo user</button>
+          <button onClick={handleDemoLogin}>Sign in as demo user</button>
         </div>
         <span id="sign_up_form_divider">
           or

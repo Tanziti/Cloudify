@@ -1,13 +1,14 @@
 import "./HomePage.css"
 import HomeNavBar from "./HomeNavBar"
+import Sidebar from "./Sidebar"
+import Playbar from "./Footer"
+
 export default function HomePage() {
   return (
     <div className="home_page">
       <div className="home_page_top">
         <section className="home_page_left">
-          {/* <HomeAndSearch />
-                  <LibraryNavigation />
-                  <Library /> */}
+          <Sidebar />
         </section>
         {/* <Divider /> */}
         <section className="home_page_right">
@@ -15,7 +16,7 @@ export default function HomePage() {
           <HomeNavBar />
         </section>
       </div>
-      {/* <Playbar /> */}
+      <Playbar />
     </div>
   )
 }

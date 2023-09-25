@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
 import './LoginForm.css';
-import { NavLink } from "react-router-dom/cjs/react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 function LoginFormPage() {
   const dispatch = useDispatch();
@@ -32,38 +31,57 @@ function LoginFormPage() {
       });
   };
 
+  const handleDemoLogin = (e) => {
+    e.preventDefault();
+    return dispatch(sessionActions.login({ credential: "Demo-lition", password: "password" }))
+  }
+
   return (
-    <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="loginbackground">
+      <header className="logInTopBar">
+        <span className="cloudifyLogo"><i class="fa-solid fa-compact-disc"></i>&nbsp;Cloudify</span>
+      </header>
+
+      <form id="logInForm" onSubmit={handleSubmit} >
+
+        <h1>Log in to Cloudify</h1>
         <ul>
-          {errors.map(error => <li key={error}>{error}</li>)}
+          {errors.map(error => <li key={error}><i className="fa-solid fa-circle-exclamation"></i> {error}</li>)}
         </ul>
-        <label>
-          Username or Email
+        <hr />
+        <label>Email or username
           <input
             type="text"
             value={credential}
+            placeholder="Email or username"
             onChange={(e) => setCredential(e.target.value)}
             required
           />
         </label>
-        <label>
-          Password
+        <label>Password
           <input
             type="password"
             value={password}
+            placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </label>
-        <button type="submit">Log In</button>
+        <label>
+          <input
+            type="checkbox"
+          />
+          Remember me</label>
+        <button type="submit" >Log In</button>
+        <button onClick={handleDemoLogin} >Demo Log In</button>
+        <Link to="" onClick={e => e.preventDefault()}>Forgot your password?</Link>
+        <hr />
+        <h3>Don't have an account? <Link to="/signup">Sign up for Cloudify</Link></h3>
+
       </form>
-      <p>
-        <span>New to Cloudify?<NavLink to="/signup">Sign up here</NavLink></span>
-      </p>
-    </>
-  );
+
+    </div>
+  )
 }
 
 export default LoginFormPage;

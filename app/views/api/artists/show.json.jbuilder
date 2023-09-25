@@ -1,6 +1,6 @@
 json.artist do
   json.extract! @artist, :id, :name, :bio, :album_ids
-  @artist.album_ids.each { |album_id| albums << album_id }
+  # @artist.album_ids.each { |album_id| albums << album_id }
 end
 
 # json.artists do
@@ -14,21 +14,21 @@ end
 #   end
 # end
 
-json.albums do
-  albums.each do |album_id|
-      json.set! album_id do
-          album = Album.find(album_id)
-          json.extract! album, :id, :title, :date, :song_ids, :artist_id
-          album.song_ids.each { |song_id| songs << song_id }
-      end
-  end
-end
+# json.albums do
+#   albums.each do |album_id|
+#       json.set! album_id do
+#           album = Album.find(album_id)
+#           json.extract! album, :id, :title, :date, :song_ids, :artist_id
+#           album.song_ids.each { |song_id| songs << song_id }
+#       end
+#   end
+# end
 
-json.songs do
-  songs.each do |song_id|
-      json.set! song_id do
-          song = Song.find(song_id)
-          json.extract! song, :id, :title, :length, :artist_id, :album_id
-      end
-  end
-end
+# json.songs do
+#   songs.each do |song_id|
+#       json.set! song_id do
+#           song = Song.find(song_id)
+#           json.extract! song, :id, :title, :length, :artist_id, :album_id
+#       end
+#   end
+# end

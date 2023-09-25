@@ -1,0 +1,170 @@
+.loginbackground {
+  background-color: #171717;
+}
+
+@keyframes cloudAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+
+ul {
+  height: 50px;
+}
+
+#login_invis_bar {}
+
+#logInForm {
+  padding-top: 50px;
+  /* margin-top: 32px;
+  margin-bottom: 32px; */
+  display: flex;
+  flex-direction: column;
+  margin-top: -1em;
+  width: 734px;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'circularbook', sans-serif;
+  align-items: center;
+  border-radius: 8px;
+  margin: 0px auto;
+}
+
+#logInForm>label>input[type="password"],
+#logInForm>label>input[type="text"] {
+  border: 1px solid #727272;
+  border-radius: 4px;
+  background-color: #121212;
+  height: 48px;
+  width: 324px;
+  padding-inline: 14px;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+#logInForm>label>input[type="password"]:hover,
+#logInForm>label>input[type="text"]:hover {
+  border: 1px solid #ffffff;
+}
+
+#logInForm>label,
+#logInForm>label {
+  width: 324px;
+  font-size: 14px;
+  padding: 8px;
+  /* margin: 16px; */
+  color: white;
+}
+
+#logInForm>h1 {
+  font-size: 48px;
+  padding-top: 80px;
+  color: white;
+}
+
+#logInForm>button {
+  background-color: #6FD862;
+  width: 324px;
+  height: 48px;
+  font-size: 16px;
+  margin: 16px;
+}
+
+#logInForm>button:hover {
+  background-color: #74E167;
+  transform: scale(1.03);
+}
+
+#logInForm a {
+  color: #ffffff;
+}
+
+#logInForm hr {
+  height: 1px;
+  width: 550px;
+  border: 0;
+  background-color: #292929;
+}
+
+.logInBody {
+  background: linear-gradient(#1A1A1A, #000000);
+}
+
+#logInForm a,
+#logInForm h3 {
+  font-size: 16px;
+  margin: 30px 0;
+  font-family: 'circularbook', sans-serif;
+}
+
+#logInForm a {
+  text-decoration: underline;
+}
+
+#logInForm li {
+  color: #ffffff;
+  background-color: #ff0000;
+  height: 48px;
+  width: 634px;
+  box-sizing: border-box;
+  padding: 15px 0;
+}
+
+#logInForm .fa-solid {
+  font-size: 24px;
+  padding-inline: 16px 8px;
+  margin: -3px 0 0 0;
+  vertical-align: middle;
+}
+
+#logInForm ul {
+  padding: 0;
+}
+
+.logInTopBar {
+  position: absolute;
+  background-color: #000000;
+  height: 100px;
+  /* Fixed height for the header */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.logInTopBar span.cloudifyLogo {
+  font-family: 'circularbook', sans-serif;
+  font-size: 21px;
+  letter-spacing: -1px;
+  color: #FFFFFF;
+  padding-left: 51px;
+  vertical-align: middle;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logInTopBar span.cloudifyLogo i {
+  font-size: 36px;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.logInTopBar span.cloudifyLogo i:hover {
+  font-size: 36px;
+  color: #6FD862;
+  text-align: center;
+}
+
+.fa-solid.fa-compact-disc {
+  animation: cloudAnimation 3s infinite;
+}
