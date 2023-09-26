@@ -36,7 +36,7 @@ div.home .userGreeting {
 }
 
 .artistGrid {
-  margin: 12px;
+  margin: 40px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 }

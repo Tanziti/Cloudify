@@ -67,7 +67,6 @@ export default function Playbar() {
   let volPercent = 100;
 
   const [audioSrc, setAudioSrc] = useState(currentSong?.fileUrl ? currentSong.fileUrl : "");
-
   useEffect(() => {
     if (audioRef.current && currentSongTime) {
       audioRef.current.currentTime = currentSongTime

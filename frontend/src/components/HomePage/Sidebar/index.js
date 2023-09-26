@@ -29,7 +29,7 @@ export default function Sidebar() {
         </ul>
 
       </div>
-      {<LibraryNav />}
+      <LibraryNav />
       <Library />
 
     </>

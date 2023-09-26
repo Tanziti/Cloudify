@@ -5,8 +5,10 @@ div.home:first-child {
 div.home .artistGridHeader>a {
   font-family: CircularSpotifyMedium;
   font-size: 32px;
+
 }
 
 div.home .artistGrid li {
   font-family: CircularSpotifyBook;
+
 }

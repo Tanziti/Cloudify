@@ -3,6 +3,7 @@ import "./ShowPage.css"
 import ArtistRow from "./ArtistRow"
 import Artist from './Artist'
 import Albums from './Albums'
+import AlbumsRow from "./AlbumsRow"
 
 export default function ShowPage() {
   // const history = useHistory();
@@ -13,7 +14,9 @@ export default function ShowPage() {
       <Switch>
         <Route path="/">
           <ArtistRow />
-          {/* <PlaylistsIndex /> */}
+          <AlbumsRow />
+          {/* <Albums /> */}
+
         </Route>
         <Route path="/artists/:artistId">
           <Artist />
@@ -21,15 +24,6 @@ export default function ShowPage() {
         <Route path="/albums/:albumId">
           <Albums />
         </Route>
-        {/*  <Route path="/playlists/:playlistId">
-          <PlaylistShow />
-        </Route>
-        <Route path="/search">
-          <SearchIndex />
-        </Route>
-        <Route path="">
-          <WelcomeMessage />
-        </Route>*/}
       </Switch>
 
     </div>

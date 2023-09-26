@@ -43,13 +43,13 @@
 }
 
 .playbar .leftSide h3 {
-  font-family: CircularSpotifyLight;
+  font-family: 'circularbook';
   color: #FFFFFF;
   font-size: 14px;
 }
 
 .playbar .leftSide h4 {
-  font-family: CircularSpotifyLight;
+  font-family: 'circularbook';
   color: #B3B3B3;
   font-size: 11px;
 }
@@ -155,7 +155,7 @@ h4:hover {
   justify-content: center;
   align-items: center;
   white-space: nowrap;
-  font-family: CircularSpotifyLight;
+  font-family: 'circularbook';
   font-size: 11px;
   color: #B3B3B3;
 }
@@ -239,13 +239,13 @@ h4:hover {
 }
 
 .playbar .signUpBarText h7 {
-  font-family: CircularSpotifyLight;
+  font-family: 'circularbook';
   font-size: 12px;
   color: #FFFFFF;
 }
 
 .playbar .signUpBarText h6 {
-  font-family: CircularSpotifyLight;
+  font-family: 'circularbook';
   font-size: 16px;
   color: #FFFFFF;
 }

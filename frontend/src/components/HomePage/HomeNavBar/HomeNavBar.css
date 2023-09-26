@@ -10,7 +10,7 @@
   top: 0;
   right: 0;
   left: 0;
-  font-family: CircularSpotifyBook;
+  font-family: 'circularbook';
   color: #A7A7A7;
   font-size: 16px;
   display: flex;
@@ -28,7 +28,7 @@
 }
 
 .homeNav button {
-  font-family: CircularSpotifyBook;
+  font-family: 'circularbook';
   text-decoration: none;
   color: #A7A7A7;
   background: none;
@@ -79,7 +79,7 @@
 }
 
 .homeNav .logIn {
-  font-family: CircularSpotifyMedium;
+  font-family: 'circularbook';
   height: 48px;
   width: 109.38px;
   background-color: #FFFFFF;
@@ -140,8 +140,7 @@
   outline: none;
   padding-left: 36px;
   color: #FFFFFF;
-  font-size: ;
-  font-family: CircularSpotifyLight;
+  font-family: 'circularbook';
 }
 
 .homeNavigation #searchInput:focus {

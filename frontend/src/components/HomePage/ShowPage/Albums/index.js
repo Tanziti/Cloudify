@@ -12,7 +12,8 @@ export default function Albums() {
 
   const dispatch = useDispatch();
 
-  const { albumId } = useParams();
+  // const { albumId } = useParams();
+  const albumId = 1
 
   const sessionUser = useSelector(state => state.session.user);
 
@@ -56,9 +57,10 @@ export default function Albums() {
     songsForQueue[i][0].imageUrl = album.imageUrl;
   }
 
-
+  console.log(Object.keys(songs).length)
   return (
-    <>
+    <div id="test">
+
       {Object.keys(album).length > 0
         && Object.keys(songs).length > 0
         && Object.keys(artist).length > 0
@@ -138,6 +140,6 @@ export default function Albums() {
           </>
 
         )}
-    </>
+    </div>
   )
 }
