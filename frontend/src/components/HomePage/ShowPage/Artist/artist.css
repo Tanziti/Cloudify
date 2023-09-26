@@ -1,0 +1,212 @@
+div.home .artistBanner {
+  position: absolute;
+
+  width: inherit;
+  height: 282.39px;
+  background-position-y: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 282.39px;
+  z-index: 0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  margin-right: 60px;
+}
+
+div.home .artistHeaders {
+  z-index: 1;
+  top: 0;
+  color: #FFFFFF;
+  font-family: CircularSpotifyLight;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 24px;
+}
+
+div.home .opaqueBkgd {
+  padding-top: 32px;
+  position: relative;
+  width: calc(100% - 32px);
+  margin: auto;
+}
+
+div.home .popularSongs {
+  width: 100%;
+}
+
+div.home .popularSongs>table {
+
+  /* margin-right: 34px; */
+  width: 100%;
+  color: #B3B3B3;
+  font-family: CircularSpotifyLight;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+div.home .popularSongs>table>tr {
+  /* display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+  /* display: table; */
+  display: grid;
+  grid-template-columns: 20px 40px 2fr 1fr 1fr;
+  /* gap: 16px; */
+  align-items: center;
+  height: 56px;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 4px;
+  gap: 16px;
+}
+
+.popularSongs span.bigButtons {
+  vertical-align: middle;
+}
+
+.popularSongs button.bigPlay {
+  width: 56px;
+  height: 56px;
+  font-size: 24px;
+  vertical-align: middle;
+}
+
+.popularSongs button.bigPlay>i {
+  padding-left: 2px;
+}
+
+.popularSongs .bigHeart {
+  padding-left: 24px;
+  font-size: 32px;
+  width: 56px;
+  height: 56px;
+  vertical-align: middle;
+  color: #B3B3B3;
+}
+
+.popularSongs .bigHeart>i:hover {
+  color: #FFFFFF;
+}
+
+.popularSongs .bigDots {
+  padding-left: 24px;
+  font-size: 24px;
+  vertical-align: middle;
+  color: #B3B3B3;
+}
+
+.popularSongs .bigDots>i:hover {
+  color: #FFFFFF;
+}
+
+.popularSongs h2,
+.discog h2 {
+  font-family: CircularSpotifyMedium;
+  font-size: 24px;
+  text-align: left;
+  color: #FFFFFF;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.popularSongs .col1 {
+  text-align: right;
+}
+
+.popularSongs .col4,
+.popularSongs .col5 {
+  text-align: right;
+}
+
+.popularSongs .col1,
+.popularSongs .col2,
+.popularSongs .col3 {
+  color: #FFFFFF;
+  font-size: 16px;
+}
+
+.popularSongs .col3 {
+
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* padding-right: 16px; */
+}
+
+.popularSongs .col5 {
+  padding-right: 16px;
+}
+
+div.home .popularSongs>table>tr:hover {
+  background-color: #1A1A1A;
+  border-radius: 4px;
+}
+
+div.home .popularSongs>table a {
+  color: #FFFFFF;
+  font-family: CircularSpotifyLight;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+div.home .popularSongs>table a:hover {
+  text-decoration: underline;
+}
+
+div.home .popularSongs .songInfoSpan {
+  color: #FFFFFF;
+  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+}
+
+div.home .popularSongs>table img {
+  height: 40px;
+  width: 40px;
+  border-radius: 0px;
+  box-shadow: none;
+}
+
+.artistHeaders h1 {
+  font-size: 100px;
+  font-family: CircularSpotifyBold;
+  letter-spacing: -5px;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.artistHeaders h5 {
+  font-size: 14px;
+  font-family: CircularSpotifyLight;
+}
+
+.artistHeaders h4 {
+  font-family: CircularSpotifyLight;
+  font-size: 16px;
+  margin: 0;
+}
+
+.artistHeaders h4:hover {
+  text-decoration: none;
+  cursor: text;
+}
+
+.fa-circle-check {
+  color: #3D91F4;
+  font-size: 24px;
+  vertical-align: middle;
+  margin-top: -5px;
+  padding-right: 2px;
+}
+
+.discog ul:hover {
+  background-color: #282828;
+}

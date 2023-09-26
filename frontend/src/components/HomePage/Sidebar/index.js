@@ -1,6 +1,7 @@
 import "./Sidebar.css"
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min"
 import Library from "./Library"
+import LibraryNav from "./LibraryNav"
 
 
 export default function Sidebar() {
@@ -28,7 +29,9 @@ export default function Sidebar() {
         </ul>
 
       </div>
-      {/* <Library /> */}
+      {<LibraryNav />}
+      <Library />
+
     </>
   )
 }

@@ -1,6 +1,8 @@
 import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min"
 import "./ShowPage.css"
 import ArtistRow from "./ArtistRow"
+import Artist from './Artist'
+import Albums from './Albums'
 
 export default function ShowPage() {
   // const history = useHistory();
@@ -13,13 +15,13 @@ export default function ShowPage() {
           <ArtistRow />
           {/* <PlaylistsIndex /> */}
         </Route>
-        {/* <Route path="/artists/:artistId">
-          <ArtistShow />
+        <Route path="/artists/:artistId">
+          <Artist />
         </Route>
         <Route path="/albums/:albumId">
-          <AlbumShow />
+          <Albums />
         </Route>
-        <Route path="/playlists/:playlistId">
+        {/*  <Route path="/playlists/:playlistId">
           <PlaylistShow />
         </Route>
         <Route path="/search">
