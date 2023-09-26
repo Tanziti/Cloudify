@@ -1,5 +1,6 @@
 import "./Sidebar.css"
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min"
+import Library from "./Library"
 
 
 export default function Sidebar() {

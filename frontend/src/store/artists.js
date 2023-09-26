@@ -29,8 +29,8 @@ export const fetchArtists = () => async dispatch => {
     const data = await res.json();
     // debugger;
     dispatch(receiveArtists(data.artists));
-    dispatch(receiveAlbums(data.albums));
-    dispatch(receiveSongs(data.songs));
+    // dispatch(receiveAlbums(data.albums));
+    // dispatch(receiveSongs(data.songs));
   }
 }
 
@@ -39,8 +39,8 @@ export const fetchArtist = (artistId) => async dispatch => {
   if (res.ok) {
     const data = await res.json();
     dispatch(receiveArtist(data.artist));
-    dispatch(receiveAlbums(data.albums));
-    dispatch(receiveSongs(data.songs));
+    // dispatch(receiveAlbums(data.albums));
+    // dispatch(receiveSongs(data.songs));
   }
 }
 const artistsReducer = (state = {}, action) => {

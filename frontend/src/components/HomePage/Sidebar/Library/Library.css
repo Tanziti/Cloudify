@@ -1,0 +1,97 @@
+.library {
+  position: relative;
+  height: 100%;
+  min-width: 280px;
+  background-color: #121212;
+  /* border-radius: 8px; */
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  overflow-y: scroll;
+  margin: 0;
+  box-sizing: border-box;
+  /* flex: 1 1 auto; */
+}
+
+.library>ul {
+  /* height: 64px; */
+  /* width: ; */
+  /* padding: 8px; */
+  margin: 8px;
+  display: grid;
+  width: 100%;
+}
+
+.library .albumImage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.library>ul>li {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: calc(100% - 16px);
+  padding-bottom: 10px;
+  border-radius: 4px;
+  padding: 8px;
+  box-sizing: border-box;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.library>ul>li:hover {
+  background-color: #1A1A1A;
+}
+
+
+.library>ul>li .playlistImageStandin {
+  height: 50px;
+  width: 50px;
+  border-radius: 4px;
+}
+
+.library img {
+  height: 50px;
+  border-radius: 4px;
+}
+
+.library .albumInfo {
+  padding-left: 12px;
+  width: 100%;
+  /* flex: 1 0 auto; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  box-sizing: border-box;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.library h3,
+.library h4 {
+  max-width: 95%;
+  font-family: CircularSpotifyLight;
+  font-weight: bold;
+  letter-spacing: .5px;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.library h3 {
+  color: #FFFFFF;
+  font-size: 16px;
+  margin: 0;
+}
+
+.library h4 {
+  color: #A7A7A7;
+  font-size: 13px;
+  margin: 0;
+}

@@ -32,9 +32,9 @@ export const fetchAlbum = (albumId) => async dispatch => {
   if (res.ok) {
     const data = await res.json();
     dispatch(receiveAlbum(data.album));
-    dispatch(receiveArtist(data.artist));
-    dispatch(receiveSongs(data.songs));
-    if (data.moreAlbums) dispatch(receiveAlbums(data.moreAlbums));
+    // dispatch(receiveArtist(data.artist));
+    // dispatch(receiveSongs(data.songs));
+    // if (data.moreAlbums) dispatch(receiveAlbums(data.moreAlbums));
   }
 }
 

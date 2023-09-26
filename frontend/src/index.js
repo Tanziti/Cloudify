@@ -9,6 +9,8 @@ import csrfFetch from './store/csrf';
 import * as sessionActions from './store/session';
 import { createRoot } from 'react-dom/client';
 import * as songsActions from "./store/songs"
+import * as albumsActions from "./store/albums"
+import * as artistsActions from "./store/artists"
 
 const store = configureStore();
 
@@ -17,6 +19,9 @@ if (process.env.NODE_ENV !== 'production') {
   window.csrfFetch = csrfFetch;
   window.sessionActions = sessionActions;
   window.songsActions = songsActions;
+  window.albumsActions = albumsActions;
+  window.artistsActions = artistsActions;
+
 }
 
 function Root() {

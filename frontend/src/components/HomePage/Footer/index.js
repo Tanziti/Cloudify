@@ -363,7 +363,7 @@ export default function Playbar() {
             {currentSong && (
               <>
                 <div className="trackImage">
-                  {/* <img src={currentSong?.imageUrl}></img> */}
+                  <img src={currentSong?.imageUrl}></img>
                 </div>
                 <div className="trackInfo">
                   <h3 onClick={() => { history.push(`/albums/${currentSong?.albumId}`) }}>{currentSong?.title ? currentSong.title : ""}</h3>

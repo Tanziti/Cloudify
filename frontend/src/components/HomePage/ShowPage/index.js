@@ -1,17 +1,19 @@
+import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min"
+import "./ShowPage.css"
+import ArtistRow from "./ArtistRow"
 
-
-export default function Home() {
+export default function ShowPage() {
   // const history = useHistory();
 
 
   return (
     <div className="home">
-      {/* <Switch> */}
-      {/* <Route path="/home">
-          <ArtistsIndex />
-          <PlaylistsIndex />
+      <Switch>
+        <Route path="/">
+          <ArtistRow />
+          {/* <PlaylistsIndex /> */}
         </Route>
-        <Route path="/artists/:artistId">
+        {/* <Route path="/artists/:artistId">
           <ArtistShow />
         </Route>
         <Route path="/albums/:albumId">
@@ -25,8 +27,8 @@ export default function Home() {
         </Route>
         <Route path="">
           <WelcomeMessage />
-        </Route>
-      </Switch> */}
+        </Route>*/}
+      </Switch>
 
     </div>
   )

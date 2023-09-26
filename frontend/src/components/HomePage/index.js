@@ -2,6 +2,7 @@ import "./HomePage.css"
 import HomeNavBar from "./HomeNavBar"
 import Sidebar from "./Sidebar"
 import Playbar from "./Footer"
+import ShowPage from "./ShowPage"
 
 export default function HomePage() {
   return (
@@ -12,7 +13,7 @@ export default function HomePage() {
         </section>
         {/* <Divider /> */}
         <section className="home_page_right">
-          {/* <Home searching={searching} />*/}
+          <ShowPage />
           <HomeNavBar />
         </section>
       </div>
