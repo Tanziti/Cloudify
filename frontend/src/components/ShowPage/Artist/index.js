@@ -2,7 +2,7 @@ import { Link, useParams } from 'react-router-dom/cjs/react-router-dom.min'
 // import AlbumsIndex from './AlbumsIndex'
 import './artist.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchArtist, getArtist } from '../../../../store/artists';
+import { fetchArtist, getArtist } from '../../../store/artists';
 import { useEffect } from 'react';
 // import PopularSongItem from './PopularSongItem';
 
@@ -51,7 +51,7 @@ export default function Artist() {
       <div className="artistBanner" style={artistBannerStyle}>
       </div>
       <div className='artistHeaders' style={topPadding}>
-        <h5><i class="fa-solid fa-circle-check" color="#3D91F4"></i> Verified Artist</h5>
+        <h5><i className="fa-solid fa-circle-check" color="#3D91F4"></i> Verified Artist</h5>
         <h1>{artist?.name}</h1>
 
         <h4>1,234,567,890 monthly listeners</h4>
@@ -60,9 +60,9 @@ export default function Artist() {
         <div className='popularSongs'>
 
           <span className="bigButtons">
-            <button className="bigPlay"><i class="fa-solid fa-play"></i></button>
-            <span className="bigHeart"><i class="fa-regular fa-heart"></i></span>
-            <span className="bigDots"><i class="fa-solid fa-ellipsis"></i></span>
+            <button className="bigPlay"><i className="fa-solid fa-play"></i></button>
+            <span className="bigHeart"><i className="fa-regular fa-heart"></i></span>
+            <span className="bigDots"><i className="fa-solid fa-ellipsis"></i></span>
           </span>
           <h2>Popular</h2>
           <table>

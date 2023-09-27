@@ -16,6 +16,7 @@ export const getSongs = (store) => {
 }
 
 export const getSong = (songId) => (store) => {
+  debugger
   return store?.songs?.[songId] ? store.songs[songId] : {};
 }
 

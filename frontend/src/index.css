@@ -162,3 +162,33 @@ table {
   padding: 0;
   vertical-align: baseline;
 }
+
+.home_page_left {
+  flex: 0 0;
+  flex-basis: 280px;
+  position: sticky;
+  height: inherit;
+  display: flex;
+  width: auto;
+  max-width: calc(100% - 448px);
+  flex-direction: column;
+  padding: 8px 0 0 8px;
+}
+
+.home_page_right {
+  flex: 1 1 auto;
+  height: inherit;
+  position: sticky;
+  /* max-width: calc(100% - 304px); */
+  padding: 8px 8px 0 0;
+}
+
+.home_page_top {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  top: 0;
+  bottom: 88px;
+  width: 100%;
+}

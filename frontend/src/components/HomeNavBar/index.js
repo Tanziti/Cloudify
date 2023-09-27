@@ -1,7 +1,7 @@
 import './HomeNavBar.css'
 import { Link, NavLink, useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../../store/session";
+import { logout } from "../../store/session";
 import { useEffect, useState } from "react";
 
 export default function HomeNavBar() {
@@ -48,8 +48,8 @@ export default function HomeNavBar() {
       {!sessionStorage["currentUser"] && (
         <>
           <span>
-            <button className="fa-solid circle loggedOut"><i class="fa-solid fa-chevron-left"></i></button>
-            <button className="fa-solid circle loggedOut"><i class="fa-solid fa-chevron-right"></i></button>
+            <button className="fa-solid circle loggedOut"><i className="fa-solid fa-chevron-left"></i></button>
+            <button className="fa-solid circle loggedOut"><i className="fa-solid fa-chevron-right"></i></button>
           </span>
           <span>
             <button className="looseLinks">Premium</button>
@@ -64,13 +64,13 @@ export default function HomeNavBar() {
       {sessionUser && (
         <>
           <span>
-            <button className="fa-solid circle loggedOut"><i class="fa-solid fa-chevron-left"></i></button>
-            <button className="fa-solid circle loggedOut"><i class="fa-solid fa-chevron-right"></i></button>
+            <button className="fa-solid circle loggedOut"><i className="fa-solid fa-chevron-left"></i></button>
+            <button className="fa-solid circle loggedOut"><i className="fa-solid fa-chevron-right"></i></button>
             {/* {searching && (<SearchBar />)} */}
           </span>
 
           <span>
-            <button className="installApp"><i class="fa-regular fa-circle-down"></i> Install App</button>
+            <button className="installApp"><i className="fa-regular fa-circle-down"></i> Install App</button>
             <button className="profile" onClick={(e) => { e.preventDefault(); dispatch(logout()); }}><i className="fa-solid fa-user-circle" /></button>
           </span>
         </>

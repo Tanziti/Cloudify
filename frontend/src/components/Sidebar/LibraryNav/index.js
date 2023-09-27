@@ -8,13 +8,13 @@ export default function LibraryNav() {
       <div className='firstLine'>
         <span>
           <NavLink to="">
-            <span className='fa-solid'><i class="fa-solid fa-lines-leaning"></i></span>
+            <span className='fa-solid'><i className="fa-solid fa-lines-leaning"></i></span>
             <span className='yourLibrary'> Your Library</span>
           </NavLink>
         </span>
         <span>
-          <NavLink to=""><span className='fa-solid circle'><i class="fa-solid fa-plus"></i></span></NavLink>
-          <NavLink to=""><span className='fa-solid circle'><i class="fa-solid fa-arrow-right"></i></span></NavLink>
+          <NavLink to=""><span className='fa-solid circle'><i className="fa-solid fa-plus"></i></span></NavLink>
+          <NavLink to=""><span className='fa-solid circle'><i className="fa-solid fa-arrow-right"></i></span></NavLink>
         </span>
       </div>
     </div>

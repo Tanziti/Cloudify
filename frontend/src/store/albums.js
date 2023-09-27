@@ -24,6 +24,7 @@ export const getAlbums = (store) => {
 
 
 export const getAlbum = (albumId) => (store) => {
+  debugger
   return store?.albums?.[albumId] ? store.albums[albumId] : {};
 }
 
@@ -31,10 +32,11 @@ export const fetchAlbum = (albumId) => async dispatch => {
   const res = await fetch(`api/albums/${albumId}`)
   if (res.ok) {
     const data = await res.json();
+    debugger
     dispatch(receiveAlbum(data.album));
-    // dispatch(receiveArtist(data.artist));
-    // dispatch(receiveSongs(data.songs));
-    // if (data.moreAlbums) dispatch(receiveAlbums(data.moreAlbums));
+
+    dispatch(receiveSongs(data.songs));
+
   }
 }
 
@@ -53,7 +55,7 @@ const albumsReducer = (state = {}, action) => {
 
       return { ...state, ...action.albums };
     case RECEIVE_ALBUM:
-      newState[action.album.id] = action.album
+      newState[action.album.id] = action.album.album
       return newState;
     default:
       return state;

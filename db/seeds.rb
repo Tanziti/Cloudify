@@ -33,9 +33,97 @@ ApplicationRecord.transaction do
     })
     kanye_pic = URI.open("https://cloudify-seeds.s3.amazonaws.com/Kanye_west/Kanye_west_profile_pic.jpg")
     kanye.image.attach(io: kanye_pic, filename: 'Kanye_west_profile_pic.jpg')
+      
+    flatbush_zombies = Artist.create!({
+      name: 'Flatbush Zombies',
+      bio: 'The Glorius Dead. Zombies, in Flatbush.'
+    })
+    zombie_pic = URI.open("https://cloudify-seeds.s3.amazonaws.com/Flatbush_zombies/flatbush_zombies_pic.webp")
+    flatbush_zombies.image.attach(io: zombie_pic, filename: 'flatbush_zombies_pic.webp')
+
+    injury_reserve = Artist.create!({
+      name:"Injury Reserve"
+      bio: "Best Group out of Arizona, RIP Groggs"
+    })
+
+    injury_reserve_pic = URI.open("https://cloudify-seeds.s3.amazonaws.com/Injury_reserve/Injury_reserve.webp")
+    injury_reserve.image.attach(io: injury_reserve_pic, filename: 'Injury_reserve.webp')
 
   puts "Creating albums and songs..."
+
+  live_from_the_dentist_office = Album.create!({
+    name: 'Live from the Dentist Office',
+    artist_id: artist.id, # Replace 'artist' with the actual artist object
+    year: 2015 # Replace with the actual year
+  })
+  live_from_the_dentist_office_image = URI.open("https://cloudify-seeds.s3.amazonaws.com/Injury_reserve/Live_from_the_dentist_office/Live_from_the_dentist_office_cover.jpg")
+  live_from_the_dentist_office.image.attach(io:  live_from_the_dentist_office_image, filename: 'Live_from_the_dentist_office_cover.jpg')
+  # Define the tracklist for "Live from the Dentist Office" with data from the provided link
+  live_from_the_dentist_office_tracklist = [
+    ["Yo", 158, 'https://cloudify-seeds.s3.amazonaws.com/Injury_reserve/Live_from_the_dentist_office/Yo.mp3'],
+    ["Whatever Dude", 164, 'https://cloudify-seeds.s3.amazonaws.com/Injury_reserve/Live_from_the_dentist_office/Whatever+Dude.mp3'],
+    ["Snowmen (feat. Glasspopcorn)", 192, 'https://cloudify-seeds.s3.amazonaws.com/Injury_reserve/Live_from_the_dentist_office/Snowmen+feat.+Glasspopcorn.mp3'],
+    ["Wow", 131, 'https://cloudify-seeds.s3.amazonaws.com/Injury_reserve/Live_from_the_dentist_office/Wow.mp3'],
+    ["Everybody Knows", 215, 'https://cloudify-seeds.s3.amazonaws.com/Injury_reserve/Live_from_the_dentist_office/Everybody+Knows.mp3'],
+    ["Friday (feat.Curtis Williams)", 219, 'https://cloudify-seeds.s3.amazonaws.com/Injury_reserve/Live_from_the_dentist_office/Friday+feat.+Curtis+Williams.mp3'],
+    ["45 (feat. Demi Hughes)", 191, 'https://cloudify-seeds.s3.amazonaws.com/Injury_reserve/Live_from_the_dentist_office/45+feat.+Demi+Hughes.mp3'],
+    ["Washed Up", 164, 'https://cloudify-seeds.s3.amazonaws.com/Injury_reserve/Live_from_the_dentist_office/Washed+Up.mp3'],
+    ["Whiplash (feat.Chuck Inglish)", 216, 'https://cloudify-seeds.s3.amazonaws.com/Injury_reserve/Live_from_the_dentist_office/Whiplash+feat.+Chuck+Inglish.mp3'],
+    ["ttktv", 173, 'https://cloudify-seeds.s3.amazonaws.com/Injury_reserve/Live_from_the_dentist_office/ttktv.mp3'],
+    ["Falling", 194, 'https://cloudify-seeds.s3.amazonaws.com/Injury_reserve/Live_from_the_dentist_office/Falling.mp3']
+  ]
+  
+  live_from_the_dentist_office_tracklist.each_with_index do |song, i|
+    live_from_the_dentist_office_song = Song.create!({
+      title: song[0],
+      album_id: live_from_the_dentist_office.id,
+      artist_id: artist.id, # Replace 'artist' with the actual artist object
+      year: live_from_the_dentist_office.year, # Replace with the actual year
     
+    })
+  
+    # Attach the song URL as additional information
+    live_from_the_dentist_office_song_file = URI.open(song[2])
+    live_from_the_dentist_office_song.file.attach(io: live_from_the_dentist_office_song_file, filename: "#{i+1}.mp3")
+  end
+
+  floss = Album.create!({
+    name: 'Floss',
+    artist_id: artist.id, # Replace 'artist' with the actual artist object
+    year: 2016 # Replace with the actual year
+  })
+  floss_image = URI.open("https://cloudify-seeds.s3.amazonaws.com/Injury_reserve/Floss/Floss_cover.jpg")
+   floss.image.attach(io: floss_image, filename: 'Floss_cover.jpg')
+  # Define the tracklist for "Live from the Dentist Office" with data from the provided link
+  floss_tracklist = [
+    ["Oh Shit!!!", 191, 'https://cloudify-seeds.s3.amazonaws.com/Injury_reserve/Floss/Oh+Shit.mp3'],
+    ["Bad Boys 3", 194, 'https://cloudify-seeds.s3.amazonaws.com/Injury_reserve/Floss/Bad+Boys+3.mp3'],
+    ["ALL THIS MONEY", 164, 'https://cloudify-seeds.s3.amazonaws.com/Injury_reserve/Floss/ALL+THIS+MONEY.mp3'],
+    ["What's Goodie (feat. Cakes da Killa)", 229, 'https://cloudify-seeds.s3.amazonaws.com/Injury_reserve/Floss/What+s+Goodie+feat.+Cakes+da+Killa.mp3'],
+    ["2016 Interlude", 192, 'https://cloudify-seeds.s3.amazonaws.com/Injury_reserve/Floss/2016+Interlude.mp3'],
+    ["S on Ya Chest", 219, 'https://cloudify-seeds.s3.amazonaws.com/Injury_reserve/Floss/S+on+Ya+Chest.mp3'],
+    ["All Quiet on the West Side", 131, 'https://genius.com/Injury-reserve-all-quiet-on-the-west-side-lyrics'],
+    ["Girl With the Gold Wrist", 216, 'https://cloudify-seeds.s3.amazonaws.com/Injury_reserve/Floss/Girl+With+the+Gold+Wrist.mp3'],
+    ["Eeny Meeny Miny Moe", 158, 'https://cloudify-seeds.s3.amazonaws.com/Injury_reserve/Floss/Eeny+Meeny+Miny+Moe.mp3'],
+    ["Keep on Slippin (feat. Vic Mensa)", 164, 'https://cloudify-seeds.s3.amazonaws.com/Injury_reserve/Floss/Keep+on+Slippin+feat.+Vic+Mensa.mp3'],
+    ["Back Then", 215, 'https://cloudify-seeds.s3.amazonaws.com/Injury_reserve/Floss/Back+Then.mp3'],
+    ["Look Mama I Did It", 129, 'https://cloudify-seeds.s3.amazonaws.com/Injury_reserve/Floss/Look+Mama+I+Did+It.mp3']
+  ]
+  
+  floss_tracklist.each_with_index do |song, i|
+   floss_song = Song.create!({
+      title: song[0],
+      album_id: live_from_the_dentist_office.id,
+      artist_id: artist.id, # Replace 'artist' with the actual artist object
+      year: floss_office.year, # Replace with the actual year
+     
+    })
+  
+    # Attach the song URL as additional information
+   floss_song_file = URI.open(song[2])
+    floss_song.file.attach(io: floss_song_file, filename: "#{i+1}.mp3")
+  end
+
     dark_twisted_fantasy = Album.create!({
       name: 'Dark Twisted Fantasy',
       artist_id: kanye.id,
@@ -68,10 +156,55 @@ ApplicationRecord.transaction do
         year: dark_twisted_fantasy.year
         })
         dtf_song_file = URI.open(song[2])
-        dark_twisted_fantasy_song.file.attach(io: dtf_song_file, filename:'#{i+1}.mp3')
+        dark_twisted_fantasy_song.file.attach(io: dtf_song_file, filename: "#{i+1}.mp3")
       end
       puts "DTF created"
+      better_off_dead = Album.create!({
+        name: 'BetterOffDEAD',
+        artist_id: flatbush_zombies.id, # Assuming flatbush_zombies is the artist.
+        year: 2013
+      })
       
+      # Attach the album cover image
+      bof_image = URI.open("https://cloudify-seeds.s3.amazonaws.com/Flatbush_zombies/Betteroffdead/flatbush-zombies-betteroffdead-Cover-Art.jpg")
+      better_off_dead.image.attach(io: bof_image, filename: 'BetterOffDEAD_album_cover.jpg')
+      
+      # Define the tracklist for BetterOffDEAD
+      better_off_dead_tracklist = [
+        ["Amerikkkan Pie", 440, 'https://cloudify-seeds.s3.amazonaws.com/Flatbush_zombies/Betteroffdead/Amerikkkan+Pie.mp3'],
+        ["Nephilim", 557, 'https://cloudify-seeds.s3.amazonaws.com/Flatbush_zombies/Betteroffdead/Nephilim.mp3'],
+        ["Bliss", 452, 'https://cloudify-seeds.s3.amazonaws.com/Flatbush_zombies/Betteroffdead/Bliss.mp3'],
+        ["Minephuck", 102, 'https://cloudify-seeds.s3.amazonaws.com/Flatbush_zombies/Betteroffdead/Minephuck.mp3'],
+        ["MRAZ", 618, 'https://cloudify-seeds.s3.amazonaws.com/Flatbush_zombies/Betteroffdead/MRAZ.mp3'],
+        ["Death", 637, 'https://cloudify-seeds.s3.amazonaws.com/Flatbush_zombies/Betteroffdead/Death.mp3'],
+        ["Death 2", 206, 'https://cloudify-seeds.s3.amazonaws.com/Flatbush_zombies/Betteroffdead/Death+2.mp3'],
+        ["Regular and Complex (GNB)", 551, 'https://cloudify-seeds.s3.amazonaws.com/Flatbush_zombies/Betteroffdead/Regular+and+Complex+GNB.mp3'],
+        ['Drug Parade', 420, 'https://cloudify-seeds.s3.amazonaws.com/Flatbush_zombies/Betteroffdead/Drug+Parade+Feat.+Danny+Brown.mp3'],
+        ["Thugnificense", 907, 'https://cloudify-seeds.s3.amazonaws.com/Flatbush_zombies/Betteroffdead/Thugnificense.mp3'],
+        ["Club Soda (feat. Action Bronson)", 527, 'https://cloudify-seeds.s3.amazonaws.com/Flatbush_zombies/Betteroffdead/Club+Soda+ft.+Action+Bronson.mp3'],
+        ["222", 320, 'https://cloudify-seeds.s3.amazonaws.com/Flatbush_zombies/Betteroffdead/Flatbush+Zombies+222.mp3'],
+        ["GOD Blessed the DEAD", 201, 'https://cloudify-seeds.s3.amazonaws.com/Flatbush_zombies/Betteroffdead/GOD+Blessed+The+DEAD.mp3'],
+        ["My Team, Supreme", 302, 'https://cloudify-seeds.s3.amazonaws.com/Flatbush_zombies/Betteroffdead/My+Team+Supreme.mp3'],
+        ["The Results Are In", 342, 'https://cloudify-seeds.s3.amazonaws.com/Flatbush_zombies/Betteroffdead/The+Results+Are+In.mp3'],
+        ["Thugnificense", 411, 'https://cloudify-seeds.s3.amazonaws.com/Flatbush_zombies/Betteroffdead/Thugnificense.mp3'],
+        ["LiveFromHell", 749, 'https://cloudify-seeds.s3.amazonaws.com/Flatbush_zombies/Betteroffdead/LiveFromHell.mp3'],
+        ["Palm Trees", 416, 'https://cloudify-seeds.s3.amazonaws.com/Flatbush_zombies/Betteroffdead/Palm+Trees.mp3'],
+        ["TP4", 351, 'https://cloudify-seeds.s3.amazonaws.com/Flatbush_zombies/Betteroffdead/TP4.mp3']
+      ]
+      
+      better_off_dead_tracklist.each_with_index do |song, i|
+        better_off_dead_song = Song.create!({
+          title: song[0],
+          album_id: better_off_dead.id,
+          artist_id: flatbush_zombies.id, # Assuming flatbush_zombies is the artist.
+          year: better_off_dead.year
+        })
+        
+        # Attach the song file
+        bof_song_file = URI.open(song[2])
+        better_off_dead_song.file.attach(io: bof_song_file, filename: "#{i + 1}.mp3")
+      end
+
       never_gonna_give_you_up = Song.create!({
       title: "Never Gonna Give You Up",
       artist_id: rick_astley.id,

@@ -39,7 +39,7 @@ function LoginFormPage() {
   return (
     <div className="loginbackground">
       <header className="logInTopBar">
-        <span className="cloudifyLogo"><i class="fa-solid fa-compact-disc"></i>&nbsp;Cloudify</span>
+        <span className="cloudifyLogo"><i className="fa-solid fa-compact-disc"></i>&nbsp;Cloudify</span>
       </header>
 
       <form id="logInForm" onSubmit={handleSubmit} >

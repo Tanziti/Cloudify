@@ -14,14 +14,14 @@ export default function Sidebar() {
           <li>
             {/* <NavLink to="/home"> */}
             <span className="fa-solid">
-              <i class="fa-solid fa-house"></i>
+              <i className="fa-solid fa-house"></i>
             </span>
             <span className="home">Home</span>
             {/* </NavLink> */}
           </li>
           <li>
             {/* <NavLink to="/search"> */}
-            <span className="fa-solid"><i class="fa-solid fa-magnifying-glass"></i>
+            <span className="fa-solid"><i className="fa-solid fa-magnifying-glass"></i>
             </span>
             <span className="search">Search</span>
             {/* </NavLink> */}

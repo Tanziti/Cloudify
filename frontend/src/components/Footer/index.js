@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react"
 import "./Footer.css"
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAlbums, getAlbums } from "../../../store/albums";
+import { fetchAlbum, fetchAlbums } from "../../store/albums";
 import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { fetchArtists, getArtists } from "../../../store/artists";
+import { fetchArtist, fetchArtists } from "../../store/artists";
 
 
 export default function Playbar() {
@@ -49,16 +49,16 @@ export default function Playbar() {
   const counter = useRef(0);
 
   const volumeOffSymbol = () => {
-    return <i class="fa-solid fa-volume-xmark"></i>;
+    return <i className="fa-solid fa-volume-xmark"></i>;
   }
   const volumeLowSymbol = () => {
-    return <i class="fa-solid fa-volume-off"></i>;
+    return <i className="fa-solid fa-volume-off"></i>;
   }
   const volumeMidSymbol = () => {
-    return <i class="fa-solid fa-volume-low"></i>;
+    return <i className="fa-solid fa-volume-low"></i>;
   }
   const volumeHighSymbol = () => {
-    return <i class="fa-solid fa-volume-high"></i>;
+    return <i className="fa-solid fa-volume-high"></i>;
   }
 
   const [volumeSymbol, setVolumeSymbol] = useState(volumeHighSymbol());
@@ -182,11 +182,11 @@ export default function Playbar() {
   }, [paused])
 
   const playCirc = () => {
-    return <i class="fa-solid fa-circle-play"></i>;
+    return <i className="fa-solid fa-circle-play"></i>;
   }
 
   const pauseCirc = () => {
-    return <i class="fa-solid fa-circle-pause"></i>;
+    return <i className="fa-solid fa-circle-pause"></i>;
   }
 
   const invisibleImageUrl = "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
@@ -369,7 +369,7 @@ export default function Playbar() {
                   <h4 onClick={() => { history.push(`/artists/${currentSong?.artistId}`) }}>{currentSong?.artistName ? currentSong.artistName : ""}</h4>
                 </div>
                 <div>
-                  <i class="fa-regular fa-heart"></i>
+                  <i className="fa-regular fa-heart"></i>
                 </div>
                 <div>
 
@@ -379,14 +379,14 @@ export default function Playbar() {
           </section>
           <section className="middle">
             <div className="middleTop">
-              <i class="fa-solid fa-shuffle"></i>
-              <i class="fa-solid fa-backward-step"
+              <i className="fa-solid fa-shuffle"></i>
+              <i className="fa-solid fa-backward-step"
                 onClick={() => { audioRef.current.currentTime = 0 }}>
               </i>
               <div className="playPause" onClick={() => { setPaused(!paused) }}>
                 {audioRef?.current?.paused ? playCirc() : pauseCirc()}
               </div>
-              <i class="fa-solid fa-forward-step"
+              <i className="fa-solid fa-forward-step"
                 onClick={() => {
                   if (sessionUser.queue.length === 1) {
                     audioRef.current.currentTime = audioRef.current.duration;
@@ -395,7 +395,7 @@ export default function Playbar() {
                   }
                 }}>
               </i>
-              <i class="fa-solid fa-repeat"></i>
+              <i className="fa-solid fa-repeat"></i>
               <audio src={audioSrc} ref={audioRef} preload="auto" />
             </div>
             <div className="middleBottom">
@@ -427,7 +427,7 @@ export default function Playbar() {
             </div>
           </section>
           <section className="rightSide">
-            <div className="queueSymbol"><i class="fa-solid fa-list-ul"></i></div>
+            <div className="queueSymbol"><i className="fa-solid fa-list-ul"></i></div>
             <div className="volumeSymbol"
               onClick={() => {
                 if (audioRef.current.volume !== 0) {
@@ -466,7 +466,7 @@ export default function Playbar() {
                 <div className="volumeRange" style={volumeRangeStyle}></div>
               </div>
             </div>
-            <div className="fullScreenSymbol"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></div>
+            <div className="fullScreenSymbol"><i className="fa-solid fa-up-right-and-down-left-from-center"></i></div>
           </section>
         </>
       )}

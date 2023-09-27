@@ -5,22 +5,22 @@ import { useSelector } from "react-redux";
 
 
 const playSymbol = () => {
-  return <i class="fa-solid fa-play" style={{ color: "#FFFFFF" }}></i>;
+  return <i className="fa-solid fa-play" style={{ color: "#FFFFFF" }}></i>;
 }
 const heartSymbol = () => {
-  return <Link to="/"><i class="fa-regular fa-heart" style={{ fontSize: "16px" }}></i></Link>;
+  return <Link to="/"><i className="fa-regular fa-heart" style={{ fontSize: "16px" }}></i></Link>;
 }
 const pauseSymbol = () => {
-  return <i class="fa-solid fa-pause" style={{ color: "#FFFFFF" }}></i>;
+  return <i className="fa-solid fa-pause" style={{ color: "#FFFFFF" }}></i>;
 }
 const spinningDiscSymbol = () => {
-  return <i class="fa-solid fa-compact-disc fa-spin"></i>;
+  return <i className="fa-solid fa-compact-disc fa-spin"></i>;
 }
 const ellipsisSymbol = () => {
-  return <i class="fa-solid fa-ellipsis" style={{ color: "#FFFFFF" }}></i>;
+  return <i className="fa-solid fa-ellipsis" style={{ color: "#FFFFFF" }}></i>;
 }
 export const invisibleEllipsisSymbol = () => {
-  return <i class="fa-solid fa-ellipsis" style={{ opacity: 0 }}></i>;
+  return <i className="fa-solid fa-ellipsis" style={{ opacity: 0 }}></i>;
 }
 
 export default function SongIndex({ song, artist, songsForQueue }) {
