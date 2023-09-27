@@ -1,4 +1,5 @@
 import { receiveAlbums } from "./albums"
+import csrfFetch from "./csrf"
 import { receiveSongs } from "./songs"
 
 const RECEIVE_ARTISTS = 'artists/RECEIVE_ARTISTS'
@@ -24,7 +25,7 @@ export const getArtist = (artistId) => (store) => {
 }
 
 export const fetchArtists = () => async dispatch => {
-  const res = await fetch('api/artists')
+  const res = await csrfFetch('api/artists')
   if (res.ok) {
     const data = await res.json();
     // debugger;
@@ -35,7 +36,7 @@ export const fetchArtists = () => async dispatch => {
 }
 
 export const fetchArtist = (artistId) => async dispatch => {
-  const res = await fetch(`api/artists/${artistId}`)
+  const res = await csrfFetch(`api/artists/${artistId}`)
   if (res.ok) {
     const data = await res.json();
     dispatch(receiveArtist(data.artist));

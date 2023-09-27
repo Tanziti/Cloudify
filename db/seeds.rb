@@ -77,19 +77,18 @@ ApplicationRecord.transaction do
     live_from_the_dentist_office_song = Song.create!({
       title: song[0],
       album_id: live_from_the_dentist_office.id,
-      artist_id: artist.id, # Replace 'artist' with the actual artist object
+      artist_id:  injury_reserve.id, # Replace 'artist' with the actual artist object
       year: live_from_the_dentist_office.year, # Replace with the actual year
     
     })
   
-    # Attach the song URL as additional information
     live_from_the_dentist_office_song_file = URI.open(song[2])
     live_from_the_dentist_office_song.file.attach(io: live_from_the_dentist_office_song_file, filename: "#{i+1}.mp3")
   end
 
   floss = Album.create!({
     name: 'Floss',
-    artist_id: artist.id, # Replace 'artist' with the actual artist object
+    artist_id:  injury_reserve.id, # Replace 'artist' with the actual artist object
     year: 2016 # Replace with the actual year
   })
   floss_image = URI.open("https://cloudify-seeds.s3.amazonaws.com/Injury_reserve/Floss/Floss_cover.jpg")
@@ -114,7 +113,7 @@ ApplicationRecord.transaction do
    floss_song = Song.create!({
       title: song[0],
       album_id: live_from_the_dentist_office.id,
-      artist_id: artist.id, # Replace 'artist' with the actual artist object
+      artist_id: Injury_reserve.id, # Replace 'artist' with the actual artist object
       year: floss_office.year, # Replace with the actual year
      
     })

@@ -1,13 +1,15 @@
+import csrfFetch from "./csrf";
+
 export const RECEIVE_SONGS = 'songs/RECEIVE_SONGS';
 export const RECEIVE_SONG = 'songs/RECEIVE_SONG';
 
 
 export const receiveSongs = (songs) => ({
-  type: RECEIVE_SONGS, // Use RECEIVE_SONGS here, not RECEIVE_SONGS
+  type: RECEIVE_SONGS,
   songs
 })
 export const receiveSong = (song) => ({
-  type: RECEIVE_SONGS,
+  type: RECEIVE_SONG,
   song
 })
 
@@ -21,7 +23,7 @@ export const getSong = (songId) => (store) => {
 }
 
 export const fetchSongs = () => async dispatch => {
-  const res = await fetch(`api/songs/`)
+  const res = await csrfFetch(`api/songs/`)
   if (res.ok) {
     const data = await res.json();
     dispatch(receiveSongs(data));
@@ -36,6 +38,7 @@ const songsReducer = (state = {}, action) => {
 
     case RECEIVE_SONG:
       newState[action.song.id] = action.song
+      debugger
       return newState;
     default:
       return state;
