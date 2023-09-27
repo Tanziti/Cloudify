@@ -18,7 +18,7 @@ export const getSongs = (store) => {
 }
 
 export const getSong = (songId) => (store) => {
-  debugger
+  // debugger
   return store?.songs?.[songId] ? store.songs[songId] : {};
 }
 
@@ -38,7 +38,7 @@ const songsReducer = (state = {}, action) => {
 
     case RECEIVE_SONG:
       newState[action.song.id] = action.song
-      debugger
+      // debugger
       return newState;
     default:
       return state;

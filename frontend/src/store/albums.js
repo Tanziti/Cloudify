@@ -14,7 +14,7 @@ export const receiveAlbums = (albums) => ({
 })
 
 export const receiveAlbum = (album) => {
-  debugger
+  // debugger
   return {
     type: RECEIVE_ALBUM,
     album
@@ -33,12 +33,12 @@ export const getAlbum = (albumId) => (store) => {
 }
 
 export const fetchAlbum = (albumId) => async dispatch => {
-  debugger
+  // debugger
   const res = await csrfFetch(`/api/albums/${albumId}`)
   if (res.ok) {
-    debugger
+    // debugger
     const data = await res.json();
-    debugger
+    // debugger
     dispatch(receiveAlbum(data));
 
   }
@@ -59,8 +59,8 @@ const albumsReducer = (state = {}, action) => {
 
       return { ...state, ...action.albums };
     case RECEIVE_ALBUM:
-      debugger
-      newState[action.album.id] = action.album
+      // debugger
+      newState[action.album.album.id] = action.album.album
       return newState;
     default:
       return state;

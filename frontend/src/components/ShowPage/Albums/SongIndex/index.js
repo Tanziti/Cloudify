@@ -31,9 +31,9 @@ export default function SongIndex({ song, artist, songsForQueue }) {
   const [greenText, setGreenText] = useState({ color: "#FFFFFF" });
 
   let currentSong = sessionUser?.queue?.[0]?.[0]
-
+  console.log()
   useEffect(() => {
-    const audio = document.querySelector("audio");
+    // const audio = document.querySelector("audio");
     currentSong = sessionUser?.queue?.[0]?.[0]
     if (song.id === currentSong?.id) {
       setGreenText({ color: "#1ED760" })
@@ -86,7 +86,7 @@ export default function SongIndex({ song, artist, songsForQueue }) {
           <td>
             <ul>
               <li style={greenText}>{song.title}</li>
-              <li><Link to={`/artists/${artist.id}`}>{artist.name}</Link></li>
+              {/* <li><Link to={`/artists/${artist.id}`}>{artist.name}</Link></li> */}
             </ul>
           </td>
           <td>{heart}</td>
