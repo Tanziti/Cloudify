@@ -3,6 +3,7 @@ import { Link, NavLink, useHistory } from "react-router-dom/cjs/react-router-dom
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../store/session";
 import { useEffect, useState } from "react";
+import SearchBar from './SearchBar';
 
 export default function HomeNavBar() {
   const dispatch = useDispatch();
@@ -67,6 +68,8 @@ export default function HomeNavBar() {
             <button className="fa-solid circle loggedOut"><i className="fa-solid fa-chevron-left"></i></button>
             <button className="fa-solid circle loggedOut"><i className="fa-solid fa-chevron-right"></i></button>
             {/* {searching && (<SearchBar />)} */}
+            {<SearchBar />}
+
           </span>
 
           <span>

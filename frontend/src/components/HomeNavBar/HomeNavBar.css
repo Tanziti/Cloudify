@@ -93,11 +93,11 @@
   color: #000000;
 }
 
-.homeNavigation .signUp {
+.homeNav .signUp {
   margin-left: 14px;
 }
 
-.homeNavigation .installApp {
+.homeNav .installApp {
   font-size: 16px;
   height: 32px;
   width: 118.58px;
@@ -108,7 +108,7 @@
   cursor: not-allowed;
 }
 
-.homeNavigation .profile {
+.homeNav.profile {
   font-size: 16px;
   height: 32px;
   width: 32px;
@@ -118,7 +118,7 @@
   color: #FFFFFF;
 }
 
-.homeNavigation .searchBarContainer {
+.homeNav .searchBarContainer {
   padding: 5px;
   border: none;
   border-radius: 30px;
@@ -131,7 +131,7 @@
   position: relative;
 }
 
-.homeNavigation #searchInput {
+.homeNav #searchInput {
   width: 332px;
   height: 100%;
   border: 0;
@@ -143,11 +143,11 @@
   font-family: 'circularbook';
 }
 
-.homeNavigation #searchInput:focus {
+.homeNav #searchInput:focus {
   border: 2px solid #FFFFFF;
 }
 
-.homeNavigation #searchInput:hover {
+.homeNav#searchInput:hover {
   background-color: #2A2A2A;
 }
 

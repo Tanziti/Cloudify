@@ -42,12 +42,17 @@ export default function Albums() {
   // const album = useSelector(getAlbum(albumId));
   console.log(album)
 
-  // debugger
+  debugger
   if (album === null) {
     return;
   }
+<<<<<<< HEAD
   // debugger
   console.log(album.songs[2].id)
+=======
+  debugger
+
+>>>>>>> search
 
 
 
