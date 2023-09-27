@@ -9,4 +9,13 @@ class Api::SongsController < ApplicationController
     render :index
   end
 
+  def search
+    query = params[:query]
+
+    @songs = Song.where('title ILIKE ?', "%#{query}%")
+
+    render :search 
+
+  end
+
 end

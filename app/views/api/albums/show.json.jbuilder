@@ -12,7 +12,7 @@
 #     end
 #   end
 # end
- debugger
+#  debugger
 json.album do
   json.extract! @album, :id, :name, :year, :artist_id
   json.set! :image_url, @album.image.url

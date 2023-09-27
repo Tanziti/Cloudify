@@ -42,7 +42,7 @@ ApplicationRecord.transaction do
     flatbush_zombies.image.attach(io: zombie_pic, filename: 'flatbush_zombies_pic.webp')
 
     injury_reserve = Artist.create!({
-      name:"Injury Reserve"
+      name:"Injury Reserve",
       bio: "Best Group out of Arizona, RIP Groggs"
     })
 
@@ -53,7 +53,7 @@ ApplicationRecord.transaction do
 
   live_from_the_dentist_office = Album.create!({
     name: 'Live from the Dentist Office',
-    artist_id: artist.id, # Replace 'artist' with the actual artist object
+    artist_id: injury_reserve.id, # Replace 'artist' with the actual artist object
     year: 2015 # Replace with the actual year
   })
   live_from_the_dentist_office_image = URI.open("https://cloudify-seeds.s3.amazonaws.com/Injury_reserve/Live_from_the_dentist_office/Live_from_the_dentist_office_cover.jpg")
@@ -112,9 +112,9 @@ ApplicationRecord.transaction do
   floss_tracklist.each_with_index do |song, i|
    floss_song = Song.create!({
       title: song[0],
-      album_id: live_from_the_dentist_office.id,
-      artist_id: Injury_reserve.id, # Replace 'artist' with the actual artist object
-      year: floss_office.year, # Replace with the actual year
+      album_id: floss.id,
+      artist_id: injury_reserve.id, # Replace 'artist' with the actual artist object
+      year: floss.year, # Replace with the actual year
      
     })
   

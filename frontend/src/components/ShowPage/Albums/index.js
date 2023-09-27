@@ -26,7 +26,7 @@ export default function Albums() {
   // }, [sessionUser])
 
   // const songs = useSelector(getSongs);
-  // debugger
+  debugger
   // const albums = useSelector(getAlbums);
 
 
@@ -42,11 +42,11 @@ export default function Albums() {
   // const album = useSelector(getAlbum(albumId));
 
 
-  // debugger
+  debugger
   if (album === null) {
     return <h1>first render</h1>;
   }
-  // debugger
+  debugger
 
 
 

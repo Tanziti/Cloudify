@@ -210,7 +210,7 @@ div.home {
 }
 
 div.home>h2 {
-  font-family: CircularSpotifyMedium;
+  font-family: 'circularbold';
   font-size: 24px;
   text-align: left;
   padding-left: 20px;
@@ -335,18 +335,18 @@ div.home .albumGrid ul img {
 
 div.home .welcomeMessage h2 {
   color: #FFFFFF;
-  font-family: CircularSpotifyBold;
+  font-family: 'circularbold';
   font-size: 34px;
   padding: 32px;
 }
 
 div.home .welcomeMessage h2 i {
-  font-family: CircularSpotifyMediumItalic;
+  font-family: 'circularbold';
 }
 
 div.home .welcomeMessage h3 {
   color: #FFFFFF;
-  font-family: CircularSpotifyBold;
+  font-family: 'circularbold';
   font-size: 30px;
   padding: 32px;
 }

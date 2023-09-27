@@ -59,22 +59,22 @@ function App() {
               <section className="home_page_right">
                 <div className="home">
                   <h2 style={{ paddingTop: `66px` }} className="userGreeting">{generateGreeting(sessionUser)}</h2>
-                  <Switch>
-                    <Route exact path="/">
 
-                      <ArtistRow />
-                      <AlbumsRow albums={albums} />
-                    </Route>
-                    <Route exact path="/artists">
-                      <ArtistRow />
-                    </Route>
-                    <Route exact path="/albums/:albumId">
-                      <Albums />
-                    </Route>
-                    <Route exact path="/albums">
-                      <AlbumsRow albums={albums} />
-                    </Route>
-                  </Switch>
+                  <Route exact path="/">
+
+                    <ArtistRow />
+                    <AlbumsRow albums={albums} />
+                  </Route>
+                  <Route exact path="/artists">
+                    <ArtistRow />
+                  </Route>
+                  <Route exact path="/albums/:albumId">
+                    <Albums />
+                  </Route>
+                  <Route exact path="/albums">
+                    <AlbumsRow albums={albums} />
+                  </Route>
+
                 </div>
                 {/* <ShowPage /> */}
 
