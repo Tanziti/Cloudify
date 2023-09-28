@@ -30,24 +30,26 @@ export default function SongIndex({ song, artist, songsForQueue }) {
   const sessionUser = useSelector(state => state.session.user);
   const [greenText, setGreenText] = useState({ color: "#FFFFFF" });
 
-  let currentSong = sessionUser?.queue?.[0]?.[0]
+  let currentSong = sessionUser?.queue?.[1]?.[0]
   console.log()
   useEffect(() => {
     // const audio = document.querySelector("audio");
-    currentSong = sessionUser?.queue?.[0]?.[0]
+    currentSong = sessionUser?.queue?.[1]?.[0]
     if (song.id === currentSong?.id) {
       setGreenText({ color: "#1ED760" })
     } else {
       setGreenText({ color: "#FFFFFF" })
     }
-  }, [sessionUser?.queue?.[0]])
+  }, [sessionUser?.queue?.[1]])
 
   const handleTrackClick = () => {
     if (sessionUser) {
+      debugger
       if (song.id !== currentSong?.id) {
         sessionUser.queue = songsForQueue;
-        const audio = document.querySelector("audio");
-        audio.currentTime = sessionUser.queue?.[0]?.[1] ? sessionUser.queue[0][1] : 0;
+        // const audio = document.querySelector("audio");
+        debugger
+        // audio.currentTime = sessionUser.queue?.[]?.[1] ? sessionUser.queue[0][1] : 0;
       }
       document.querySelector(".playPause").click()
     }
@@ -86,7 +88,7 @@ export default function SongIndex({ song, artist, songsForQueue }) {
           <td>
             <ul>
               <li style={greenText}>{song.title}</li>
-              {/* <li><Link to={`/artists/${artist.id}`}>{artist.name}</Link></li> */}
+              <li><Link to={`/artists/${artist.id}`}>{artist.name}</Link></li>
             </ul>
           </td>
           <td>{heart}</td>

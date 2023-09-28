@@ -7,14 +7,18 @@ import { useEffect, useState } from "react";
 import { getSongs } from "../../../store/songs";
 import { getArtist } from "../../../store/artists";
 import SongIndex, { invisibleEllipsisSymbol } from "./SongIndex";
+import { fetchArtist } from "../../../store/artists";
 
 
 export default function Albums() {
+  const dispatch = useDispatch();
   const { albumId } = useParams();
   const album = useSelector(getAlbum(albumId))
+  const artist = useSelector(getArtist(album?.artistId));
+  // const artist = useSelector(getArtist(album.artistId))
   // const [album, setAlbum] = useState("")
-  const dispatch = useDispatch();
-  // console.log(albumId)
+
+  // console.log(album.albumId)
 
 
   const sessionUser = useSelector(state => state.session.user);
@@ -25,37 +29,32 @@ export default function Albums() {
     currentSong = sessionUser?.queue?.[0]?.[0]
   }, [sessionUser])
 
-  // const songs = useSelector(getSongs);
+
   debugger
-  // const albums = useSelector(getAlbums);
-
-
   // const moreAlbums = Object.values(albums).filter(album => album.id !== Number(albumId) && album.artistId === artist.id);
   useEffect(() => {
 
-    // debugger
     dispatch(fetchAlbum(albumId));
     // debugger
     console.log("function entered")
-  }, [albumId]);
+  }, [dispatch, albumId]);
 
-  // const album = useSelector(getAlbum(albumId));
-  console.log(album)
 
-  debugger
-  if (album === null) {
+
+  if (album === null || artist === null) {
     return;
   }
-<<<<<<< HEAD
-  // debugger
-  console.log(album.songs[2].id)
-=======
+
+  console.log(album.artistId)
+  const songsForTracklist = Object.values(album.songs)
+    .sort((a, b) => a.number - b.number)
+
+
+  const songsForQueue = songsForTracklist //returns an array
+    .map(song => [song, 0])
+
+
   debugger
-
->>>>>>> search
-
-
-
 
   // debugger
   return (
@@ -68,12 +67,12 @@ export default function Albums() {
           <div className='albumHeaders'>
             <h4>Album</h4>
             <h1>{album.title}</h1>
-            {/* 
+
             <h5>
               <img src={artist.imageUrl}></img>
               <Link to={`/artists/${artist.id}`}>{artist.name}</Link>
 
-            </h5> */}
+            </h5>
           </div>
         </div>
         <div className='opaqueBkgd-2' style={{
@@ -82,14 +81,14 @@ export default function Albums() {
           <div className='trackList'>
             <span className="bigButtons">
               <button className="bigPlay" onClick={() => {
-                // if (sessionUser) {
-                //   sessionUser.queue = songsForQueue
-                //   const audio = document.querySelector("audio")
-                //   audio.currentTime = sessionUser.queue?.[0]?.[1] ? sessionUser.queue[0][1] : 0
-                //   if (audio.paused) {
-                //     document.querySelector(".playPause").click()
-                //   }
-                // }
+                if (sessionUser) {
+                  sessionUser.queue = songsForQueue
+                  const audio = document.querySelector("audio")
+                  audio.currentTime = sessionUser.queue?.[0]?.[1] ? sessionUser.queue[0][1] : 0
+                  if (audio.paused) {
+                    document.querySelector(".playPause").click()
+                  }
+                }
               }}>{currentSong?.albumId === albumId ?
                 (<i className="fa-solid fa-pause"></i>) :
                 (<i className="fa-solid fa-play"></i>)}</button>
@@ -105,16 +104,16 @@ export default function Albums() {
                 </td>
                 <td></td>
                 <td><i className="fa-regular fa-clock"></i></td>
-                {/* <td>{invisibleEllipsisSymbol()}</td> */}
+                <td>{invisibleEllipsisSymbol()}</td>
               </tr>
               <hr></hr>
-              {album.songs.map(song => {
+              {album?.songs?.map(song => {
                 return (
                   <SongIndex
                     key={song.id}
                     song={song}
-                  // artist={artist}
-                  // songsForQueue={songsForQueue.filter(entry => entry[0].number >= song.number)} 
+                    artist={artist}
+                    songsForQueue={songsForQueue}
                   />
                 )
               })}

@@ -15,9 +15,9 @@ export default function Playbar() {
 
   const [paused, setPaused] = useState(true);
   const [durationOrRemainder, setDurationOrRemainder] = useState(true);
-  const [currentSong, setCurrentSong] = useState(sessionUser?.queue?.[0]?.[0]);
-  const [currentSongTime, setCurrentSongTime] = useState(sessionUser?.queue?.[0]?.[1] ? sessionUser?.queue[0][1] : 0);
-
+  const [currentSong, setCurrentSong] = useState("");
+  // const [currentSongTime, setCurrentSongTime] = useState(sessionUser?.queue?.[0]?.[1] ? sessionUser?.queue[0][1] : 0);
+  debugger
   const [knobStyle, setKnobStyle] = useState({
     left: 0
   });
@@ -39,7 +39,7 @@ export default function Playbar() {
   const [isDragging, setIsDragging] = useState(false);
 
   const audioRef = useRef();
-
+  debugger
   const trackRef = useRef();
   const trackContainerRef = useRef();
 
@@ -66,15 +66,16 @@ export default function Playbar() {
   let percent = 0;
   let volPercent = 100;
 
-  const [audioSrc, setAudioSrc] = useState(currentSong?.fileUrl ? currentSong.fileUrl : "");
+  const [audioSrc, setAudioSrc] = useState(currentSong.file ? currentSong.file : "");
+  debugger
   useEffect(() => {
-    if (audioRef.current && currentSongTime) {
-      audioRef.current.currentTime = currentSongTime
-      percent = 100 * (currentSongTime / audioRef.current.duration);
-      setKnobStyle({ left: `${percent}%` });
-      setRangeStyle({ ...rangeStyle, width: `${percent}%` });
-      if (!audioRef.current.paused) audioRef.current.pause();
-    }
+    // if (audioRef.current && currentSongTime) {
+    //   audioRef.current.currentTime = currentSongTime
+    //   percent = 100 * (currentSongTime / audioRef.current.duration);
+    //   setKnobStyle({ left: `${percent}%` });
+    //   setRangeStyle({ ...rangeStyle, width: `${percent}%` });
+    // }
+    if (!audioRef.current.paused) audioRef.current.pause();
 
     const handleLoadedMetadata = () => {
       if (audioRef.current && !audioRef.current.paused) {
@@ -95,8 +96,8 @@ export default function Playbar() {
 
   useEffect(() => {
     if (sessionUser?.queue?.[0]) {
-      setCurrentSong(sessionUser?.queue?.[0]?.[0]);
-      setAudioSrc(sessionUser?.queue?.[0]?.[0]?.fileUrl);
+      setCurrentSong(sessionUser.queue[0][0]);
+      setAudioSrc(sessionUser?.queue?.[0]?.[0]?.file);
       setKnobStyle({ ...rangeStyle, left: 0 });
       setRangeStyle({ ...rangeStyle, width: 0 });
       setPaused(!paused);
@@ -110,12 +111,12 @@ export default function Playbar() {
   useEffect(() => {
     const updateTime = () => {
       if (!isDragging && audioRef.current) {
-        const currentTime = audioRef.current.currentTime;
-        setCurrentSongTime(currentTime);
-        if (sessionUser?.queue?.[0]) {
-          sessionUser.queue[0][1] = currentTime;
-        }
-        percent = 100 * (currentTime / audioRef.current.duration);
+        // const currentTime = audioRef.current.currentTime;
+        // setCurrentSongTime(currentTime);
+        // if (sessionUser?.queue?.[0]) {
+        //   sessionUser.queue[0][1] = currentTime;
+        // }
+        // percent = 100 * (currentTime / audioRef.current.duration);
         setKnobStyle({ left: `${percent}%` });
         setRangeStyle({ ...rangeStyle, width: `${percent}%` });
       }
@@ -147,7 +148,7 @@ export default function Playbar() {
   useEffect(() => {
     const goToNextSong = async () => {
       sessionUser.queue.shift();
-      setAudioSrc(sessionUser?.queue?.[0]?.[0]?.fileUrl);
+      setAudioSrc(sessionUser?.queue?.[0]?.[0]?.file);
     }
     if (audioRef.current) {
       audioRef.current.addEventListener("ended", goToNextSong)
@@ -221,8 +222,8 @@ export default function Playbar() {
       } else if (xPos > rect.left) {
         percent = 100 * ((xPos - rect.left) / trackLength)
       }
-      setCurrentSongTime(audioRef.current.duration * (percent / 100));
-      if (sessionUser?.queue?.[0]) sessionUser.queue[0][1] = audioRef.current.duration * (percent / 100);
+      // setCurrentSongTime(audioRef.current.duration * (percent / 100));
+      // if (sessionUser?.queue?.[0]) sessionUser.queue[0][1] = audioRef.current.duration * (percent / 100);
       setKnobStyle({ left: `${percent}%`, transition: "none" });
       setRangeStyle({ ...rangeStyle, backgroundColor: `#5FBA56`, width: `${percent}%`, transition: "none" })
     }
