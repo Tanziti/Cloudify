@@ -350,3 +350,50 @@ div.home .welcomeMessage h3 {
   font-size: 30px;
   padding: 32px;
 }
+
+.home {
+  scrollbar-width: thin;
+  scrollbar-color: #2c2c2c #282828;
+}
+
+/* Style the scrollbar thumb (draggable part) */
+.home::-webkit-scrollbar-thumb {
+  background-color: #2ebd59;
+
+  border-radius: 5px;
+
+}
+
+/* Style the scrollbar track (background) */
+.home::-webkit-scrollbar-track {
+  background-color: #282828;
+  /* Color of the track */
+}
+
+
+/* Hide scrollbar in Internet Explorer and Edge */
+.home {
+  -ms-overflow-style: none;
+  scrollbar-width: thin;
+  scrollbar-width: thin;
+}
+
+.home {
+  scrollbar-width: thin;
+  scrollbar-color: #2ebd59 transparent;
+  /* thumb and track colors */
+}
+
+/* Style the scrollbar thumb (draggable part) for Chrome */
+/* .home::-webkit-scrollbar-thumb {
+  background-color: #2ebd59;
+
+  border-radius: 5px;
+
+} */
+
+/* Style the scrollbar track (background) for Chrome */
+.home::-webkit-scrollbar-track {
+  background-color: transparent;
+  /* Color of the track */
+}

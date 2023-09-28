@@ -52,6 +52,7 @@ export default function HomeNavBar() {
             <button className="fa-solid circle loggedOut"><i className="fa-solid fa-chevron-left"></i></button>
             <button className="fa-solid circle loggedOut"><i className="fa-solid fa-chevron-right"></i></button>
           </span>
+          {<SearchBar />}
           <span>
             <button className="looseLinks">Premium</button>
             <button className="looseLinks">Support</button>
@@ -68,10 +69,10 @@ export default function HomeNavBar() {
             <button className="fa-solid circle loggedOut"><i className="fa-solid fa-chevron-left"></i></button>
             <button className="fa-solid circle loggedOut"><i className="fa-solid fa-chevron-right"></i></button>
             {/* {searching && (<SearchBar />)} */}
-            {<SearchBar />}
+
 
           </span>
-
+          {<SearchBar />}
           <span>
             <button className="installApp"><i className="fa-regular fa-circle-down"></i> Install App</button>
             <button className="profile" onClick={(e) => { e.preventDefault(); dispatch(logout()); }}><i className="fa-solid fa-user-circle" /></button>

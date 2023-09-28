@@ -8,13 +8,13 @@
   margin: 0;
   box-sizing: border-box;
   flex: 1 1 auto;
-  font-family: CircularSpotifyBook;
+  font-family: 'circularbook';
 }
 
 .libraryNavigation a {
   text-decoration: none;
   color: #A7A7A7;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .libraryNavigation a:hover {

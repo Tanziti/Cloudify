@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import { formatTime } from "../../Artist";
+// import { formatTime } from "../../Artist";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
@@ -32,6 +32,7 @@ export default function SongIndex({ song, artist, songsForQueue }) {
 
   let currentSong = sessionUser?.queue?.[1]?.[0]
   console.log()
+
   useEffect(() => {
     // const audio = document.querySelector("audio");
     currentSong = sessionUser?.queue?.[1]?.[0]
@@ -44,11 +45,11 @@ export default function SongIndex({ song, artist, songsForQueue }) {
 
   const handleTrackClick = () => {
     if (sessionUser) {
-      debugger
+      // debugger
       if (song.id !== currentSong?.id) {
         sessionUser.queue = songsForQueue;
         // const audio = document.querySelector("audio");
-        debugger
+        // debugger
         // audio.currentTime = sessionUser.queue?.[]?.[1] ? sessionUser.queue[0][1] : 0;
       }
       document.querySelector(".playPause").click()
@@ -92,7 +93,7 @@ export default function SongIndex({ song, artist, songsForQueue }) {
             </ul>
           </td>
           <td>{heart}</td>
-          <td>{formatTime(song.length)}</td>
+          {/* <td>{formatTime(song.length)}</td> */}
           <td>{ellipsis}</td>
         </tr>
       )}
@@ -118,7 +119,7 @@ export default function SongIndex({ song, artist, songsForQueue }) {
             </ul>
           </td>
           <td>{heart}</td>
-          <td>{formatTime(song.length)}</td>
+          {/* <td>{formatTime(song.length)}</td> */}
           <td>{ellipsis}</td>
         </tr>
       )}

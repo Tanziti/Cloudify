@@ -16,8 +16,8 @@ export default function Playbar() {
   const [paused, setPaused] = useState(true);
   const [durationOrRemainder, setDurationOrRemainder] = useState(true);
   const [currentSong, setCurrentSong] = useState("");
-  // const [currentSongTime, setCurrentSongTime] = useState(sessionUser?.queue?.[0]?.[1] ? sessionUser?.queue[0][1] : 0);
-  debugger
+  const [currentSongTime, setCurrentSongTime] = useState(sessionUser?.queue?.[0]?.[1] ? sessionUser?.queue[0][1] : 0);
+  // debugger
   const [knobStyle, setKnobStyle] = useState({
     left: 0
   });
@@ -39,7 +39,7 @@ export default function Playbar() {
   const [isDragging, setIsDragging] = useState(false);
 
   const audioRef = useRef();
-  debugger
+  // debugger
   const trackRef = useRef();
   const trackContainerRef = useRef();
 
@@ -67,15 +67,16 @@ export default function Playbar() {
   let volPercent = 100;
 
   const [audioSrc, setAudioSrc] = useState(currentSong.file ? currentSong.file : "");
-  debugger
+  // debugger
   useEffect(() => {
-    // if (audioRef.current && currentSongTime) {
-    //   audioRef.current.currentTime = currentSongTime
-    //   percent = 100 * (currentSongTime / audioRef.current.duration);
-    //   setKnobStyle({ left: `${percent}%` });
-    //   setRangeStyle({ ...rangeStyle, width: `${percent}%` });
-    // }
-    if (!audioRef.current.paused) audioRef.current.pause();
+    if (audioRef.current && currentSongTime) {
+      audioRef.current.currentTime = currentSongTime
+      percent = 100 * (currentSongTime / audioRef.current.duration);
+      setKnobStyle({ left: `${percent}%` });
+      setRangeStyle({ ...rangeStyle, width: `${percent}%` });
+      if (!audioRef.current.paused) audioRef.current.pause();
+    }
+
 
     const handleLoadedMetadata = () => {
       if (audioRef.current && !audioRef.current.paused) {
@@ -91,7 +92,7 @@ export default function Playbar() {
         audioRef.current.removeEventListener('loadedmetadata', handleLoadedMetadata);
       }
     };
-  }, [])
+  }, [audioRef])
 
 
   useEffect(() => {
@@ -111,12 +112,12 @@ export default function Playbar() {
   useEffect(() => {
     const updateTime = () => {
       if (!isDragging && audioRef.current) {
-        // const currentTime = audioRef.current.currentTime;
-        // setCurrentSongTime(currentTime);
-        // if (sessionUser?.queue?.[0]) {
-        //   sessionUser.queue[0][1] = currentTime;
-        // }
-        // percent = 100 * (currentTime / audioRef.current.duration);
+        const currentTime = audioRef.current.currentTime;
+        setCurrentSongTime(currentTime);
+        if (sessionUser?.queue?.[0]) {
+          sessionUser.queue[0][1] = currentTime;
+        }
+        percent = 100 * (currentTime / audioRef.current.duration);
         setKnobStyle({ left: `${percent}%` });
         setRangeStyle({ ...rangeStyle, width: `${percent}%` });
       }

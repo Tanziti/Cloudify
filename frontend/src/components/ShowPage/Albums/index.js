@@ -30,14 +30,28 @@ export default function Albums() {
   }, [sessionUser])
 
 
-  debugger
+  // debugger
   // const moreAlbums = Object.values(albums).filter(album => album.id !== Number(albumId) && album.artistId === artist.id);
   useEffect(() => {
 
     dispatch(fetchAlbum(albumId));
+    console.log(album)
+    if (!artist && album) {
+      dispatch(fetchArtist(album.artistId))
+    }
     // debugger
     console.log("function entered")
   }, [dispatch, albumId]);
+
+  useEffect(() => {
+    console.log(album)
+
+    if (!artist) {
+      dispatch(fetchArtist(album.artistId))
+    }
+    // debugger
+    console.log("function entered")
+  }, [dispatch, album]);
 
 
 
@@ -45,16 +59,22 @@ export default function Albums() {
     return;
   }
 
-  console.log(album.artistId)
-  const songsForTracklist = Object.values(album.songs)
-    .sort((a, b) => a.number - b.number)
 
 
-  const songsForQueue = songsForTracklist //returns an array
-    .map(song => [song, 0])
+  let songsForTracklist;
+  let songsForQueue;
+  if (album && album.songs) {
+    songsForTracklist = Object.values(album.songs)
+      .sort((a, b) => a.number - b.number);
+    songsForQueue = songsForTracklist //returns an array
+      .map(song => [song, 0]);
+  }
 
 
-  debugger
+
+
+
+  // debugger
 
   // debugger
   return (

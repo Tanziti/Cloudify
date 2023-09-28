@@ -16,7 +16,7 @@ export default function Library() {
   // }, [])
 
   return (
-    <div className="library">
+    <div className="library" style={{ overflow: 'hidden' }}>
       <ul>
         {/* {playlists && (
           <>

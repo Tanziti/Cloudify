@@ -25,16 +25,16 @@ function App() {
     const today = new Date();
     const currentHour = today.getHours();
     if (currentHour < 12) {
-      return user ? `Good morning, ${user.name}` : "Good morning"
+      return "Good morning"
     } else if (currentHour < 18) {
-      return user ? `Good afternoon, ${user.name}` : "Good afternoon"
+      return "Good afternoon"
     } else {
-      return user ? `Good evening, ${user.name}` : "Good evening"
+      return "Good evening"
     }
   }
-  useEffect(() => {
-    dispatch(fetchAlbums());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchAlbums());
+  // }, [dispatch]);
 
 
   return (
@@ -57,7 +57,7 @@ function App() {
               </section>
               {/* <Divider /> */}
               <section className="home_page_right">
-                <div className="home">
+                <div className="home" >
                   <h2 style={{ paddingTop: `66px` }} className="userGreeting">{generateGreeting(sessionUser)}</h2>
 
                   <Route exact path="/">
@@ -67,6 +67,9 @@ function App() {
                   </Route>
                   <Route exact path="/artists">
                     <ArtistRow />
+                  </Route>
+                  <Route exact path="/artists/:artistId">
+                    <Artist />
                   </Route>
                   <Route exact path="/albums/:albumId">
                     <Albums />

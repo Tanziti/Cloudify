@@ -11,16 +11,19 @@ const receiveArtists = (artists) => ({
   artists
 })
 
-export const receiveArtist = (artist) => ({
-  type: RECEIVE_ARTIST,
-  artist
-})
+export const receiveArtist = (artist) => {
+  return {
+    type: RECEIVE_ARTIST,
+    artist
+  }
+}
 
 export const getArtists = (store) => {
   return store?.artists ? store.artists : {};
 }
 
 export const getArtist = (artistId) => (store) => {
+  debugger
   return store?.artists?.[artistId] ? store.artists[artistId] : {};
 }
 
@@ -36,11 +39,13 @@ export const fetchArtists = () => async dispatch => {
 }
 
 export const fetchArtist = (artistId) => async dispatch => {
-  const res = await csrfFetch(`api/artists/${artistId}`)
+  debugger
+  const res = await csrfFetch(`/api/artists/${artistId}`)
   if (res.ok) {
     const data = await res.json();
-    dispatch(receiveArtist(data.artist));
-    // dispatch(receiveAlbums(data.albums));
+    debugger
+    dispatch(receiveArtist(data));
+
     // dispatch(receiveSongs(data.songs));
   }
 }
@@ -52,8 +57,8 @@ const artistsReducer = (state = {}, action) => {
       newState = action.artists;
       return newState;
     case RECEIVE_ARTIST:
-
-      newState[action.artist.id] = action.artist
+      newState[action.artist.artist.id] = action.artist.artist
+      debugger
       return newState;
     default:
       return state;

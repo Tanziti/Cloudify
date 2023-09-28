@@ -15,8 +15,6 @@ export default function ArtistRow() {
 
   console.log("artist")
   useEffect(() => {
-
-
     dispatch(fetchArtists());
   }, [])
 
