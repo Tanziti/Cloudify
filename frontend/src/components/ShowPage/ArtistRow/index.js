@@ -29,7 +29,7 @@ export default function ArtistRow() {
             {
               Object.values(artists).map(artist => {
                 return <ul onClick={() => { history.push(`/artists/${artist.id}`) }}>
-                  <li><img src={`${artist.imageUrl}`}></img></li>
+                  <li id="artistGridImage"><img src={`${artist.imageUrl}`}></img></li>
                   <li className="artistName">{artist.name}</li>
                 </ul>
               })

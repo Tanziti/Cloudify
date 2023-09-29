@@ -34,7 +34,7 @@ const AlbumsRow = () => {
             {Object.values(albums).map(album => (
               <ul onClick={() => history.push(`/albums/${album.id}`)}>
                 <li><img src={`${album.imageUrl}`} alt={album.title} /></li>
-                <li className="artistName">{album.title}</li>
+                <li className="artistName">{album.name}</li>
               </ul>
             ))}
           </div>

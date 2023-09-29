@@ -163,7 +163,7 @@ function SignupFormPage() {
 
         <form onSubmit={handleSubmit}>
           <h2>Sign up with your email address</h2>
-          <ul>
+          <ul className="signupformul">
             {errors.map((error) => <li key={error}>{error}</li>)}
           </ul>
           <div>

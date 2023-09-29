@@ -8,7 +8,7 @@ class Api::AlbumsController < ApplicationController
   def show
     # debugger
       @album = Album.find_by(id: params[:id])
-      @songs = @album.songs
+      # @songs = @album.songs
       # debugger
       render :show
   end

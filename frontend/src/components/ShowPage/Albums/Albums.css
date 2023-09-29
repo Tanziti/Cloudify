@@ -46,7 +46,7 @@ h1,
 }
 
 .albumHeaders h1 {
-  font-family: CircularSpotifyMedium;
+  font-family: 'circularbold', sans-serif;
   font-size: 80px;
   letter-spacing: -4px;
   white-space: nowrap;
@@ -54,12 +54,12 @@ h1,
 
 .albumHeaders h4,
 .albumHeaders a {
-  font-family: CircularSpotifyBook;
+  font-family: 'circularbook', sans-serif;
   font-size: 14px;
 }
 
 .albumHeaders h5 {
-  font-family: CircularSpotifyLight;
+  font-family: 'circularbook', sans-serif;
   font-size: 14px;
   vertical-align: middle;
   display: flex;
@@ -80,7 +80,7 @@ h1,
 }
 
 .albumHeaders .albumLength {
-  font-family: CircularSpotifyLight;
+  font-family: 'circulartitle', sans-serif;
   color: #FFFFFF;
 }
 
@@ -96,7 +96,7 @@ div.home .opaqueBkgd-2 {
   background-color: rgba(18, 18, 18, .85);
   margin-top: 340px;
   color: #B3B3B3;
-  font-family: CircularSpotifyLight;
+  font-family: 'circularbook', sans-serif;
   font-size: 14px;
 }
 
@@ -185,13 +185,13 @@ div.home .opaqueBkgd-2 {
 }
 
 .trackList>table ul>li:first-child {
-  font-family: CircularSpotifyLight;
+  font-family: 'circularbook', sans-serif;
   font-size: 16px;
   color: #FFFFFF;
 }
 
 .trackList>table ul a {
-  font-family: CircularSpotifyLight;
+  font-family: 'circularbook', sans-serif;
   font-size: 14px;
   color: #B3B3B3;
   text-decoration: none;
@@ -212,7 +212,7 @@ div.home .moreBy ul:hover {
 }
 
 .moreBy h2 {
-  font-family: CircularSpotifyMedium;
+  font-family: 'circularbook', sans-serif;
   font-size: 24px;
   text-align: left;
   color: #FFFFFF;

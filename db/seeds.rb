@@ -1,14 +1,19 @@
 # db/seeds.rb
-
+  require "open-uri"
 ApplicationRecord.transaction do 
   puts "Destroying tables..."
   # Unnecessary if using `rails db:seed:replant`
   User.destroy_all
-
+  Artist.destroy_all
+  Album.destroy_all
+  Song.destroy_all
   puts "Resetting primary keys..."
   # For easy testing, so that after seeding, the first `User` has `id` of 1
   ApplicationRecord.connection.reset_pk_sequence!('users')
-
+  ApplicationRecord.connection.reset_pk_sequence!('artists')
+  ApplicationRecord.connection.reset_pk_sequence!('albums')
+  ApplicationRecord.connection.reset_pk_sequence!('songs')
+end
   puts "Creating users..."
   # Create one user with an easy to remember username, email, and password:
   User.create!(
@@ -16,7 +21,7 @@ ApplicationRecord.transaction do
     email: 'demo@user.io', 
     password: 'password'
   )
-  require "open-uri"
+
 
   puts "Creating artists..."
 
@@ -119,6 +124,7 @@ ApplicationRecord.transaction do
     })
   
     # Attach the song URL as additional information
+    # floss_song.image.attach(io: floss_image, filename: 'Floss_cover.jpg')
    floss_song_file = URI.open(song[2])
     floss_song.file.attach(io: floss_song_file, filename: "#{i+1}.mp3")
   end
@@ -154,6 +160,7 @@ ApplicationRecord.transaction do
         # length: song[1],
         year: dark_twisted_fantasy.year
         })
+        # dark_twisted_fantasy_song.image.attach(io: dtf_image, filename: 'Dark_twisted_fantasy_album_cover.jpg')
         dtf_song_file = URI.open(song[2])
         dark_twisted_fantasy_song.file.attach(io: dtf_song_file, filename: "#{i+1}.mp3")
       end
@@ -167,7 +174,7 @@ ApplicationRecord.transaction do
       # Attach the album cover image
       bof_image = URI.open("https://cloudify-seeds.s3.amazonaws.com/Flatbush_zombies/Betteroffdead/flatbush-zombies-betteroffdead-Cover-Art.jpg")
       better_off_dead.image.attach(io: bof_image, filename: 'BetterOffDEAD_album_cover.jpg')
-      
+      puts "better off dead image attached"
       # Define the tracklist for BetterOffDEAD
       better_off_dead_tracklist = [
         ["Amerikkkan Pie", 440, 'https://cloudify-seeds.s3.amazonaws.com/Flatbush_zombies/Betteroffdead/Amerikkkan+Pie.mp3'],
@@ -190,7 +197,7 @@ ApplicationRecord.transaction do
         ["Palm Trees", 416, 'https://cloudify-seeds.s3.amazonaws.com/Flatbush_zombies/Betteroffdead/Palm+Trees.mp3'],
         ["TP4", 351, 'https://cloudify-seeds.s3.amazonaws.com/Flatbush_zombies/Betteroffdead/TP4.mp3']
       ]
-      
+      puts "BoD tracklist defined"
       better_off_dead_tracklist.each_with_index do |song, i|
         better_off_dead_song = Song.create!({
           title: song[0],
@@ -200,27 +207,21 @@ ApplicationRecord.transaction do
         })
         
         # Attach the song file
+        # better_off_dead_song.image.attach(io: bof_image, filename: 'BetterOffDEAD_album_cover.jpg')
         bof_song_file = URI.open(song[2])
         better_off_dead_song.file.attach(io: bof_song_file, filename: "#{i + 1}.mp3")
       end
-
+      puts "better off dead finished"
       never_gonna_give_you_up = Song.create!({
       title: "Never Gonna Give You Up",
       artist_id: rick_astley.id,
       year: 1987
     })
+    # never_gonna_give_you_up.image.attach(io: rick_pic, filename: 'Rick_astley_profile_pic.webp')
     never_gonna_give_you_up.file.attach(
       io: URI.parse("https://cloudify-seeds.s3.amazonaws.com/Never_gonna_give_you_up_rick_astley.mp3").open,
       filename: "Never_gonna_give_you_up_rick_astley.mp3"
     )
-  # More users
-  # 10.times do 
-  #   User.create!({
-  #     username: Faker::Internet.unique.username(specifier: 3),
-  #     email: Faker::Internet.unique.email,
-  #     password: 'password'
-  #   }) 
-  # end
+
 
   puts "Done!"
-end

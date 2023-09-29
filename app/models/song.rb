@@ -6,6 +6,7 @@ validates :year, presence: true
 validates :artist_id, presence: true
 
 has_one_attached :file
+has_one_attached :image
 
 belongs_to :album, optional: true
 belongs_to :artist

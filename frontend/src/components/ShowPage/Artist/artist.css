@@ -17,7 +17,7 @@ div.home .artistHeaders {
   z-index: 1;
   top: 0;
   color: #FFFFFF;
-  font-family: CircularSpotifyLight;
+  font-family: 'circularbook', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -41,7 +41,7 @@ div.home .popularSongs>table {
   /* margin-right: 34px; */
   width: 100%;
   color: #B3B3B3;
-  font-family: CircularSpotifyLight;
+  font-family: 'circularbook', sans-serif;
   font-size: 14px;
   box-sizing: border-box;
 }
@@ -105,7 +105,7 @@ div.home .popularSongs>table>tr {
 
 .popularSongs h2,
 .discog h2 {
-  font-family: CircularSpotifyMedium;
+  font-family: 'circularbook', sans-serif;
   font-size: 24px;
   text-align: left;
   color: #FFFFFF;
@@ -149,7 +149,7 @@ div.home .popularSongs>table>tr:hover {
 
 div.home .popularSongs>table a {
   color: #FFFFFF;
-  font-family: CircularSpotifyLight;
+  font-family: 'circularbook', sans-serif;
   font-size: 16px;
   text-decoration: none;
 }
@@ -177,7 +177,7 @@ div.home .popularSongs>table img {
 
 .artistHeaders h1 {
   font-size: 100px;
-  font-family: CircularSpotifyBold;
+  font-family: 'circularbold', sans-serif;
   letter-spacing: -5px;
   white-space: nowrap;
   margin: 0;
@@ -185,11 +185,11 @@ div.home .popularSongs>table img {
 
 .artistHeaders h5 {
   font-size: 14px;
-  font-family: CircularSpotifyLight;
+  font-family: 'circularbook', sans-serif;
 }
 
 .artistHeaders h4 {
-  font-family: CircularSpotifyLight;
+  font-family: 'circularbook', sans-serif;
   font-size: 16px;
   margin: 0;
 }

@@ -3,12 +3,16 @@ div.home:first-child {
 }
 
 div.home .artistGridHeader>a {
-  font-family: CircularSpotifyMedium;
+  font-family: 'circularbold', sans-serif;
   font-size: 32px;
 
 }
 
 div.home .artistGrid li {
-  font-family: CircularSpotifyBook;
+  font-family: 'circularbook', sans-serif;
 
+}
+
+#artistGridImage img {
+  border-radius: 50%;
 }

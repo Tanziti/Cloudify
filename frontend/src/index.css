@@ -210,7 +210,7 @@ div.home {
 }
 
 div.home>h2 {
-  font-family: 'circularbold';
+  font-family: 'circularbold', sans-serif;
   font-size: 24px;
   text-align: left;
   padding-left: 20px;
