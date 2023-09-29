@@ -3,6 +3,7 @@ import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import './LoginForm.css';
 import { Link, Redirect } from "react-router-dom";
+import { NavLink } from "react-router-dom/";
 
 function LoginFormPage() {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ function LoginFormPage() {
   return (
     <div className="loginbackground">
       <header className="logInTopBar">
-        <span className="cloudifyLogo"><i className="fa-solid fa-compact-disc"></i>&nbsp;Cloudify</span>
+        <NavLink to='/' ><span className="cloudifyLogo"><i className="fa-solid fa-compact-disc"></i>&nbsp;Cloudify</span></NavLink>
       </header>
 
       <form id="logInForm" onSubmit={handleSubmit} >

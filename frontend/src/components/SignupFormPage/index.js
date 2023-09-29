@@ -149,7 +149,9 @@ function SignupFormPage() {
       <div id="section">
         <div className="header">
 
-          <NavLink id="home" exact to="/"><img id="logo" src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_Black.png" alt="spotifylogo" /></NavLink>
+          <NavLink id="home" exact to="/">
+            <span id="cloudifyLogo"><i className="fa-solid fa-compact-disc"></i>&nbsp;Cloudify</span>
+          </NavLink>
           <h1>Sign up for free to start listening.</h1>
         </div>
 
@@ -294,7 +296,7 @@ function SignupFormPage() {
                     type="radio" onChange={(e) => setGender(e.target.value)} />
                   <label className="genderlabel" htmlFor="idk">
                     <span className="radio_buttons"></span>
-                    <span> Prefer not to say</span>
+                    <span>Space Cowboy</span>
                   </label>
                 </div> {!genderError ?
                   <div id="errorMessage" style={{ color: 'red' }}>Select your gender.</div> : <div></div>

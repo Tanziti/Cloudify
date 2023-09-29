@@ -210,3 +210,8 @@ div.home .popularSongs>table img {
 .discog ul:hover {
   background-color: #282828;
 }
+
+div.albumGrid {
+  display: flex;
+  flex-direction: row;
+}

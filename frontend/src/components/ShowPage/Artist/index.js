@@ -1,11 +1,11 @@
 import { Link, useParams } from 'react-router-dom/cjs/react-router-dom.min'
-// import AlbumsIndex from './AlbumsIndex'
+import AlbumsIndexItem from './ArtistAlbums';
 import './artist.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchArtist, getArtist } from '../../../store/artists';
 import { useEffect } from 'react';
 import { getAlbum } from '../../../store/albums';
-// import PopularSongItem from './PopularSongItem';
+
 
 
 // export const formatTime = (seconds) => {
@@ -73,26 +73,27 @@ export default function Artist() {
             <span className="bigHeart"><i className="fa-regular fa-heart"></i></span>
             <span className="bigDots"><i className="fa-solid fa-ellipsis"></i></span>
           </span>
-          <h2>Popular</h2>
+          {/* <h2>Popular</h2> */}
           <table>
             {/* {[1, 2, 3, 4, 5].map(i => {
-              // return //<PopularSongItem i={i} songs={
-                  Object.values(songs)
-                      .sort((a,b) => b.plays - a.plays)
-              } albums={albums}/>
+              return <PopularSongs i={i} songs={
+                Object.values(songs)
+                  .sort((a, b) => b.plays - a.plays)
+              } albums={albums} />
             })} */}
 
           </table>
         </div>
         <div className='discog'>
           <h2>Discography</h2>
-          {/* {artist.albums && (
-                <div className="albumGrid">
-                    {artist.albums.map(album => {
-                        return <AlbumsIndexItem album={album} />
-                    })}
-                </div>
-            )} */}
+          {artist.albums && (
+            <div className="albumGrid">
+              {artist.albums.map(album => {
+                debugger
+                return <AlbumsIndexItem album={album} />
+              })}
+            </div>
+          )}
         </div>
       </div>
 
