@@ -98,7 +98,7 @@ export default function Albums() {
             <span className="bigButtons">
               <button className="bigPlay" onClick={() => {
                 if (sessionUser) {
-                  debugger
+                  // debugger
                   sessionUser.queue = songsForQueue
                   const audio = document.querySelector("audio")
                   audio.currentTime = sessionUser.queue?.[0]?.[1] ? sessionUser.queue[0][1] : 0

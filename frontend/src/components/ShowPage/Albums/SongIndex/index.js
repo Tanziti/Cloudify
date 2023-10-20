@@ -45,10 +45,10 @@ export default function SongIndex({ song, artist, songsForQueue }) {
 
   const handleTrackClick = () => {
     if (sessionUser) {
-      debugger
+      // debugger
         sessionUser.queue = [[song]];
         const audio = document.querySelector("audio");
-        debugger
+        // debugger
         audio.currentTime = sessionUser.queue?.[0]?.[1] ? sessionUser.queue[0][1] : 0;
       
       // if (audio.paused) {

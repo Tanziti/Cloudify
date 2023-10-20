@@ -28,12 +28,12 @@ export const getAlbums = (store) => {
 
 
 export const getAlbum = (albumId) => (store) => {
-  debugger
+  // debugger
   return store?.albums?.[albumId] ? store.albums[albumId] : null;
 }
 
 export const fetchAlbum = (albumId) => async dispatch => {
-  debugger
+  // debugger
   const res = await csrfFetch(`/api/albums/${albumId}`)
   if (res.ok) {
     // debugger

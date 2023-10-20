@@ -28,7 +28,7 @@ export default function Artist() {
   const { artistId } = useParams();
   const artist = useSelector(getArtist(artistId));
   // const album = useSelector(getAlbum(artist?.albumId))
-  debugger
+  // debugger
 
   const sessionUser = useSelector(state => state.session.user);
   let currentSong = sessionUser?.queue?.[0]?.[0]
@@ -42,7 +42,7 @@ export default function Artist() {
   }, [dispatch, artistId])
 
 
-  debugger
+  // debugger
   let artistBannerStyle = {}
   const topPadding = {
     paddingTop: `88px`,
@@ -89,7 +89,7 @@ export default function Artist() {
           {artist.albums && (
             <div className="albumGrid">
               {artist.albums.map(album => {
-                debugger
+                // debugger
                 return <AlbumsIndexItem album={album} />
               })}
             </div>

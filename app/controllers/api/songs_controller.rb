@@ -11,11 +11,18 @@ class Api::SongsController < ApplicationController
 
   def search
     query = params[:query]
+    @songs = Song
+        .where('title ILIKE ?', "%#{query}%")
+    @albums = Album
+        .where('name ILIKE ?', "%#{query}%")
+    # @playlists = Playlist
+    #     .where('title ILIKE ?', "%#{query}%")
+    @artists = Artist
+        .where('name ILIKE ?', "%#{query}%")
+    @results = @songs + @albums + @artists
 
-    @songs = Song.where('title ILIKE ?', "%#{query}%")
+    render :search
 
-    render :search 
-
-  end
+end
 
 end
