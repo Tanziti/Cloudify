@@ -51,9 +51,9 @@ export default function SongIndex({ song, artist, songsForQueue }) {
         debugger
         audio.currentTime = sessionUser.queue?.[0]?.[1] ? sessionUser.queue[0][1] : 0;
       
-      if (audio.paused) {
-        document.querySelector(".playPause").click()
-      }
+      // if (audio.paused) {
+      //   document.querySelector(".playPause").click()
+      // }
     }
   }
 
