@@ -25,7 +25,8 @@ const searchReducer = (state = {}, action) => {
   const newState = { ...state }
   switch (action.type) {
     case GET_SEARCH_RESULTS:
-      return { ...action.searchResults.songs };
+      debugger
+      return { ...action.searchResults };
     case CLEAR_SEARCH_RESULTS:
       return {};
     default:

@@ -5,6 +5,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import Sidebar from "./components/Sidebar";
 import Playbar from "./components/Footer";
 import HomeNavBar from "./components/HomeNavBar";
+import Search from "./components/Search";
 // import ShowPage from "./components/ShowPage";
 
 import AlbumsRow from "./components/ShowPage/AlbumsRow";
@@ -77,7 +78,9 @@ function App() {
                   <Route exact path="/albums">
                     <AlbumsRow albums={albums} />
                   </Route>
-
+                  <Route path="/search">
+                    <Search/>
+                  </Route>
                 </div>
                 {/* <ShowPage /> */}
 

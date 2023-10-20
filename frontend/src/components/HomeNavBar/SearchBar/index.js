@@ -60,7 +60,7 @@
 //     </div>
 //   )
 // }
-// export default SearchBar
+
 
 import React, { useEffect, useState } from "react";
 import { clearSearchResults, fetchSearchResults } from "../../../store/search";
@@ -86,7 +86,8 @@ export default function SearchBar() {
     clearTimeout(timer);
 
     if (query.trim() !== "") {
-      const newTimer = setTimeout(() => dispatch(fetchSearchResults(query)), 300);
+      const newTimer = setTimeout(() => {dispatch(fetchSearchResults(query))
+        history.push({pathname: '/search', search: `?query=${query}`})}, 300);
       // const newTimer = setTimeout(() => history.push({pathname: '/search', search: `?query=${query}`}))
       setTimer(newTimer);
     } else {
@@ -113,3 +114,4 @@ export default function SearchBar() {
     </span>
   )
 }
+
