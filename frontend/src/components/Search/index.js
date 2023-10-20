@@ -15,10 +15,10 @@ export default function Search() {
     debugger
     return (
         <div className="searchGrid" style={{paddingTop: '66px'}}>
-        {searchResults && Object.values(searchResults).map(song => {
+        {searchResults.songs && Object.values(searchResults.songs).map(song => {
             return (
                 <ul onClick={()=> {history.push(`/albums/${song.albumId}`)}}>
-                    <div>
+                    <div> Songs
 
                     <li>{ song.imageUrl ? (
                         <img src={`${song.imageUrl}`}></img>
@@ -37,6 +37,44 @@ export default function Search() {
                 </ul>
             )
         })}
+         {searchResults.albums && Object.values(searchResults.albums).map(album => {
+                    return (
+                        
+                        <ul onClick={()=> {history.push(`/albums/${album.id}`)}}>
+                            <div> 
+                            <li>{ album.imageUrl ? (
+                                <img src={`${album.imageUrl}`}></img>
+                            ) : (
+                                <div className="imageStandIn" style={{backgroundColor: `${album.color}`}}></div>
+                            )}
+                            </li>
+                            <li className="albumTitle">{album.name}</li>
+                            </div>
+                            <div>
+                            <li className="albumArtistName">Album</li>
+                            <li className="albumArtistName fourth">{album.artistName}</li>
+                            </div>
+                        </ul>
+                    )
+                })}
+            {searchResults.artists && Object.values(searchResults.artists).map(artist => {
+                    return (
+                        <ul onClick={()=> {history.push(`/artists/${artist.id}`)}}>
+                            <div>
+                            <li>{ artist.imageUrl ? (
+                                <img src={`${artist.imageUrl}`}></img>
+                            ) : (
+                                <div className="imageStandIn" style={{backgroundColor: "#121212"}}></div>
+                            )}
+                            </li>
+                            <li className="artistName">{artist.name}</li>
+                            </div>
+                            <div></div>
+                            {/* <li className="playlistUserName">{playlist.userName}</li> */}
+                        </ul>
+                        )
+                })}
+
         </div>
 
     )
