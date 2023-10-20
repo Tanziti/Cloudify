@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Tanziti/FullStackProject.git"
+    "url": "git+https://github.com/Tanziti/cloudify.git"
   },
   "keywords": [],
   "author": "",
@@ -20,7 +20,7 @@
     "node": "16.20.1"
   },
   "bugs": {
-    "url": "https://github.com/Tanziti/FullStackProject/issues"
+    "url": "https://github.com/Tanziti/cloudify/issues"
   },
-  "homepage": "https://github.com/Tanziti/FullStackProject#readme"
+  "homepage": "https://github.com/Tanziti/cloudify#readme"
 }

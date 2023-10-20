@@ -67,7 +67,7 @@ export default function Playbar() {
   let volPercent = 100;
 
   const [audioSrc, setAudioSrc] = useState(currentSong.file ? currentSong.file : "");
-  // debugger
+  debugger
   useEffect(() => {
     if (audioRef.current && currentSongTime) {
       audioRef.current.currentTime = currentSongTime
@@ -76,7 +76,7 @@ export default function Playbar() {
       setRangeStyle({ ...rangeStyle, width: `${percent}%` });
       if (!audioRef.current.paused) audioRef.current.pause();
     }
-
+    debugger
 
     const handleLoadedMetadata = () => {
       if (audioRef.current && !audioRef.current.paused) {
@@ -97,6 +97,7 @@ export default function Playbar() {
 
   useEffect(() => {
     if (sessionUser?.queue?.[0]) {
+      debugger
       setCurrentSong(sessionUser.queue[0][0]);
       setAudioSrc(sessionUser?.queue?.[0]?.[0]?.file);
       setKnobStyle({ ...rangeStyle, left: 0 });

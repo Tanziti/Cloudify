@@ -15,10 +15,6 @@ export default function Albums() {
   const { albumId } = useParams();
   const album = useSelector(getAlbum(albumId))
   const artist = useSelector(getArtist(album?.artistId));
-  // const artist = useSelector(getArtist(album.artistId))
-  // const [album, setAlbum] = useState("")
-
-  // console.log(album.albumId)
 
 
   const sessionUser = useSelector(state => state.session.user);
@@ -31,7 +27,7 @@ export default function Albums() {
 
 
   // debugger
-  // const moreAlbums = Object.values(albums).filter(album => album.id !== Number(albumId) && album.artistId === artist.id);
+
   useEffect(() => {
 
     dispatch(fetchAlbum(albumId));
@@ -102,6 +98,7 @@ export default function Albums() {
             <span className="bigButtons">
               <button className="bigPlay" onClick={() => {
                 if (sessionUser) {
+                  debugger
                   sessionUser.queue = songsForQueue
                   const audio = document.querySelector("audio")
                   audio.currentTime = sessionUser.queue?.[0]?.[1] ? sessionUser.queue[0][1] : 0

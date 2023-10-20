@@ -34,7 +34,7 @@ export default function SongIndex({ song, artist, songsForQueue }) {
   console.log()
 
   useEffect(() => {
-    // const audio = document.querySelector("audio");
+    const audio = document.querySelector("audio");
     currentSong = sessionUser?.queue?.[1]?.[0]
     if (song.id === currentSong?.id) {
       setGreenText({ color: "#1ED760" })
@@ -45,14 +45,15 @@ export default function SongIndex({ song, artist, songsForQueue }) {
 
   const handleTrackClick = () => {
     if (sessionUser) {
-      // debugger
-      if (song.id !== currentSong?.id) {
-        sessionUser.queue = songsForQueue;
-        // const audio = document.querySelector("audio");
-        // debugger
-        // audio.currentTime = sessionUser.queue?.[]?.[1] ? sessionUser.queue[0][1] : 0;
+      debugger
+        sessionUser.queue = [[song]];
+        const audio = document.querySelector("audio");
+        debugger
+        audio.currentTime = sessionUser.queue?.[0]?.[1] ? sessionUser.queue[0][1] : 0;
+      
+      if (audio.paused) {
+        document.querySelector(".playPause").click()
       }
-      document.querySelector(".playPause").click()
     }
   }
 
@@ -109,9 +110,7 @@ export default function SongIndex({ song, artist, songsForQueue }) {
             setHeart("");
             setEllipsis(invisibleEllipsisSymbol());
           }}>
-          <td style={greenText} onClick={() => {
-            document.querySelector(".playPause").click()
-          }}>{numberPlay}</td>
+          <td style={greenText} onClick={handleTrackClick}>{numberPlay}</td>
           <td>
             <ul>
               <li style={greenText}>{song.title}</li>
