@@ -6,7 +6,12 @@ validates :year, presence: true
 validates :artist_id, presence: true
 
 has_one_attached :file
-has_one_attached :image
+
+has_many :playlist_songs,
+dependent: :destroy
+
+has_many :playlists,
+through: :playlist_songs
 
 belongs_to :album, optional: true
 belongs_to :artist

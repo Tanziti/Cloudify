@@ -226,7 +226,18 @@ end
     all_songs = Song.all 
     demo_playlist = Playlist.create!({
       title: "Demo Playlist",
-      user_id: User.first.id 
+      user_id: User.first.id,
+      public: true, 
+      color: "##{SecureRandom.hex(3)}"
     })
-
+    i = 1
+      num = rand(3..18)
+      while i <= num do
+        demo_playlist_song = PlaylistSong.create({
+          playlist_id: demo_playlist.id,
+          song_id: all_songs.sample.id,
+          song_number: i
+        })
+        i += 1
+      end
   puts "Done!"

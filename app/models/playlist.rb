@@ -6,11 +6,11 @@ class Playlist < ApplicationRecord
     
     has_one_attached :image
 
-    # has_many :playlist_songs,
-    #     dependent: :destroy
+    has_many :playlist_songs,
+        dependent: :destroy
 
     has_many :songs,
-        through: :playlist_songs
+    through: :playlist_songs
 
     belongs_to :user
 end
