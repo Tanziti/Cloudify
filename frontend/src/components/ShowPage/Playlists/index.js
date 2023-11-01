@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom/cjs/react-router-dom.min"
 import './Playlist.css'
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPlaylist, getPlaylist, getPlaylists } from "../../../store/playlists";
+import { fetchPlaylist, getPlaylist, getPlaylists, createPlaylist, deletePlaylist } from "../../../store/playlists";
 import { useEffect, useRef, useState } from "react";
 import { getSongs } from "../../../store/songs";
 import { getArtist } from "../../../store/artists";
@@ -16,7 +16,7 @@ export default function PlaylistShow() {
     const sessionUser = useSelector(state => state.session.user);
     const [rowWidth,setRowWidth] = useState();
     const playlist = useSelector(getPlaylist(playlistId));
-    const playlistSongs = useSelector(getPlaylistSongs)
+    // const playlistSongs = useSelector(getPlaylistSongs)
     const tableRowRef = useRef();
        
     useEffect(() => {
@@ -33,6 +33,7 @@ export default function PlaylistShow() {
 
     useEffect(()=> {
         dispatch(fetchPlaylist(playlistId));
+     
     },[dispatch, playlistId])
     useEffect(()=> {
         debugger
@@ -47,7 +48,7 @@ export default function PlaylistShow() {
     }, [sessionUser])
 
   
-   
+    
   
     let opaqueBkgdStyle = {};
 
@@ -83,12 +84,25 @@ debugger
     //     songsForQueue[i][0].artistId = artist.id;
     //     songsForQueue[i][0].imageUrl = album.imageUrl;
     // }
+    // const handleCreatePlaylist = () => {
+    //     debugger
+    //     dispatch(createPlaylist({
+    //         "title": "ZI's",
+    //         "public": true,
+    //         "user_id": 1,
+    //         "color": "#112211"
+    //     }))
+    // }
+
+    // const handleDeletePlaylist = () => {
+    //     dispatch(deletePlaylist(playlistId))
+    // }
     debugger
     return (
         <>
             {playlist && Object.keys(playlist).length > 0
                 && (
-            <>
+                    <>
             <div className="playlistShowTop">
                 <div className="playlistImage">
                     <img src={playlist.imageUrl}></img>
@@ -97,6 +111,8 @@ debugger
                     <h4>Playlist</h4>
                     <h1>{playlist.title}</h1>
 
+                    {/* <button onClick={handleCreatePlaylist()}>create playlist</button> */}
+                    {/* <button onClick={handleDeletePlaylist()}>delete playlist</button> */}
                     <h5>
                         <Link to="" onClick={(e) => {e.preventDefault()}}>{playlist.userName}</Link>
                         {/* &nbsp;· {playlist.playlistSongIds.length} song{ playlist.playlistSongIds.length === 1 ? "" : "s" },
