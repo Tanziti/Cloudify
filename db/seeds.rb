@@ -218,10 +218,26 @@ end
       year: 1987
     })
     # never_gonna_give_you_up.image.attach(io: rick_pic, filename: 'Rick_astley_profile_pic.webp')
-    never_gonna_give_you_up.file.attach(
-      io: URI.parse("https://cloudify-seeds.s3.amazonaws.com/Never_gonna_give_you_up_rick_astley.mp3").open,
-      filename: "Never_gonna_give_you_up_rick_astley.mp3"
-    )
-
-
+    # never_gonna_give_you_up.file.attach(
+    #   io: URI.parse("https://cloudify-seeds.s3.amazonaws.com/Never_gonna_give_you_up_rick_astley.mp3").open,
+    #   filename: "Never_gonna_give_you_up_rick_astley.mp3"
+    # )
+    puts "creating demo playlist"
+    all_songs = Song.all 
+    demo_playlist = Playlist.create!({
+      title: "Demo Playlist",
+      user_id: User.first.id,
+      public: true, 
+      color: "##{SecureRandom.hex(3)}"
+    })
+    i = 1
+      num = rand(3..18)
+      while i <= num do
+        demo_playlist_song = PlaylistSong.create({
+          playlist_id: demo_playlist.id,
+          song_id: all_songs.sample.id,
+          song_number: i
+        })
+        i += 1
+      end
   puts "Done!"
