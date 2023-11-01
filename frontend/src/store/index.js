@@ -6,6 +6,8 @@ import songs from './songs'
 import albums from './albums'
 import users from './users'
 import search from './search'
+import playlists from './playlists'
+import playlistSongs from './playlistSongs'
 
 const rootReducer = combineReducers({
   session,
@@ -13,6 +15,8 @@ const rootReducer = combineReducers({
   songs,
   albums,
   users,
+  playlists,
+  playlistSongs,
   search,
 
 });

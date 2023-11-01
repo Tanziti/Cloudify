@@ -11,6 +11,7 @@ import AlbumsRow from "./components/ShowPage/AlbumsRow";
 import Albums from "./components/ShowPage/Albums";
 import Artist from "./components/ShowPage/Artist";
 import ArtistRow from "./components/ShowPage/ArtistRow";
+import Playlists from "./components/ShowPage/Playlists";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
@@ -64,6 +65,9 @@ function App() {
 
                     <ArtistRow />
                     <AlbumsRow albums={albums} />
+                  </Route>
+                  <Route exact path ="/playlists/:playlistId">
+                    <Playlists/>
                   </Route>
                   <Route exact path="/artists">
                     <ArtistRow />
