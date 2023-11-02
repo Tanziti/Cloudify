@@ -97,12 +97,13 @@ export default function Playbar() {
 
   useEffect(() => {
     if (sessionUser?.queue?.[0]) {
-      // debugger
+      debugger
       setCurrentSong(sessionUser.queue[0][0]);
       setAudioSrc(sessionUser?.queue?.[0]?.[0]?.file);
       setKnobStyle({ ...rangeStyle, left: 0 });
       setRangeStyle({ ...rangeStyle, width: 0 });
       setPaused(!paused);
+      debugger
     }
   }, [sessionUser?.queue?.[0]])
 

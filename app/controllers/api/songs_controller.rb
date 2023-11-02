@@ -15,11 +15,11 @@ class Api::SongsController < ApplicationController
         .where('title ILIKE ?', "%#{query}%")
     @albums = Album
         .where('name ILIKE ?', "%#{query}%")
-    # @playlists = Playlist
-    #     .where('title ILIKE ?', "%#{query}%")
+    @playlists = Playlist
+        .where('title ILIKE ?', "%#{query}%")
     @artists = Artist
         .where('name ILIKE ?', "%#{query}%")
-    @results = @songs + @albums + @artists
+    @results = @songs + @albums + @artists + @playlists
 
     render :search
 

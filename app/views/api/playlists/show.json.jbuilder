@@ -17,7 +17,7 @@ json.playlist_songs do
             song = Song.find(playlist_song.song_id)
             json.extract! song, :title, :album_id
             album = Album.find(song.album_id)
-            json.set! :file_url, song.file.url
+            json.set! :file, song.file.url
             json.set! :image_url, album.image.url
             json.set! :artist_id, album.artist_id
             json.set! :album_title, album.name

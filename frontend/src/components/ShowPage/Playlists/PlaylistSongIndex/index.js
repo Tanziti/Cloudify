@@ -38,7 +38,7 @@ export default function PlaylistSongIndex ({song,songsForQueue}) {
     const [rowWidth,setRowWidth] = useState();
 
     const tableRowRef = useRef();
-    debugger
+   
     useEffect(() => {
         const getRowWidth = () => {
             if (tableRowRef.current) {

@@ -70,7 +70,7 @@ export default function Albums() {
 
 
 
-  // debugger
+  debugger
 
   // debugger
   return (

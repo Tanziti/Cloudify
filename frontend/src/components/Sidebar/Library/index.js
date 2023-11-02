@@ -10,7 +10,7 @@ export default function Library() {
     const dispatch = useDispatch();
 
     const playlists  = useSelector(getPlaylists);
-
+    debugger
     useEffect(() => {
         dispatch(fetchPlaylists());
     },[dispatch])

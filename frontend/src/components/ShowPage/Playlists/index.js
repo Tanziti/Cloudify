@@ -84,15 +84,15 @@ debugger
     //     songsForQueue[i][0].artistId = artist.id;
     //     songsForQueue[i][0].imageUrl = album.imageUrl;
     // }
-    // const handleCreatePlaylist = () => {
-    //     debugger
-    //     dispatch(createPlaylist({
-    //         "title": "ZI's",
-    //         "public": true,
-    //         "user_id": 1,
-    //         "color": "#112211"
-    //     }))
-    // }
+    const handleCreatePlaylist = () => {
+        debugger
+        dispatch(createPlaylist({
+            "title": "ZI's",
+            "public": true,
+            "user_id": 1,
+            "color": "#112211"
+        }))
+    }
 
     // const handleDeletePlaylist = () => {
     //     dispatch(deletePlaylist(playlistId))
@@ -131,6 +131,7 @@ debugger
                         sessionUser.queue = songsForQueue
                         const audio = document.querySelector("audio")
                         audio.currentTime = sessionUser.queue?.[0]?.[1] ? sessionUser.queue[0][1] : 0
+                        debugger
                         if (audio.paused) {
                             document.querySelector(".playPause").click()
                         }
@@ -159,14 +160,16 @@ debugger
                             <td>{invisibleEllipsisSymbol()}</td>
                         </tr>
                         <hr></hr>
-                        {/* {songsForTracklist.map(song => {
+                        {songsForTracklist.map(song => {
+                        
                             return (
+                                
                                 <PlaylistSongIndex
                                     song={song}
-                                    // songsForQueue={songsForQueue.filter(entry => entry[0].songNumber >= song.songNumber)} 
+                                    songsForQueue={songsForQueue.filter(entry => entry[0].songNumber >= song.songNumber)} 
                                     />
                             )
-                        })} */}
+                        })}
 
                     </table>
 
