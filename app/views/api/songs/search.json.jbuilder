@@ -42,3 +42,13 @@ end
        end
    end
  end
+ 
+json.playlists do
+    @playlists.each do |playlist|
+        json.set! playlist.id do
+            json.extract! playlist, :id, :title, :user_id, :color
+            json.set! :user_name, User.find(playlist.user_id).name
+            json.set! :image_url, playlist.image.url
+        end
+    end
+end

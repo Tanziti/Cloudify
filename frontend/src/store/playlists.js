@@ -46,7 +46,7 @@ export const fetchPlaylist = (playlistId) => async dispatch => {
         const data = await res.json();
         debugger
         dispatch(receivePlaylist(data.playlist));
-        dispatch(receiveSongs(data.playlistSongs));
+        dispatch(receivePlaylistSongs(data.playlistSongs));
         debugger
     }
 }

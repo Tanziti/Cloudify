@@ -16,7 +16,7 @@ export default function PlaylistShow() {
     const sessionUser = useSelector(state => state.session.user);
     const [rowWidth,setRowWidth] = useState();
     const playlist = useSelector(getPlaylist(playlistId));
-    // const playlistSongs = useSelector(getPlaylistSongs)
+    const playlistSongs = useSelector(getPlaylistSongs)
     const tableRowRef = useRef();
        
     useEffect(() => {
@@ -73,12 +73,12 @@ debugger
 
   
 
-    // const songsForTracklist = Object.values(playlist)
-    //     .sort((a,b) => a.songNumber - b.songNumber)
-
-    // const songsForQueue = songsForTracklist
-    //     .map(song => [song,0])
-
+    const songsForTracklist = Object.values(playlistSongs)
+        .sort((a,b) => a.songNumber - b.songNumber)
+debugger
+    const songsForQueue = songsForTracklist
+        .map(song => [song,0])
+debugger
     // for (let i = 0; i < songsForQueue.length; i++) {
     //     songsForQueue[i][0].artistName = artist.name;
     //     songsForQueue[i][0].artistId = artist.id;
@@ -128,7 +128,7 @@ debugger
                 <span className="bigButtons">
                     <button className="bigPlay" onClick={() => {
                     if (sessionUser) {
-                        // sessionUser.queue = songsForQueue
+                        sessionUser.queue = songsForQueue
                         const audio = document.querySelector("audio")
                         audio.currentTime = sessionUser.queue?.[0]?.[1] ? sessionUser.queue[0][1] : 0
                         if (audio.paused) {
