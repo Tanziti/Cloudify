@@ -109,7 +109,7 @@ section {
 body {
   line-height: 1;
   background-color: #000000;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 ol,
@@ -351,49 +351,35 @@ div.home .welcomeMessage h3 {
   padding: 32px;
 }
 
-.home {
-  scrollbar-width: thin;
-  scrollbar-color: #2c2c2c #282828;
+/* Hide the default scrollbar */
+::-webkit-scrollbar {
+  width: 0.1rem; /* Set to 0.1rem or adjust as needed */
 }
 
-/* Style the scrollbar thumb (draggable part) */
-.home::-webkit-scrollbar-thumb {
-  background-color: #2ebd59;
-
-  border-radius: 5px;
-
+::-webkit-scrollbar-thumb {
+  background: transparent; /* Hide the thumb */
 }
 
-/* Style the scrollbar track (background) */
-.home::-webkit-scrollbar-track {
-  background-color: #282828;
-  /* Color of the track */
+::-webkit-scrollbar-track {
+  background: transparent; /* Hide the track */
 }
 
-
-/* Hide scrollbar in Internet Explorer and Edge */
-.home {
-  -ms-overflow-style: none;
-  scrollbar-width: thin;
-  scrollbar-width: thin;
+/* Create a custom scrollbar */
+::-webkit-scrollbar-thumb:horizontal {
+  background: #888; /* Customize the thumb color */
+  border-radius: 0.2rem; /* Add rounded corners to the thumb */
 }
 
-.home {
-  scrollbar-width: thin;
-  scrollbar-color: #2ebd59 transparent;
-  /* thumb and track colors */
+::-webkit-scrollbar-thumb:vertical {
+  background: #888; /* Customize the thumb color */
+  border-radius: 0.2rem; /* Add rounded corners to the thumb */
 }
 
-/* Style the scrollbar thumb (draggable part) for Chrome */
-/* .home::-webkit-scrollbar-thumb {
-  background-color: #2ebd59;
+/* Optionally, add hover effects for the thumb */
+::-webkit-scrollbar-thumb:horizontal:hover {
+  background: #555; /* Change thumb color on hover */
+}
 
-  border-radius: 5px;
-
-} */
-
-/* Style the scrollbar track (background) for Chrome */
-.home::-webkit-scrollbar-track {
-  background-color: transparent;
-  /* Color of the track */
+::-webkit-scrollbar-thumb:vertical:hover {
+  background: #555; /* Change thumb color on hover */
 }

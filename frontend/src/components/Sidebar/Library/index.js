@@ -14,10 +14,10 @@ export default function Library() {
 
     const playlists  = useSelector(getPlaylists);
     const session = useSelector(state => state.session ? state.session : {});
-    debugger
+    // debugger
     useEffect(() => {
         dispatch(fetchPlaylists());
-    },[dispatch])
+    },[dispatch, playlists])
 
     const handleCreatePlaylist = () => {
         // debugger
@@ -30,7 +30,7 @@ export default function Library() {
                 "user_id": session.user.id,
                 "public": true,
                 "color": "#112222"
-        })).then(res => history.push(`/playlists/${Object.keys(playlists).length + 1}`));
+        }))
         debugger
         // history.push(`/playlists/${playlists.length + 1}`);
     };

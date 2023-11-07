@@ -27,7 +27,7 @@ export const getPlaylists = (store) => {
 }
 
 export const getPlaylist = (playlistId) => (store) => {
-    debugger
+    // debugger
     return store?.playlists?.[playlistId] ? store.playlists[playlistId] : null;
 }
 
@@ -41,13 +41,13 @@ export const fetchPlaylists = () => async dispatch => {
 
 export const fetchPlaylist = (playlistId) => async dispatch => {
     const res = await fetch(`/api/playlists/${playlistId}`)
-    debugger
+    // debugger
     if (res.ok) {
         const data = await res.json();
-        debugger
+        // debugger
         dispatch(receivePlaylist(data.playlist));
         dispatch(receivePlaylistSongs(data.playlistSongs));
-        debugger
+        // debugger
     }
 }
 
@@ -59,7 +59,7 @@ export const createPlaylist = (playlist) => async dispatch => {
             'Content-Type': 'application/json'
         }
     })
-    debugger
+    // debugger
     if (res.ok) {
         const data = await res.json();
         dispatch(receivePlaylist(data.playlist));
@@ -88,20 +88,20 @@ export const deletePlaylist = (playlistId) => async (dispatch) => {
 
 const playlistsReducer = (state = {}, action) => {
     let newState = {...Object.freeze(state)};
-    debugger
+    // debugger
     switch(action.type) {
         case RECEIVE_PLAYLISTS:
-            debugger
+            // debugger
             newState = action.playlists;
             return newState;
         case RECEIVE_PLAYLIST:
-            debugger
+            // debugger
             newState[action.playlist.id] = action.playlist
             return newState;
         case DELETE_PLAYLIST:
             // Remove the playlist from the state.
             delete newState[action.playlistId];
-            debugger
+            // debugger
             return newState;
         default:
             return state;

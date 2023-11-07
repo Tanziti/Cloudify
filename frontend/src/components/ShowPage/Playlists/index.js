@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom/cjs/react-router-dom.min"
+import { Link, useParams, useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import './Playlist.css'
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPlaylist, getPlaylist, getPlaylists, createPlaylist, deletePlaylist } from "../../../store/playlists";
@@ -8,9 +8,10 @@ import { getArtist } from "../../../store/artists";
 import PlaylistSongIndex from "./PlaylistSongIndex";
 import { invisibleEllipsisSymbol } from "../Albums/SongIndex";
 import { getPlaylistSongs } from "../../../store/playlistSongs";
+import { updatePlaylist } from "../../../store/playlists";
 
 export default function PlaylistShow() {
-
+    const history = useHistory();
     const dispatch = useDispatch();
     const {playlistId} = useParams();
     const sessionUser = useSelector(state => state.session.user);
@@ -18,7 +19,14 @@ export default function PlaylistShow() {
     const playlist = useSelector(getPlaylist(playlistId));
     const playlistSongs = useSelector(getPlaylistSongs)
     const tableRowRef = useRef();
-       
+    const [playlistTitle, setPlaylistTitle] = useState("")
+    const editInput = useRef(false);
+       debugger
+    useEffect(() => {
+        if (playlist.title){
+            setPlaylistTitle(playlist.title)
+        }
+    }, [playlist.title])
     useEffect(() => {
         const getRowWidth = () => {
             if (tableRowRef.current) {
@@ -48,7 +56,17 @@ export default function PlaylistShow() {
     }, [sessionUser])
 
   
-    
+    const handleTitleSubmit = (e) => {
+        e.preventDefault();
+        debugger
+        dispatch(updatePlaylist({
+            "id": playlist.id,
+            "title": playlistTitle,
+            "user_id": sessionUser.id
+        }))
+        editInput.current.blur();
+        return (history.push(`/playlists/${playlist.id}`));
+    }
   
     let opaqueBkgdStyle = {};
 
@@ -64,7 +82,7 @@ export default function PlaylistShow() {
     let runtime = 0;
 
     // Object.values(playlist).forEach(playlist => runtime += playlist.length)
-debugger
+
     const formatRuntime = (runtime) => {
         const min = Math.floor(runtime / 60);
         const sec = runtime % 60;
@@ -75,29 +93,25 @@ debugger
 
     const songsForTracklist = Object.values(playlistSongs)
         .sort((a,b) => a.songNumber - b.songNumber)
-debugger
+
     const songsForQueue = songsForTracklist
         .map(song => [song,0])
-debugger
+
     // for (let i = 0; i < songsForQueue.length; i++) {
     //     songsForQueue[i][0].artistName = artist.name;
     //     songsForQueue[i][0].artistId = artist.id;
     //     songsForQueue[i][0].imageUrl = album.imageUrl;
     // }
-    const handleCreatePlaylist = () => {
-        debugger
-        dispatch(createPlaylist({
-            "title": "ZI's",
-            "public": true,
-            "user_id": 1,
-            "color": "#112211"
-        }))
+    const handleDeletePlaylist = (e) => {
+        e.preventDefault();
+        dispatch(deletePlaylist(playlistId));
+        history.push(`/`);
     }
 
     // const handleDeletePlaylist = () => {
     //     dispatch(deletePlaylist(playlistId))
     // }
-    debugger
+    
     return (
         <>
             {playlist && Object.keys(playlist).length > 0
@@ -109,10 +123,22 @@ debugger
                 </div>
                 <div className='playlistHeaders'>
                     <h4>Playlist</h4>
-                    <h1>{playlist.title}</h1>
-
+                    <div className='playlist-text'>
+                    <form onSubmit={handleTitleSubmit}>
+                        <p className='playlist-title'>
+                            <input
+                                className='playlist-title-input'
+                                type='text'
+                                value={playlistTitle}
+                                onChange={(e) => setPlaylistTitle(e.target.value)}
+                                onClick={(e) => e.target.setSelectionRange(0, e.target.value.length)}
+                                ref={editInput}
+                            />
+                        </p>
+                    </form>
+                </div>
                     {/* <button onClick={handleCreatePlaylist()}>create playlist</button> */}
-                    {/* <button onClick={handleDeletePlaylist()}>delete playlist</button> */}
+                    <button onClick={handleDeletePlaylist}>delete playlist</button>
                     <h5>
                         <Link to="" onClick={(e) => {e.preventDefault()}}>{playlist.userName}</Link>
                         {/* &nbsp;· {playlist.playlistSongIds.length} song{ playlist.playlistSongIds.length === 1 ? "" : "s" },
@@ -131,7 +157,7 @@ debugger
                         sessionUser.queue = songsForQueue
                         const audio = document.querySelector("audio")
                         audio.currentTime = sessionUser.queue?.[0]?.[1] ? sessionUser.queue[0][1] : 0
-                        debugger
+                        
                         if (audio.paused) {
                             document.querySelector(".playPause").click()
                         }

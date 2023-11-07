@@ -79,13 +79,9 @@ export default function PlaylistSongIndex ({song,songsForQueue}) {
     const hiddenUl = () => {
         return (
             <ul className="hiddenUl">
-                <li>Add to queue</li>
-                <hr />
-                <li>Go to artist</li>
-                <li>Go to album</li>
-                <hr />
+          
                 <li>Remove from this playlist</li>
-                <li>Add to playlist</li>
+              
             </ul>
         )
     }

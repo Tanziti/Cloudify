@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 // import { formatTime } from "../../Artist";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { getPlaylists } from "../../../../store/playlists";
+
 
 
 const playSymbol = () => {
@@ -29,6 +31,8 @@ export default function SongIndex({ song, artist, songsForQueue }) {
   const [ellipsis, setEllipsis] = useState(invisibleEllipsisSymbol());
   const sessionUser = useSelector(state => state.session.user);
   const [greenText, setGreenText] = useState({ color: "#FFFFFF" });
+  const [showOptionsMenu, setShowOptionsMenu] = useState(false);
+  const [hiddenUlHidden, setHiddenUlHidden] = useState(true);
 
   let currentSong = sessionUser?.queue?.[1]?.[0]
   console.log()
@@ -42,6 +46,23 @@ export default function SongIndex({ song, artist, songsForQueue }) {
       setGreenText({ color: "#FFFFFF" })
     }
   }, [sessionUser?.queue?.[1]])
+
+  useEffect(() => {
+    if (!showOptionsMenu) return;
+
+    // const closeOptionsMenu = () => {
+    //     setShowOptionsMenu(false);
+    // };
+    // debugger
+    // document.addEventListener('click', closeOptionsMenu);
+    // return () => document.removeEventListener("click", closeOptionsMenu);
+}, [showOptionsMenu]);
+
+const optionsButtonClick = (e) => {
+  debugger
+ if (showOptionsMenu) return setShowOptionsMenu(false);
+ return setShowOptionsMenu(true)
+}
 
   const handleTrackClick = () => {
     if (sessionUser) {
@@ -69,7 +90,15 @@ export default function SongIndex({ song, artist, songsForQueue }) {
       return numberPlay;
     }
   }
-
+  const hiddenUl = () => {
+    return (
+        <ul className="hiddenUl">
+            {/* <li>Add to queue</li>
+            <hr /> */}
+            <li>Add to playlist</li>
+        </ul>
+    )
+}
   return (
     <>
       {song.id !== currentSong?.id && (
@@ -95,7 +124,7 @@ export default function SongIndex({ song, artist, songsForQueue }) {
           </td>
           <td>{heart}</td>
           {/* <td>{formatTime(song.length)}</td> */}
-          <td>{ellipsis}</td>
+          <td onClick={() => {setHiddenUlHidden(!hiddenUlHidden)}}>{ellipsis}{ hiddenUlHidden ? "" : hiddenUl()}</td>
         </tr>
       )}
       {song.id === currentSong?.id && (
@@ -119,7 +148,13 @@ export default function SongIndex({ song, artist, songsForQueue }) {
           </td>
           <td>{heart}</td>
           {/* <td>{formatTime(song.length)}</td> */}
-          <td>{ellipsis}</td>
+          <td onClick={optionsButtonClick}>{ellipsis} {showOptionsMenu && (
+                <ul className="playlist-options-dropdown">
+                    <li>
+                        <button className="delete-playlist-button" >Delete</button>
+                    </li>
+                </ul>
+            )}</td>
         </tr>
       )}
     </>

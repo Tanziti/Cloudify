@@ -70,7 +70,7 @@ export default function Albums() {
 
 
 
-  debugger
+ 
 
   // debugger
   return (
@@ -82,7 +82,7 @@ export default function Albums() {
           </div>
           <div className='albumHeaders'>
             <h4>Album</h4>
-            <h1>{album.title}</h1>
+            <h1>{album.name}</h1>
 
             <h5>
               <img src={artist.imageUrl}></img>
@@ -148,11 +148,9 @@ export default function Albums() {
         </div>
       </>
 
-      )
+      
     </div>
 
-    // <>
-    //   <h1>
-    //     second render</h1></>
+
   )
 }

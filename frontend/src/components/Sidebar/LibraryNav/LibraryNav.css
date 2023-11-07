@@ -23,6 +23,8 @@
 }
 
 .libraryNavigation i.fa-solid {
+  cursor: pointer;
+  color: grey;
   font-size: 24px;
 }
 

@@ -218,3 +218,43 @@ div.home .opaqueBkgd-2 {
 .playlistTrackList > table > tr > td:last-child{
     position: relative;
 }
+
+.playlist-title {
+    font-size: 45px;
+
+    white-space: nowrap;
+
+    margin-bottom: 20px;    
+    /* letter-spacing: -0.03em; */
+}
+
+.playlist-title-input {
+    font-size: 45px;
+    color: white;
+    font-weight: bold;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    background-color: transparent;
+    border: 0px;
+
+    /* max-width: fit-content; */
+    margin-left: -5px;
+
+    cursor: pointer;
+
+    width: 500px;
+
+}
+
+.playlist-title-input:focus {
+    background-color: #333;
+    outline: none;
+    border: 3px solid #535353;
+    border-radius: 5px;
+    z-index: 5;
+    margin-left: 0px;
+    margin-bottom: -3px;
+}
+

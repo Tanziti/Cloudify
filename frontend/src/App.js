@@ -64,8 +64,8 @@ function App() {
 
                   <Route exact path="/">
 
-                    <ArtistRow />
                     <AlbumsRow albums={albums} />
+                    <ArtistRow />
                   </Route>
                   <Route exact path ="/playlists/:playlistId">
                     <Playlists/>

@@ -180,6 +180,8 @@ div.home .opaqueBkgd-2 {
 }
 
 .trackList>table>tr>td:last-child {
+  position: relative;
+  right: 8%;
   text-align: left;
   padding-right: 16px;
 }
@@ -202,6 +204,7 @@ div.home .opaqueBkgd-2 {
 }
 
 .trackList>table ul {
+  position: absolute;
   display: flex;
   flex-direction: column;
   gap: 8px;
