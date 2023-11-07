@@ -23,14 +23,14 @@ export default function Library() {
         // debugger
         if (!session.user) {
             history.push(`/login`);
-        };
+        } else{
 
         dispatch(createPlaylist({
                 "title": `My Playlist #${Object.keys(playlists).length + 1}`,
                 "user_id": session.user.id,
                 "public": true,
                 "color": "#112222"
-        }))
+        }))}
         debugger
         // history.push(`/playlists/${playlists.length + 1}`);
     };

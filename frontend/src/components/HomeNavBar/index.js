@@ -54,9 +54,12 @@ export default function HomeNavBar() {
           </span>
           {<SearchBar />}
           <span>
-            <button className="looseLinks">Premium</button>
-            <button className="looseLinks">Support</button>
-            <button className="looseLinks">Download</button>
+           <a target="_blank" href="https://www.linkedin.com/in/tanzitian/">
+           <i className="fa-brands fa-linkedin"></i>
+        </a>
+        <a target="_blank" href="https://github.com/Tanziti">
+        <i className="fa-brands fa-github"></i>
+        </a>
             <button className="vl"></button>
             <button className="signUp" onClick={() => { history.push("/signup") }}>Sign up</button>
             <button className="logIn" onClick={() => { history.push("/login") }}>Log in</button>
@@ -74,7 +77,12 @@ export default function HomeNavBar() {
           </span>
           {<SearchBar />}
           <span>
-            <button className="installApp"><i className="fa-regular fa-circle-down"></i> Install App</button>
+          <a target="_blank" href="https://www.linkedin.com/in/tanzitian/">
+           <i className="fa-brands fa-linkedin"></i>
+        </a>
+        <a target="_blank" href="https://github.com/Tanziti">
+        <i className="fa-brands fa-github"></i>
+        </a>
             <button className="profile" onClick={(e) => { e.preventDefault(); dispatch(logout()); }}><i className="fa-solid fa-user-circle" /></button>
           </span>
         </>
