@@ -8,7 +8,10 @@ class Api::PlaylistSongsController < ApplicationController
             render json: { errors: @playlist_song.errors.full_messages }, status: :unprocessable_entity
         end
     end
-
+    def show
+        @playlist_song = PlaylistSong.find(params[:id])
+        render :show
+    end
     def update
         @playlist_song = PlaylistSong.find(params[:id])
         if @playlist_song.update(playlist_params)

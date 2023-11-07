@@ -227,3 +227,15 @@ div.home .moreBy ul:hover {
   margin-left: -22px;
   margin-right: -22px;
 }
+
+.hiddenUl{
+  background-color: rgb(23, 23, 23);
+  z-index: 5;
+  padding: 2px;
+  border-radius: 5px;
+}
+.hiddenUl li {
+  padding-left: 10px;
+  padding-right: 10px;
+
+}

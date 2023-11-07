@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 // import { formatTime } from "../../Artist";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getPlaylists } from "../../../../store/playlists";
+import { createPlaylistSong } from "../../../../store/playlistSongs";
+
 
 
 
@@ -33,6 +35,9 @@ export default function SongIndex({ song, artist, songsForQueue }) {
   const [greenText, setGreenText] = useState({ color: "#FFFFFF" });
   const [showOptionsMenu, setShowOptionsMenu] = useState(false);
   const [hiddenUlHidden, setHiddenUlHidden] = useState(true);
+  const playlists  = useSelector(getPlaylists);
+  const history = useHistory();
+  const dispatch = useDispatch();
 
   let currentSong = sessionUser?.queue?.[1]?.[0]
   console.log()
@@ -90,13 +95,38 @@ const optionsButtonClick = (e) => {
       return numberPlay;
     }
   }
+ 
   const hiddenUl = () => {
     return (
-        <ul className="hiddenUl">
-            {/* <li>Add to queue</li>
-            <hr /> */}
-            <li>Add to playlist</li>
-        </ul>
+      <ul className="hiddenUl">
+      { playlists && (
+          <>
+          { Object.values(playlists).map(playlist => {
+             return  <>
+             {(playlist ) && (
+               <li onClick={()=>{
+                debugger
+                dispatch(createPlaylistSong({
+                  "playlist_id": playlist.id,
+                  "song_id": song.id,
+                  "song_number": playlist.length + 1
+              }));
+               }}>
+                 <div className="albumImage">
+                  
+                   {/* <img src={ playlist ? playlist.imageUrl : album.imageUrl}></img> */}
+                 </div>
+                 <div className="albumInfo">
+                   <h3 >{playlist.title }</h3>
+                   
+                 </div>
+               </li>
+             )}
+           </>
+          }) }
+          </>
+      )}
+  </ul>
     )
 }
   return (
@@ -124,7 +154,7 @@ const optionsButtonClick = (e) => {
           </td>
           <td>{heart}</td>
           {/* <td>{formatTime(song.length)}</td> */}
-          <td onClick={() => {setHiddenUlHidden(!hiddenUlHidden)}}>{ellipsis}{ hiddenUlHidden ? "" : hiddenUl()}</td>
+          <td onClick={() => {setHiddenUlHidden(!hiddenUlHidden)}}>ADD{ hiddenUlHidden ? "" : hiddenUl()}</td>
         </tr>
       )}
       {song.id === currentSong?.id && (

@@ -1,3 +1,5 @@
+import csrfFetch from "./csrf"
+
 const RECEIVE_PLAYLIST_SONGS = 'playlist_songs/RECEIVE_PLAYLIST_SONGS'
 
 const RECEIVE_PLAYLIST_SONG = 'playlist_songs/RECEIVE_PLAYLIST_SONG'
@@ -13,7 +15,7 @@ export const receivePlaylistSong = (playlistSong) => ({
 })
 
 export const getPlaylistSongs = (store) => {
-
+    debugger
     return store?.playlistSongs ? store.playlistSongs : [];
 }
 
@@ -37,16 +39,19 @@ const fetchPlaylistSong = (playlistSongId) => async dispatch => {
     }
 }
 
-const createPlaylistSong = (playlistSong) => async dispatch => {
-    const res = await fetch(`api/playlist_songs`, {
+export const createPlaylistSong = (playlistSong) => async dispatch => {
+    debugger
+    const res = await csrfFetch(`api/playlist_songs`, {
         method: 'POST',
         body: JSON.stringify(playlistSong),
         headers: {
             'Content-Type': 'application/json'
         }
     })
+    
     if (res.ok) {
         const data = await res.json();
+        debugger
         dispatch(receivePlaylistSong(data));
     }
 }
@@ -67,16 +72,18 @@ const updatePlaylistSong = (playlistSong) => async dispatch => {
 
 const playlistSongsReducer = (state = {}, action) => {
     let newState = {...Object.freeze(state)};
+   
     switch(action.type) {
         case RECEIVE_PLAYLIST_SONGS:
+            debugger
             if (action.playlistSongs === undefined) {
                 newState = {}
             } else {
             newState = action.playlistSongs;
         }
-            
             return newState;
         case RECEIVE_PLAYLIST_SONG:
+            debugger
             newState[action.playlistSong.id] = action.playlistSong
             return newState;
         default:
