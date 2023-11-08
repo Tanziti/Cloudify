@@ -104,20 +104,20 @@ const optionsButtonClick = (e) => {
           { Object.values(playlists).map(playlist => {
              return  <>
              {(playlist ) && (
-               <li onClick={()=>{
-                debugger
-                dispatch(createPlaylistSong({
-                  "playlist_id": playlist.id,
-                  "song_id": song.id,
-                  "song_number": playlist.length + 1
-              }));
-               }}>
+               <li >
                  <div className="albumImage">
                   
                    {/* <img src={ playlist ? playlist.imageUrl : album.imageUrl}></img> */}
                  </div>
                  <div className="albumInfo">
-                   <h3 >{playlist.title }</h3>
+                   <h3 id="add-button" onClick={()=>{
+                debugger
+                dispatch(createPlaylistSong({
+                  "playlist_id": playlist.id,
+                  "song_id": song.id,
+                  "song_number": playlist.songIds.length + 1
+              }));
+               }}>{playlist.title }</h3>
                    
                  </div>
                </li>
@@ -154,7 +154,7 @@ const optionsButtonClick = (e) => {
           </td>
           <td>{heart}</td>
           {/* <td>{formatTime(song.length)}</td> */}
-          <td onClick={() => {setHiddenUlHidden(!hiddenUlHidden)}}>ADD{ hiddenUlHidden ? "" : hiddenUl()}</td>
+          <td onClick={() => {setHiddenUlHidden(!hiddenUlHidden)}}><i id="add-button">ADD</i>{ hiddenUlHidden ? "" : hiddenUl()}</td>
         </tr>
       )}
       {song.id === currentSong?.id && (

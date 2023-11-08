@@ -1,8 +1,8 @@
 import csrfFetch from "./csrf"
 
-const RECEIVE_PLAYLIST_SONGS = 'playlist_songs/RECEIVE_PLAYLIST_SONGS'
+export const RECEIVE_PLAYLIST_SONGS = 'playlist_songs/RECEIVE_PLAYLIST_SONGS'
 
-const RECEIVE_PLAYLIST_SONG = 'playlist_songs/RECEIVE_PLAYLIST_SONG'
+export const RECEIVE_PLAYLIST_SONG = 'playlist_songs/RECEIVE_PLAYLIST_SONG'
 
 export const receivePlaylistSongs = (playlistSongs) => ({
     type: RECEIVE_PLAYLIST_SONGS,
@@ -19,11 +19,11 @@ export const getPlaylistSongs = (store) => {
     return store?.playlistSongs ? store.playlistSongs : [];
 }
 
-const getPlaylistSong = (playlistSongId) => (store) => {
+export const getPlaylistSong = (playlistSongId) => (store) => {
     return store?.playlistSongs?.[playlistSongId] ? store.playlistSongs[playlistSongId] : null;
 }
 
-const fetchPlaylistSongs = () => async dispatch => {
+export const fetchPlaylistSongs = () => async dispatch => {
     const res = await fetch('api/playlist_songs')
     if (res.ok) {
         const data = await res.json();
@@ -31,7 +31,7 @@ const fetchPlaylistSongs = () => async dispatch => {
     }
 }
 
-const fetchPlaylistSong = (playlistSongId) => async dispatch => {
+export const fetchPlaylistSong = (playlistSongId) => async dispatch => {
     const res = await fetch(`api/playlist_songs/${playlistSongId}`)
     if (res.ok) {
         const data = await res.json();
@@ -41,14 +41,14 @@ const fetchPlaylistSong = (playlistSongId) => async dispatch => {
 
 export const createPlaylistSong = (playlistSong) => async dispatch => {
     debugger
-    const res = await csrfFetch(`api/playlist_songs`, {
+    const res = await csrfFetch(`/api/playlist_songs`, {
         method: 'POST',
         body: JSON.stringify(playlistSong),
         headers: {
             'Content-Type': 'application/json'
         }
     })
-    
+    debugger
     if (res.ok) {
         const data = await res.json();
         debugger
@@ -56,7 +56,7 @@ export const createPlaylistSong = (playlistSong) => async dispatch => {
     }
 }
 
-const updatePlaylistSong = (playlistSong) => async dispatch => {
+export const updatePlaylistSong = (playlistSong) => async dispatch => {
     const res = await fetch(`api/playlist_songs/${playlistSong.id}`, {
         method: 'PATCH',
         body: JSON.stringify(playlistSong),
@@ -84,7 +84,7 @@ const playlistSongsReducer = (state = {}, action) => {
             return newState;
         case RECEIVE_PLAYLIST_SONG:
             debugger
-            newState[action.playlistSong.id] = action.playlistSong
+            newState[action.playlistSong.playlistSong.id] = action.playlistSong.playlistSong
             return newState;
         default:
             return state;

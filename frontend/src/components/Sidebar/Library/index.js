@@ -14,10 +14,10 @@ export default function Library() {
 
     const playlists  = useSelector(getPlaylists);
     const session = useSelector(state => state.session ? state.session : {});
-    // debugger
+   
     useEffect(() => {
         dispatch(fetchPlaylists());
-    },[dispatch])
+    },[dispatch, playlists])
 
     const handleCreatePlaylist = () => {
         // debugger
@@ -51,7 +51,7 @@ export default function Library() {
             </div>
             </div>
             <ul>
-                { playlists && (
+                { session.user && (
                     <>
                     { Object.values(playlists).map(playlist => {
                        return <LibraryIndex playlist={playlist} album={null} />

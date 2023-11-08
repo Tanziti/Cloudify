@@ -239,3 +239,9 @@ div.home .moreBy ul:hover {
   padding-right: 10px;
 
 }
+#add-button {
+  cursor: pointer;
+}
+#add-button:hover {
+  color:#FFFFFF;
+}

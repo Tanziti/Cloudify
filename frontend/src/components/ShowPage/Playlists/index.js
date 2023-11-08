@@ -23,10 +23,10 @@ export default function PlaylistShow() {
     const editInput = useRef(false);
        debugger
     useEffect(() => {
-        if (playlist.title){
+        if (playlist?.title){
             setPlaylistTitle(playlist.title)
         }
-    }, [playlist.title])
+    }, [playlist?.title])
     useEffect(() => {
         const getRowWidth = () => {
             if (tableRowRef.current) {
@@ -179,7 +179,7 @@ export default function PlaylistShow() {
                                 Album
                             </td>
                             <td className="dateAddedColumn" hidden={ rowWidth < 710 ? "hidden" : ""} >
-                                Date added
+                                ...
                             </td>
                             <td></td>
                             <td><i className="fa-regular fa-clock"></i></td>

@@ -23,15 +23,16 @@ function App() {
   const albums = useSelector(getAlbums)
   const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user);
-  const generateGreeting = (user) => {
+  debugger
+  const generateGreeting = () => {
     const today = new Date();
     const currentHour = today.getHours();
     if (currentHour < 12) {
-      return "Good morning"
+      return `Good morning${sessionUser ? ' ' + sessionUser.username : ''}` 
     } else if (currentHour < 18) {
-      return "Good afternoon"
+      return `Good afternoon${sessionUser ? ' ' + sessionUser.username : ''}`
     } else {
-      return "Good evening"
+      return `Good evening${sessionUser ? ' ' + sessionUser.username : ''}`
     }
   }
   // useEffect(() => {

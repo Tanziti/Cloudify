@@ -127,8 +127,8 @@ export default function PlaylistSongIndex ({song,songsForQueue}) {
                     </div>
                 </td>
                 <td hidden={ rowWidth < 500 ? "hidden" : ""} ><Link to={`/albums/${song.albumId}`}>{song.albumTitle}</Link></td>
-                <td hidden={ rowWidth < 710 ? "hidden" : ""} >
-{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).format((new Date(song.createdAt)))}</td>
+                {/* <td hidden={ rowWidth < 710 ? "hidden" : ""} >
+{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).format((new Date(song.createdAt)))}</td> */}
                 <td>{heart}</td>
                 {/* <td>{formatTime(song.length)}</td> */}
                 <td onClick={() => {setHiddenUlHidden(!hiddenUlHidden)}}>{ellipsis}{ hiddenUlHidden ? "" : hiddenUl()}</td>
@@ -159,8 +159,8 @@ export default function PlaylistSongIndex ({song,songsForQueue}) {
                     </div>
                 </td>
                 <td hidden={ rowWidth < 500 ? "hidden" : ""} ><Link to={`/albums/${song.albumId}`}>{song.albumTitle}</Link></td>
-                <td hidden={ rowWidth < 710 ? "hidden" : ""} >
-{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).format((new Date(song.createdAt)))}</td>
+                {/* <td hidden={ rowWidth < 710 ? "hidden" : ""} >
+{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).format((new Date(song.createdAt)))}</td> */}
                 <td>{heart}</td>
                 {/* <td>{formatTime(song.length)}</td> */}
                 <td>{ellipsis}</td>
