@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch} from "react-redux";
+import { deletePlaylistSong } from "../../../../store/playlistSongs";
 // import { formatTime } from "../../AFfo
+
 
 
 const playSymbol = () => {
@@ -32,7 +34,7 @@ export default function PlaylistSongIndex ({song,songsForQueue}) {
     const sessionUser = useSelector(state => state.session.user);
     const [greenText,setGreenText] = useState({color: "#FFFFFF"});
     const [hiddenUlHidden, setHiddenUlHidden] = useState(true);
-
+    const dispatch = useDispatch();
 
 
     const [rowWidth,setRowWidth] = useState();
@@ -78,13 +80,11 @@ export default function PlaylistSongIndex ({song,songsForQueue}) {
 
     const hiddenUl = () => {
         return (
-            <ul className="hiddenUl">
-          
-                <li>Remove from this playlist</li>
-              
-            </ul>
-        )
-    }
+          <ul className="hiddenUl">
+            <li onClick={() => dispatch(deletePlaylistSong(song.id))}>Remove from this playlist</li>
+          </ul>
+        );
+      };
 
     // const displayNumberPlay = () => {
     //     if (song.id === currentSong?.id) {

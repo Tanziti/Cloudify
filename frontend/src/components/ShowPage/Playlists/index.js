@@ -21,7 +21,7 @@ export default function PlaylistShow() {
     const tableRowRef = useRef();
     const [playlistTitle, setPlaylistTitle] = useState("")
     const editInput = useRef(false);
-       debugger
+  
     useEffect(() => {
         if (playlist?.title){
             setPlaylistTitle(playlist.title)

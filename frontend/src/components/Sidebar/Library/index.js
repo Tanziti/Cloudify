@@ -17,7 +17,7 @@ export default function Library() {
    
     useEffect(() => {
         dispatch(fetchPlaylists());
-    },[dispatch, playlists])
+    },[dispatch])
 
     const handleCreatePlaylist = () => {
         // debugger

@@ -126,7 +126,6 @@ function SignupFormPage() {
       setErrors([]);
 
       // Assuming you have defined dispatch and sessionActions properly
-      debugger
       dispatch(sessionActions.signup({ email, username, password }))
         .catch(async (res) => {
           let data;
@@ -135,7 +134,6 @@ function SignupFormPage() {
           } catch {
             data = await res.text();
           }
-          debugger
           if (data?.errors) setErrors(data.errors);
           else if (data) setErrors([data]);
           else setErrors([res.statusText]);

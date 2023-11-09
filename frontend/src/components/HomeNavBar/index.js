@@ -49,8 +49,8 @@ export default function HomeNavBar() {
       {!sessionStorage["currentUser"] && (
         <>
           <span>
-            <button className="fa-solid circle loggedOut"><i className="fa-solid fa-chevron-left"></i></button>
-            <button className="fa-solid circle loggedOut"><i className="fa-solid fa-chevron-right"></i></button>
+            {/* <button className="fa-solid circle loggedOut"><i className="fa-solid fa-chevron-left"></i></button>
+            <button className="fa-solid circle loggedOut"><i className="fa-solid fa-chevron-right"></i></button> */}
           </span>
           {<SearchBar />}
           <span>
@@ -69,8 +69,8 @@ export default function HomeNavBar() {
       {sessionUser && (
         <>
           <span>
-            <button className="fa-solid circle loggedOut"><i className="fa-solid fa-chevron-left"></i></button>
-            <button className="fa-solid circle loggedOut"><i className="fa-solid fa-chevron-right"></i></button>
+            {/* <button className="fa-solid circle loggedOut"><i className="fa-solid fa-chevron-left"></i></button>
+            <button className="fa-solid circle loggedOut"><i className="fa-solid fa-chevron-right"></i></button> */}
             {/* {searching && (<SearchBar />)} */}
 
 
@@ -83,7 +83,7 @@ export default function HomeNavBar() {
         <a target="_blank" href="https://github.com/Tanziti">
         <i className="fa-brands fa-github"></i>
         </a>
-            <button className="profile" onClick={(e) => { e.preventDefault(); dispatch(logout()); }}><i className="fa-solid fa-user-circle" /></button>
+            <button className="profile" onClick={(e) => { e.preventDefault(); dispatch(logout()); }}><i>Log Out</i></button>
           </span>
         </>
       )}

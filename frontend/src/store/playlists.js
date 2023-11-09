@@ -21,6 +21,10 @@ const receivePlaylist = (playlist) => ({
     playlist
 })
 
+const removePlaylist = (playlistId) => ({
+    type: DELETE_PLAYLIST,
+    playlistId
+})
 export const getPlaylists = (store) => {
   
     return store?.playlists ? store.playlists : [];
@@ -83,7 +87,9 @@ export const deletePlaylist = (playlistId) => async (dispatch) => {
     const res = await csrfFetch(`/api/playlists/${playlistId}`, {
         method: 'DELETE',
     });
-
+    if (res.ok){
+        dispatch(removePlaylist(playlistId))
+    }
 };
 
 const playlistsReducer = (state = {}, action) => {

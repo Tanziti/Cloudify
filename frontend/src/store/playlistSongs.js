@@ -4,6 +4,8 @@ export const RECEIVE_PLAYLIST_SONGS = 'playlist_songs/RECEIVE_PLAYLIST_SONGS'
 
 export const RECEIVE_PLAYLIST_SONG = 'playlist_songs/RECEIVE_PLAYLIST_SONG'
 
+export const REMOVE_PLAYLIST_SONG = 'playlistSongs/REMOVE_PLAYLIST_SONG';
+
 export const receivePlaylistSongs = (playlistSongs) => ({
     type: RECEIVE_PLAYLIST_SONGS,
     playlistSongs
@@ -14,8 +16,13 @@ export const receivePlaylistSong = (playlistSong) => ({
     playlistSong
 })
 
+export const removePlaylistSong = (playlistSongId) => ({
+    type: REMOVE_PLAYLIST_SONG,
+    playlistSongId
+})
+
 export const getPlaylistSongs = (store) => {
-    debugger
+  
     return store?.playlistSongs ? store.playlistSongs : [];
 }
 
@@ -40,7 +47,7 @@ export const fetchPlaylistSong = (playlistSongId) => async dispatch => {
 }
 
 export const createPlaylistSong = (playlistSong) => async dispatch => {
-    debugger
+   
     const res = await csrfFetch(`/api/playlist_songs`, {
         method: 'POST',
         body: JSON.stringify(playlistSong),
@@ -48,14 +55,21 @@ export const createPlaylistSong = (playlistSong) => async dispatch => {
             'Content-Type': 'application/json'
         }
     })
-    debugger
+ 
     if (res.ok) {
         const data = await res.json();
         debugger
         dispatch(receivePlaylistSong(data));
     }
 }
-
+export const deletePlaylistSong = (playlistSongId) => async dispatch => {
+    // console.log(playlistSongId)
+    debugger
+    const response = await csrfFetch(`/api/playlist_songs/${playlistSongId}`, {
+        method: 'DELETE'
+    })
+    return dispatch(removePlaylistSong(playlistSongId));
+}
 export const updatePlaylistSong = (playlistSong) => async dispatch => {
     const res = await fetch(`api/playlist_songs/${playlistSong.id}`, {
         method: 'PATCH',
@@ -85,6 +99,10 @@ const playlistSongsReducer = (state = {}, action) => {
         case RECEIVE_PLAYLIST_SONG:
             debugger
             newState[action.playlistSong.playlistSong.id] = action.playlistSong.playlistSong
+            return newState;
+        case REMOVE_PLAYLIST_SONG:
+            debugger
+            delete newState[action.playlistSongId];
             return newState;
         default:
             return state;
