@@ -19,12 +19,29 @@ export default function Library() {
         dispatch(fetchPlaylists());
     },[dispatch])
 
+    // useEffect(()=>{
+    //     const hasMatchingPlaylist = Object.values(playlists).every(playlist => {
+    //         return playlist.userId === session.user.id && playlist.title !== "Liked Songs";
+    //       });
+      
+       
+         
+    //       debugger
+    //       if (hasMatchingPlaylist) {
+    //         debugger
+    //         dispatch(createPlaylist({
+    //           "title": `Liked Songs`,
+    //           "user_id": session.user.id,
+    //           "color": "#142213"
+    //         }));
+    //       }
+    //   },[])
     const handleCreatePlaylist = () => {
         // debugger
         if (!session.user) {
             history.push(`/login`);
         } else{
-
+            debugger
         dispatch(createPlaylist({
                 "title": `My Playlist #${Object.keys(playlists).length + 1}`,
                 "user_id": session.user.id,

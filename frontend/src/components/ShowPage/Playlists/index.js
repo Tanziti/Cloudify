@@ -137,8 +137,8 @@ export default function PlaylistShow() {
                         </p>
                     </form>
                 </div>
-                    {/* <button onClick={handleCreatePlaylist()}>create playlist</button> */}
-                    <button onClick={handleDeletePlaylist}>delete playlist</button>
+                  {playlist.title !== "Liked Songs" ?  <button onClick={handleDeletePlaylist}>delete playlist</button>: <></>}
+                    {/* <button onClick={handleDeletePlaylist}>delete playlist</button> */}
                     <h5>
                         <Link to="" onClick={(e) => {e.preventDefault()}}>{playlist.userName}</Link>
                         {/* &nbsp;· {playlist.playlistSongIds.length} song{ playlist.playlistSongIds.length === 1 ? "" : "s" },

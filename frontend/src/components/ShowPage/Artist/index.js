@@ -39,7 +39,7 @@ export default function Artist() {
   useEffect(() => {
     dispatch(fetchArtist(artistId));
     console.log("artist index dispatch entered")
-  }, [dispatch, artistId])
+  }, [dispatch])
 
 
   // debugger

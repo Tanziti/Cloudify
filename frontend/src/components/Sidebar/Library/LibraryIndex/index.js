@@ -1,18 +1,18 @@
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
+import { useSelector } from "react-redux";
 
 
 export default function LibraryIndex({ playlist, album }) {
   const history = useHistory();
+  const sessionUser = useSelector(state => state.session.user);
 
   return (
     <>
-      {(playlist || album) && (
+      {(playlist.userId === sessionUser.id ) && (
         <li onClick={() => {
           if (playlist) {
             history.push(`/playlists/${playlist.id}`)
-          } else {
-            history.push(`/albums/${album.id}`)
-          }
+          } 
         }}>
           <div className="albumImage">
             <div className="playlistImageStandin" style={{ backgroundColor: `${playlist.color}` }}></div>

@@ -13,16 +13,19 @@ import Albums from "./components/ShowPage/Albums";
 import Artist from "./components/ShowPage/Artist";
 import ArtistRow from "./components/ShowPage/ArtistRow";
 import Playlists from "./components/ShowPage/Playlists";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getAlbums } from "./store/albums";
 import { fetchAlbums } from "./store/albums";
+import { getPlaylists} from "./store/playlists";
+import { createPlaylist } from "./store/playlists";
 
 function App() {
   const albums = useSelector(getAlbums)
   const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user);
+  const playlists = useSelector(getPlaylists)
+
   debugger
   const generateGreeting = () => {
     const today = new Date();
@@ -35,10 +38,24 @@ function App() {
       return `Good evening${sessionUser ? ' ' + sessionUser.username : ''}`
     }
   }
-  // useEffect(() => {
-  //   dispatch(fetchAlbums());
-  // }, [dispatch]);
+  // useEffect(()=>{
 
+  //   if (sessionUser && playlists) {
+  //     debugger;
+  //     const hasMatchingPlaylist = Object.values(playlists).some(playlist => {
+  //       return playlist.userId === sessionUser.id && playlist.title === "Liked Songs";
+  //     });
+  //     debugger
+  //     if (!hasMatchingPlaylist) {
+  //       debugger
+  //       dispatch(createPlaylist({
+  //         "title": `Liked Songs`,
+  //         "user_id": sessionUser.id,
+  //         "color": "#142213"
+  //       }));
+  //     }
+  //   }
+  // },[])
 
   return (
     <>

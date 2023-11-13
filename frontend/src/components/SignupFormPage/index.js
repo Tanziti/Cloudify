@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css';
 import { NavLink } from "react-router-dom/cjs/react-router-dom";
+import { createPlaylist } from "../../store/playlists";
+
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -20,7 +22,21 @@ function SignupFormPage() {
   const [dob, setDob] = useState('');
 
 
-  if (sessionUser) return <Redirect to="/" />;
+  useEffect(() => {
+    // Create "Liked Songs" playlist when sessionUser is available
+    if (sessionUser) {
+      dispatch(createPlaylist({
+        "title": `Liked Songs`,
+        "user_id": sessionUser.id,
+        "color": "#142213"
+      }));
+    }
+  }, [sessionUser, dispatch]);
+  if (sessionUser) {
+    debugger
+    return <Redirect to="/" />;
+
+  }
 
   const months = [
     { value: '01', label: 'January' },
