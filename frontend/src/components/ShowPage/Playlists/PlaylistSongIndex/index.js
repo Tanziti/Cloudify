@@ -1,17 +1,25 @@
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { useEffect, useRef, useState } from "react";
 import { useSelector,useDispatch} from "react-redux";
-import { deletePlaylistSong } from "../../../../store/playlistSongs";
+import { deletePlaylistSong, createPlaylistSong } from "../../../../store/playlistSongs";
 // import { formatTime } from "../../AFfo
+import { getPlaylists } from "../../../../store/playlists";
 
 
 
 const playSymbol = () => {
     return <i className="fa-solid fa-play" style={{color: "#FFFFFF"}}></i>;
 }
-const heartSymbol = () => {
-    return <Link to="/"><i className="fa-regular fa-heart" style={{fontSize: "16px"}}></i></Link>;
-}
+// const heartSymbol = () => {
+//     return <Link to="/"><i className="fa-regular fa-heart" style={{fontSize: "16px"}}></i></Link>;
+// }
+const HeartSymbol = ({ liked, onClick }) => {
+    const heartClass = liked ? "fa-solid fa-heart green" : "fa-regular fa-heart";
+  
+    return (
+      <i className={heartClass} style={{ fontSize: "16px" }} onClick={onClick}></i>
+    );
+  };
 const pauseSymbol = () => {
     return <i className="fa-solid fa-pause" style={{color: "#FFFFFF"}}></i>;
 }
@@ -35,12 +43,37 @@ export default function PlaylistSongIndex ({song,songsForQueue}) {
     const [greenText,setGreenText] = useState({color: "#FFFFFF"});
     const [hiddenUlHidden, setHiddenUlHidden] = useState(true);
     const dispatch = useDispatch();
-
-
+    const playlists = useSelector(getPlaylists);
+    const likedSongsPlaylist = Object.values(playlists)[0];
     const [rowWidth,setRowWidth] = useState();
 
     const tableRowRef = useRef();
    
+    const [liked, setLiked] = useState(() => {
+        debugger
+        if (likedSongsPlaylist?.songIds?.length > 0) {
+            return likedSongsPlaylist.songIds.some((playlistSong) => {
+              debugger
+              return playlistSong === song.songId;
+            });
+          }
+          return false; // default value when songIds array is not available or empty
+        });
+      const handleClick = () => {
+        debugger
+        if (!liked){
+          setLiked(true)
+        //   dispatch(createPlaylistSong({
+        //     playlist_id: likedSongsPlaylist.id,
+        //     song_id: song.id,
+        //     // song_number: likedSongsPlaylist.songIds.length + 1  
+        //   }))
+        } 
+        // else {
+        //   setLiked(false)
+        //   dispatch(deletePlaylistSong())
+        // }
+      };
     useEffect(() => {
         const getRowWidth = () => {
             if (tableRowRef.current) {
@@ -68,6 +101,7 @@ export default function PlaylistSongIndex ({song,songsForQueue}) {
     useEffect(() => {}, [hiddenUlHidden])
 
     const handleTrackClick = () => {
+        debugger
         if (sessionUser) {
             if (song.id !== currentSong?.id) {
                 sessionUser.queue = songsForQueue;
@@ -106,12 +140,10 @@ export default function PlaylistSongIndex ({song,songsForQueue}) {
             <tr ref={tableRowRef}
                 onMouseEnter={() => {
                     setNumberPlay(playSymbol());
-                    setHeart(heartSymbol());
                     setEllipsis(ellipsisSymbol());
                 }}
                 onMouseLeave={() => {
                     setNumberPlay(song.songNumber);
-                    setHeart("");
                     setEllipsis(invisibleEllipsisSymbol());
                 }}>
                 <td style={greenText} onClick={handleTrackClick}>
@@ -129,7 +161,7 @@ export default function PlaylistSongIndex ({song,songsForQueue}) {
                 <td hidden={ rowWidth < 500 ? "hidden" : ""} ><Link to={`/albums/${song.albumId}`}>{song.albumTitle}</Link></td>
                 {/* <td hidden={ rowWidth < 710 ? "hidden" : ""} >
 {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).format((new Date(song.createdAt)))}</td> */}
-                <td>{heart}</td>
+                <td><HeartSymbol liked={liked} onClick={handleClick} /></td>
                 {/* <td>{formatTime(song.length)}</td> */}
                 <td onClick={() => {setHiddenUlHidden(!hiddenUlHidden)}}>{ellipsis}{ hiddenUlHidden ? "" : hiddenUl()}</td>
             </tr>
@@ -138,12 +170,12 @@ export default function PlaylistSongIndex ({song,songsForQueue}) {
             <tr ref={tableRowRef}
                 onMouseEnter={() => {
                     setNumberPlay(pauseSymbol());
-                    setHeart(heartSymbol());
+                  
                     setEllipsis(ellipsisSymbol());
                 }}
                 onMouseLeave={() => {
                     setNumberPlay(spinningDiscSymbol());
-                    setHeart("");
+                
                     setEllipsis(invisibleEllipsisSymbol());
                 }}>
                 <td style={greenText} onClick={() => {
@@ -161,7 +193,7 @@ export default function PlaylistSongIndex ({song,songsForQueue}) {
                 <td hidden={ rowWidth < 500 ? "hidden" : ""} ><Link to={`/albums/${song.albumId}`}>{song.albumTitle}</Link></td>
                 {/* <td hidden={ rowWidth < 710 ? "hidden" : ""} >
 {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).format((new Date(song.createdAt)))}</td> */}
-                <td>{heart}</td>
+                 <td><HeartSymbol liked={liked} onClick={handleClick} /></td>
                 {/* <td>{formatTime(song.length)}</td> */}
                 <td>{ellipsis}</td>
             </tr>

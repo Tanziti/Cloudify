@@ -109,8 +109,8 @@ export default function Albums() {
               }}>{currentSong?.albumId === albumId ?
                 (<i className="fa-solid fa-pause"></i>) :
                 (<i className="fa-solid fa-play"></i>)}</button>
-              <span className="bigHeart"><i className="fa-regular fa-heart"></i></span>
-              <span className="bigDots"><i className="fa-solid fa-ellipsis"></i></span>
+              {/* <span className="bigHeart"><i className="fa-regular fa-heart"></i></span> */}
+              {/* <span className="bigDots"><i className="fa-solid fa-ellipsis"></i></span> */}
             </span>
 
             <table>

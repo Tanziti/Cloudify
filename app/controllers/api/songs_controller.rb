@@ -19,7 +19,8 @@ class Api::SongsController < ApplicationController
         .where('title ILIKE ?', "%#{query}%")
     @artists = Artist
         .where('name ILIKE ?', "%#{query}%")
-    @results = @songs + @albums + @artists + @playlists
+    # @results = @songs + @albums + @artists + @playlists
+    @results = @albums + @artists
 
     render :search
 

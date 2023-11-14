@@ -124,18 +124,22 @@ export default function PlaylistShow() {
                 <div className='playlistHeaders'>
                     <h4>Playlist</h4>
                     <div className='playlist-text'>
-                    <form onSubmit={handleTitleSubmit}>
-                        <p className='playlist-title'>
-                            <input
-                                className='playlist-title-input'
-                                type='text'
-                                value={playlistTitle}
-                                onChange={(e) => setPlaylistTitle(e.target.value)}
-                                onClick={(e) => e.target.setSelectionRange(0, e.target.value.length)}
-                                ref={editInput}
-                            />
-                        </p>
-                    </form>
+                    {playlist.title !== "Liked Songs" ? (
+  <form onSubmit={handleTitleSubmit}>
+    <p className='playlist-title'>
+      <input
+        className='playlist-title-input'
+        type='text'
+        value={playlistTitle}
+        onChange={(e) => setPlaylistTitle(e.target.value)}
+        onClick={(e) => e.target.setSelectionRange(0, e.target.value.length)}
+        ref={editInput}
+      />
+    </p>
+  </form>
+) : (
+  <h1 className='playlist-title'>{playlistTitle}</h1>
+)}
                 </div>
                   {playlist.title !== "Liked Songs" ?  <button onClick={handleDeletePlaylist}>delete playlist</button>: <></>}
                     {/* <button onClick={handleDeletePlaylist}>delete playlist</button> */}
@@ -165,8 +169,8 @@ export default function PlaylistShow() {
                     }}>{ currentSong?.playlistId === playlistId ?
                     (<i className="fa-solid fa-pause"></i>) :
                     (<i className="fa-solid fa-play"></i>)}</button>
-                    <span className="bigHeart"><i className="fa-regular fa-heart"></i></span>
-                    <span className="bigDots"><i className="fa-solid fa-ellipsis"></i></span>
+                    {/* <span className="bigHeart"><i className="fa-regular fa-heart"></i></span>
+                    <span className="bigDots"><i className="fa-solid fa-ellipsis"></i></span> */}
                 </span>
 
                     <table>

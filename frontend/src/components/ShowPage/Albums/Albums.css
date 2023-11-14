@@ -245,3 +245,7 @@ div.home .moreBy ul:hover {
 #add-button:hover {
   color:#FFFFFF;
 }
+
+.fa-solid.fa-heart.green {
+  color: green;
+}

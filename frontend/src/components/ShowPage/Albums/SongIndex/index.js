@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getPlaylists } from "../../../../store/playlists";
-import { createPlaylistSong } from "../../../../store/playlistSongs";
+import { createPlaylistSong, deletePlaylistSong, fetchPlaylistSongs, getPlaylistSongs, receivePlaylistSongs } from "../../../../store/playlistSongs";
 
 
 
@@ -11,9 +11,13 @@ import { createPlaylistSong } from "../../../../store/playlistSongs";
 const playSymbol = () => {
   return <i className="fa-solid fa-play" style={{ color: "#FFFFFF" }}></i>;
 }
-const heartSymbol = () => {
-  return <Link to="/"><i className="fa-regular fa-heart" style={{ fontSize: "16px" }}></i></Link>;
-}
+const HeartSymbol = ({ liked, onClick }) => {
+  const heartClass = liked ? "fa-solid fa-heart green" : "fa-regular fa-heart";
+
+  return (
+    <i className={heartClass} style={{ fontSize: "16px" }} onClick={onClick}></i>
+  );
+};
 const pauseSymbol = () => {
   return <i className="fa-solid fa-pause" style={{ color: "#FFFFFF" }}></i>;
 }
@@ -35,13 +39,50 @@ export default function SongIndex({ song, artist, songsForQueue }) {
   const [greenText, setGreenText] = useState({ color: "#FFFFFF" });
   const [showOptionsMenu, setShowOptionsMenu] = useState(false);
   const [hiddenUlHidden, setHiddenUlHidden] = useState(true);
-  const playlists  = useSelector(getPlaylists);
+  const playlists = useSelector(getPlaylists);
   const history = useHistory();
   const dispatch = useDispatch();
+
+  
+  const likedSongsPlaylist = Object.values(playlists)[0];
+  debugger
+  const [liked, setLiked] = useState(() => {
+    debugger
+    if (likedSongsPlaylist?.songIds?.length > 0) {
+      return likedSongsPlaylist.songIds.some((playlistSong) => {
+        debugger
+        return playlistSong === song.id;
+      });
+    }
+    return false; // default value when songIds array is not available or empty
+  });
+
+  const handleClick = () => {
+    debugger
+    if (!liked){
+      setLiked(true)
+      dispatch(createPlaylistSong({
+        playlist_id: likedSongsPlaylist.id,
+        song_id: song.id,
+        // song_number: likedSongsPlaylist.songIds.length + 1  
+      }))
+    } 
+    else {
+      setLiked(false)
+      dispatch(deletePlaylistSong())
+    }
+  };
 
   let currentSong = sessionUser?.queue?.[1]?.[0]
   console.log()
 
+// useEffect(()=>{
+//   dispatch(fetchPlaylistSongs())
+// },[setLiked, dispatch])
+// useEffect(()=>{
+//   dispatch(fetchPlaylistSongs())
+// },[])
+ 
   useEffect(() => {
     const audio = document.querySelector("audio");
     currentSong = sessionUser?.queue?.[1]?.[0]
@@ -103,7 +144,7 @@ const optionsButtonClick = (e) => {
           <>
           { Object.values(playlists).map(playlist => {
              return  <>
-             {(playlist ) && (
+             {(playlist.title !== "Liked Songs" ) && (playlist.userId === sessionUser.id) && (
                <li >
                  <div className="albumImage">
                   
@@ -135,14 +176,11 @@ const optionsButtonClick = (e) => {
         <tr
           onMouseEnter={() => {
             setNumberPlay(playSymbol());
-            setHeart(heartSymbol());
-            setEllipsis(ellipsisSymbol());
           }}
           onMouseLeave={() => {
             setNumberPlay(song.number);
-            setHeart("");
-            setEllipsis(invisibleEllipsisSymbol());
-          }}>
+          }}
+          >
           <td style={greenText} onClick={handleTrackClick}>
             {numberPlay}
           </td>
@@ -152,7 +190,7 @@ const optionsButtonClick = (e) => {
               <li><Link to={`/artists/${artist.id}`}>{artist.name}</Link></li>
             </ul>
           </td>
-          <td>{heart}</td>
+          <td><HeartSymbol liked={liked} onClick={handleClick} /></td>
           {/* <td>{formatTime(song.length)}</td> */}
           <td onClick={() => {setHiddenUlHidden(!hiddenUlHidden)}}><i id="add-button">ADD</i>{ hiddenUlHidden ? "" : hiddenUl()}</td>
         </tr>
@@ -161,12 +199,12 @@ const optionsButtonClick = (e) => {
         <tr
           onMouseEnter={() => {
             setNumberPlay(pauseSymbol());
-            setHeart(heartSymbol());
+            // setHeart(HeartSymbol());
             setEllipsis(ellipsisSymbol());
           }}
           onMouseLeave={() => {
             setNumberPlay(spinningDiscSymbol());
-            setHeart("");
+            // setHeart("");
             setEllipsis(invisibleEllipsisSymbol());
           }}>
           <td style={greenText} onClick={handleTrackClick}>{numberPlay}</td>
@@ -176,7 +214,7 @@ const optionsButtonClick = (e) => {
               <li><Link to={`/artists/${artist.id}`}>{artist.name}</Link></li>
             </ul>
           </td>
-          <td>{heart}</td>
+          <td><HeartSymbol liked={liked} onClick={handleClick} /></td>
           {/* <td>{formatTime(song.length)}</td> */}
           <td onClick={optionsButtonClick}>{ellipsis} {showOptionsMenu && (
                 <ul className="playlist-options-dropdown">

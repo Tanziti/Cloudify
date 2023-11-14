@@ -68,7 +68,7 @@ export const deletePlaylistSong = (playlistSongId) => async dispatch => {
     const response = await csrfFetch(`/api/playlist_songs/${playlistSongId}`, {
         method: 'DELETE'
     })
-    return dispatch(removePlaylistSong(playlistSongId));
+    dispatch(removePlaylistSong(playlistSongId));
 }
 export const updatePlaylistSong = (playlistSong) => async dispatch => {
     const res = await fetch(`api/playlist_songs/${playlistSong.id}`, {

@@ -373,7 +373,7 @@ export default function Playbar() {
                   <h4 onClick={() => { history.push(`/artists/${currentSong?.artistId}`) }}>{currentSong?.artistName ? currentSong.artistName : ""}</h4>
                 </div>
                 <div>
-                  <i className="fa-regular fa-heart"></i>
+                  {/* <i className="fa-regular fa-heart"></i> */}
                 </div>
                 <div>
 
