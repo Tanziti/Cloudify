@@ -203,7 +203,7 @@ const optionsButtonClick = (e) => {
             setEllipsis(ellipsisSymbol());
           }}
           onMouseLeave={() => {
-            setNumberPlay(spinningDiscSymbol());
+            setNumberPlay(playSymbol());
             // setHeart("");
             setEllipsis(invisibleEllipsisSymbol());
           }}>
@@ -216,13 +216,7 @@ const optionsButtonClick = (e) => {
           </td>
           <td><HeartSymbol liked={liked} onClick={handleClick} /></td>
           {/* <td>{formatTime(song.length)}</td> */}
-          <td onClick={optionsButtonClick}>{ellipsis} {showOptionsMenu && (
-                <ul className="playlist-options-dropdown">
-                    <li>
-                        <button className="delete-playlist-button" >Delete</button>
-                    </li>
-                </ul>
-            )}</td>
+          <td onClick={() => {setHiddenUlHidden(!hiddenUlHidden)}}><i id="add-button">ADD</i>{ hiddenUlHidden ? "" : hiddenUl()}</td>
         </tr>
       )}
     </>

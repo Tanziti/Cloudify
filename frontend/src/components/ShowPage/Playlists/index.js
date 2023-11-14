@@ -58,7 +58,7 @@ export default function PlaylistShow() {
   
     const handleTitleSubmit = (e) => {
         e.preventDefault();
-        debugger
+        // debugger
         dispatch(updatePlaylist({
             "id": playlist.id,
             "title": playlistTitle,

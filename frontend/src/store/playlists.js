@@ -26,8 +26,12 @@ const removePlaylist = (playlistId) => ({
     playlistId
 })
 export const getPlaylists = (store) => {
-  
-    return store?.playlists ? store.playlists : [];
+  if (store.playlists){
+    return Object.values(store.playlists)
+  } else {
+    return [];
+  }
+    // return store?.playlists ? store.playlists : [];
 }
 
 export const getPlaylist = (playlistId) => (store) => {
@@ -81,7 +85,7 @@ export const updatePlaylist = (playlist) => async dispatch => {
     })
     if (res.ok) {
         const data = await res.json();
-        dispatch(receivePlaylist(data));
+        dispatch(receivePlaylist(data.playlist));
     }
 }
 export const deletePlaylist = (playlistId) => async (dispatch) => {
