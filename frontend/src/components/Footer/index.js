@@ -213,37 +213,36 @@ export default function Playbar() {
   }
 
   const handleDrag = (e) => {
-    e.preventDefault()
-    if (e.screenX !== 0) {
+    e.preventDefault();
+    if (e.clientX !== 0) {
       setIsDragging(true);
       const rect = trackRef.current.getBoundingClientRect();
       const trackLength = rect.right - rect.left;
       percent = 0;
-      const xPos = e.screenX
+      const xPos = e.clientX; // Use clientX instead of screenX
       if (xPos > rect.right) {
         percent = 100;
       } else if (xPos > rect.left) {
-        percent = 100 * ((xPos - rect.left) / trackLength)
+        percent = 100 * ((xPos - rect.left) / trackLength);
       }
-      // setCurrentSongTime(audioRef.current.duration * (percent / 100));
-      // if (sessionUser?.queue?.[0]) sessionUser.queue[0][1] = audioRef.current.duration * (percent / 100);
+      setCurrentSongTime(audioRef.current.duration * (percent / 100));
       setKnobStyle({ left: `${percent}%`, transition: "none" });
-      setRangeStyle({ ...rangeStyle, backgroundColor: `#5FBA56`, width: `${percent}%`, transition: "none" })
+      setRangeStyle({ ...rangeStyle, backgroundColor: `#5FBA56`, width: `${percent}%`, transition: "none" });
     }
-  }
-
+  };
+  
   const handleVolumeDrag = (e) => {
-    e.preventDefault()
-    if (e.screenX !== 0) {
-      // setIsDragging(true);
+    e.preventDefault();
+    if (e.clientX !== 0) {
+      setIsDragging(true);
       const rect = volumeTrackRef.current.getBoundingClientRect();
       const trackLength = rect.right - rect.left;
       volPercent = 0;
-      const xPos = e.screenX
+      const xPos = e.clientX; // Use clientX instead of screenX
       if (xPos > rect.right) {
         volPercent = 100;
       } else if (xPos > rect.left) {
-        volPercent = 100 * ((xPos - rect.left) / trackLength)
+        volPercent = 100 * ((xPos - rect.left) / trackLength);
       }
       audioRef.current.volume = volPercent / 100;
       setVolumeKnobStyle({ left: `${volPercent}%`, transition: "none" });
@@ -261,8 +260,8 @@ export default function Playbar() {
         setVolumeSymbol(volumeOffSymbol());
       }
     }
-  }
-
+  };
+  
   const handleDragEnd = (e) => {
     const rect = trackRef.current.getBoundingClientRect();
     const trackLength = rect.right - rect.left;
