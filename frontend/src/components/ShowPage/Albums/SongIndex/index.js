@@ -156,7 +156,7 @@ const optionsButtonClick = (e) => {
                 dispatch(createPlaylistSong({
                   "playlist_id": playlist.id,
                   "song_id": song.id,
-                  "song_number": playlist.songIds.length + 1
+                  // "song_number": playlist.songIds.length + 1
               }));
                }}>{playlist.title }</h3>
                    
