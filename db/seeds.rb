@@ -212,11 +212,11 @@ end
         better_off_dead_song.file.attach(io: bof_song_file, filename: "#{i + 1}.mp3")
       end
       puts "better off dead finished"
-      never_gonna_give_you_up = Song.create!({
-      title: "Never Gonna Give You Up",
-      artist_id: rick_astley.id,
-      year: 1987
-    })
+    #   never_gonna_give_you_up = Song.create!({
+    #   title: "Never Gonna Give You Up",
+    #   artist_id: rick_astley.id,
+    #   year: 1987
+    # })
     # never_gonna_give_you_up.image.attach(io: rick_pic, filename: 'Rick_astley_profile_pic.webp')
     # never_gonna_give_you_up.file.attach(
     #   io: URI.parse("https://cloudify-seeds.s3.amazonaws.com/Never_gonna_give_you_up_rick_astley.mp3").open,
