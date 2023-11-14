@@ -12,7 +12,14 @@ export default function Search() {
     const [query,setQuery] = useState(params.get("query"));
     const searchResults = useSelector(state => state.search)
 
-    debugger
+    if (!query) {
+        return (
+            <div className="emptySearchMessage">
+                <h1>Please enter a search query to find results.</h1>
+            </div>
+        );
+    }
+  
     return (
         <div className="searchGrid" style={{paddingTop: '66px'}}>
         {searchResults.songs && Object.values(searchResults.songs).map(song => {

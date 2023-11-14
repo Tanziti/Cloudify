@@ -167,7 +167,7 @@ div.home .opaqueBkgd-2 {
 .trackList>table>tr:first-child {
   background-color: transparent;
   height: 36px;
-  align-items: flex-end;
+
 }
 
 .trackList>table>tr>td:first-child {
@@ -204,7 +204,6 @@ div.home .opaqueBkgd-2 {
 }
 
 .trackList>table ul {
-  position: absolute;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -229,6 +228,7 @@ div.home .moreBy ul:hover {
 }
 
 .hiddenUl{
+  position:absolute;
   background-color: rgb(23, 23, 23);
   z-index: 5;
   padding: 2px;

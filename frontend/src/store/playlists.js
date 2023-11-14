@@ -67,9 +67,9 @@ export const createPlaylist = (playlist) => async dispatch => {
             'Content-Type': 'application/json'
         }
     })
-    debugger
+    // debugger
     if (res.ok) {
-        debugger
+        // debugger
         const data = await res.json();
         dispatch(receivePlaylist(data.playlist));
     }

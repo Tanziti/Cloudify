@@ -33,7 +33,7 @@ function SignupFormPage() {
     }
   }, [sessionUser, dispatch]);
   if (sessionUser) {
-    debugger
+    // debugger
     return <Redirect to="/" />;
 
   }

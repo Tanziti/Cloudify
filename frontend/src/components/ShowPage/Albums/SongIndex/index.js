@@ -45,12 +45,12 @@ export default function SongIndex({ song, artist, songsForQueue }) {
 
   
   const likedSongsPlaylist = Object.values(playlists)[0];
-  debugger
+  
   const [liked, setLiked] = useState(() => {
-    debugger
+    
     if (likedSongsPlaylist?.songIds?.length > 0) {
       return likedSongsPlaylist.songIds.some((playlistSong) => {
-        debugger
+        
         return playlistSong === song.id;
       });
     }
@@ -58,7 +58,7 @@ export default function SongIndex({ song, artist, songsForQueue }) {
   });
 
   const handleClick = () => {
-    debugger
+    // debugger
     if (!liked){
       setLiked(true)
       dispatch(createPlaylistSong({
@@ -105,7 +105,7 @@ export default function SongIndex({ song, artist, songsForQueue }) {
 }, [showOptionsMenu]);
 
 const optionsButtonClick = (e) => {
-  debugger
+
  if (showOptionsMenu) return setShowOptionsMenu(false);
  return setShowOptionsMenu(true)
 }
@@ -152,7 +152,7 @@ const optionsButtonClick = (e) => {
                  </div>
                  <div className="albumInfo">
                    <h3 id="add-button" onClick={()=>{
-                debugger
+                // debugger
                 dispatch(createPlaylistSong({
                   "playlist_id": playlist.id,
                   "song_id": song.id,

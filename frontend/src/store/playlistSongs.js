@@ -58,13 +58,13 @@ export const createPlaylistSong = (playlistSong) => async dispatch => {
  
     if (res.ok) {
         const data = await res.json();
-        debugger
+        // debugger
         dispatch(receivePlaylistSong(data));
     }
 }
 export const deletePlaylistSong = (playlistSongId) => async dispatch => {
     // console.log(playlistSongId)
-    debugger
+    // debugger
     const response = await csrfFetch(`/api/playlist_songs/${playlistSongId}`, {
         method: 'DELETE'
     })
@@ -89,7 +89,7 @@ const playlistSongsReducer = (state = {}, action) => {
    
     switch(action.type) {
         case RECEIVE_PLAYLIST_SONGS:
-            debugger
+            // debugger
             if (action.playlistSongs === undefined) {
                 newState = {}
             } else {
@@ -97,11 +97,11 @@ const playlistSongsReducer = (state = {}, action) => {
         }
             return newState;
         case RECEIVE_PLAYLIST_SONG:
-            debugger
+            // debugger
             newState[action.playlistSong.playlistSong.id] = action.playlistSong.playlistSong
             return newState;
         case REMOVE_PLAYLIST_SONG:
-            debugger
+            // debugger
             delete newState[action.playlistSongId];
             return newState;
         default:

@@ -26,7 +26,7 @@ function App() {
   const sessionUser = useSelector(state => state.session.user);
   const playlists = useSelector(getPlaylists)
 
-  debugger
+
   const generateGreeting = () => {
     const today = new Date();
     const currentHour = today.getHours();

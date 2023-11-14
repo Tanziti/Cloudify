@@ -97,13 +97,13 @@ export default function Playbar() {
 
   useEffect(() => {
     if (sessionUser?.queue?.[0]) {
-      debugger
+      // debugger
       setCurrentSong(sessionUser.queue[0][0]);
       setAudioSrc(sessionUser?.queue?.[0]?.[0]?.file);
       setKnobStyle({ ...rangeStyle, left: 0 });
       setRangeStyle({ ...rangeStyle, width: 0 });
       setPaused(!paused);
-      debugger
+      // debugger
     }
   }, [sessionUser?.queue?.[0]])
 
@@ -383,7 +383,7 @@ export default function Playbar() {
           </section>
           <section className="middle">
             <div className="middleTop">
-              <i className="fa-solid fa-shuffle"></i>
+              {/* <i className="fa-solid fa-shuffle"></i> */}
               <i className="fa-solid fa-backward-step"
                 onClick={() => { audioRef.current.currentTime = 0 }}>
               </i>
@@ -399,7 +399,7 @@ export default function Playbar() {
                   }
                 }}>
               </i>
-              <i className="fa-solid fa-repeat"></i>
+              {/* <i className="fa-solid fa-repeat"></i> */}
               <audio src={audioSrc} ref={audioRef} preload="auto" />
             </div>
             <div className="middleBottom">
@@ -431,7 +431,7 @@ export default function Playbar() {
             </div>
           </section>
           <section className="rightSide">
-            <div className="queueSymbol"><i className="fa-solid fa-list-ul"></i></div>
+            {/* <div className="queueSymbol"><i className="fa-solid fa-list-ul"></i></div> */}
             <div className="volumeSymbol"
               onClick={() => {
                 if (audioRef.current.volume !== 0) {
@@ -470,7 +470,7 @@ export default function Playbar() {
                 <div className="volumeRange" style={volumeRangeStyle}></div>
               </div>
             </div>
-            <div className="fullScreenSymbol"><i className="fa-solid fa-up-right-and-down-left-from-center"></i></div>
+            {/* <div className="fullScreenSymbol"><i className="fa-solid fa-up-right-and-down-left-from-center"></i></div> */}
           </section>
         </>
       )}

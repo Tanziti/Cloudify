@@ -20,7 +20,7 @@ export default function Sidebar() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/">
+            <NavLink to="/search">
               <span className="fa-solid"><i className="fa-solid fa-magnifying-glass"></i>
               </span>
               <span className="search">Search</span>

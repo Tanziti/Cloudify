@@ -41,14 +41,14 @@ export default function Library() {
         if (!session.user) {
             history.push(`/login`);
         } else{
-            debugger
+            // debugger
         dispatch(createPlaylist({
                 "title": `My Playlist #${Object.keys(playlists).length + 1}`,
                 "user_id": session.user.id,
                 "public": true,
                 "color": "#112222"
         }))}
-        debugger
+        // debugger
         // history.push(`/playlists/${playlists.length + 1}`);
     };
     return (
@@ -66,6 +66,7 @@ export default function Library() {
                 <NavLink to=""><span className='fa-solid circle'><i className="fa-solid fa-arrow-right"></i></span></NavLink>
                 </span>
             </div>
+            <h3 className="sidebar-instructions"> click "+" to create a playlist</h3>
             </div>
             <ul>
                 { session.user && (

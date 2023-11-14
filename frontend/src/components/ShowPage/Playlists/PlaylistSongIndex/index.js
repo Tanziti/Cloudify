@@ -50,17 +50,17 @@ export default function PlaylistSongIndex ({song,songsForQueue}) {
     const tableRowRef = useRef();
    
     const [liked, setLiked] = useState(() => {
-        debugger
+        // debugger
         if (likedSongsPlaylist?.songIds?.length > 0) {
             return likedSongsPlaylist.songIds.some((playlistSong) => {
-              debugger
+            //   debugger
               return playlistSong === song.songId;
             });
           }
           return false; // default value when songIds array is not available or empty
         });
       const handleClick = () => {
-        debugger
+        // debugger
         if (!liked){
           setLiked(true)
         //   dispatch(createPlaylistSong({
@@ -101,7 +101,7 @@ export default function PlaylistSongIndex ({song,songsForQueue}) {
     useEffect(() => {}, [hiddenUlHidden])
 
     const handleTrackClick = () => {
-        debugger
+        // debugger
         if (sessionUser) {
             if (song.id !== currentSong?.id) {
                 sessionUser.queue = songsForQueue;

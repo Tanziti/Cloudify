@@ -97,3 +97,7 @@
   margin: 0;
 }
 
+.sidebar-instructions {
+ position:absolute;
+ left: 25px;
+}
