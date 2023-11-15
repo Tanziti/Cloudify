@@ -38,7 +38,6 @@ export default function Artist() {
 
   useEffect(() => {
     dispatch(fetchArtist(artistId));
-    console.log("artist index dispatch entered")
   }, [dispatch])
 
 
@@ -68,11 +67,11 @@ export default function Artist() {
       <div className='opaqueBkgd'>
         <div className='popularSongs'>
 
-          <span className="bigButtons">
+          {/* <span className="bigButtons">
             <button className="bigPlay"><i className="fa-solid fa-play"></i></button>
             <span className="bigHeart"><i className="fa-regular fa-heart"></i></span>
             <span className="bigDots"><i className="fa-solid fa-ellipsis"></i></span>
-          </span>
+          </span> */}
           {/* <h2>Popular</h2> */}
           <table>
             {/* {[1, 2, 3, 4, 5].map(i => {
