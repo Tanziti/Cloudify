@@ -24,7 +24,7 @@ function SignupFormPage() {
 
   useEffect(() => {
     // Create "Liked Songs" playlist when sessionUser is available
-    if (sessionUser) {
+    if (sessionUser && sessionUser.id !== 1) {
       dispatch(createPlaylist({
         "title": `Liked Songs`,
         "user_id": sessionUser.id,
