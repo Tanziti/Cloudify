@@ -197,7 +197,7 @@ export default function Playbar() {
 
 
   const handleDragStart = (e) => {
-    // e.preventDefault()
+    e.preventDefault()
     e.dataTransfer.effectAllowed = "move";
     const dragImage = new Image();
     dragImage.src = invisibleImageUrl;
@@ -205,7 +205,7 @@ export default function Playbar() {
   }
 
   const handleVolumeDragStart = (e) => {
-    // e.preventDefault()
+    e.preventDefault()
     e.dataTransfer.effectAllowed = "move";
     const dragImage = new Image();
     dragImage.src = invisibleImageUrl;

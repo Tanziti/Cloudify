@@ -156,6 +156,8 @@ div.home .opaqueBkgd-2 {
 }
 
 .playlistTrackList > table ul > li:first-child{
+    padding: 10px;
+    cursor: pointer;
     font-family: CircularSpotifyLight;
     font-size: 16px;
     color: #FFFFFF;
@@ -256,5 +258,9 @@ div.home .opaqueBkgd-2 {
     z-index: 5;
     margin-left: 0px;
     margin-bottom: -3px;
+}
+
+.fa-solid, .fas{
+    cursor: pointer;
 }
 
