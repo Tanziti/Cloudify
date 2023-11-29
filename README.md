@@ -17,7 +17,7 @@ A `PostgreSQL` database is utilized to store the user, artist, album, song, play
 
 # Features
 ## User Authentication
-Users can sign up and log into and log out of Cloudify with password encryption and frontend and backend error handling.
+Users can sign up and log into and log out of Cloudify with password encryption and frontend and backend error handling!
 
 ## Artists, Albums, and Songs
 Cloudify displays and allows users to interact with artist, album, and song data.
