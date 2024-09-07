@@ -14,11 +14,11 @@ import Artist from "./components/ShowPage/Artist";
 import ArtistRow from "./components/ShowPage/ArtistRow";
 import Playlists from "./components/ShowPage/Playlists";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
+//import { useEffect } from "react";
 import { getAlbums } from "./store/albums";
-import { fetchAlbums } from "./store/albums";
+//import { fetchAlbums } from "./store/albums";
 import { getPlaylists} from "./store/playlists";
-import { createPlaylist } from "./store/playlists";
+//import { createPlaylist } from "./store/playlists";
 
 function App() {
   const albums = useSelector(getAlbums)
@@ -75,7 +75,7 @@ function App() {
               <section className="home_page_left">
                 <Sidebar />
               </section>
-              {/* <Divider /> */}
+              {}
               <section className="home_page_right">
                 <div className="home" >
                   <h2 style={{ paddingTop: `66px` }} className="userGreeting">{generateGreeting(sessionUser)}</h2>
